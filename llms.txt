@@ -1,44 +1,26 @@
 # CineSmithPro
 
-> AI editing companion for Adobe Premiere Pro 25.6+, built specifically for film, documentary, drama, and podcast editors. Native UXP plugin (not legacy CEP). Waitlist open; closed beta opens summer 2026.
+> Save the hours. Make the cut. An AI editing companion for Adobe Premiere Pro, built for film, drama, documentary and podcast editors. AI does the heavy lifting; the editor stays in the creative seat. Coming soon — waitlist open.
 
-CineSmithPro is a vertical-premium Premiere Pro plugin from CineArt AI Limited (London). It is a companion product to CineSmith (cinesmith.io) — same company, separate brand expression — that ports CineSmith's audio orchestration and LLM adapter pattern as fresh TypeScript for editors who work directly in Premiere rather than in a separate web app.
+CineSmithPro is a forthcoming product from CineArt AI Limited (London), a companion to CineSmith (cinesmith.io) — same company, separate product, separate brand expression. Designed for working editors in post-production, not the creator-economy YouTube cohort.
 
-The cohort is editors the existing "AI for Premiere" tools cannot reach: film, documentary, drama, and podcast editors who already use Trint, Otter, Descript, or Rev — not the creator-economy YouTube editor.
+## The promise
 
-## Pages
+- **Hours saved.** AI handles the scrubbing, the searching, the assembly. The editor handles the creative.
+- **Transcripts come alive.** Read once; find anything inside Premiere afterwards.
+- **Two licences per seat.** The editor cuts on Premiere while their EP or assistant pulls the next sequence on the web — both at once, one licence.
+- **Much, much more.** Detailed feature list at general availability.
 
-- [Home](https://cinesmithpro.com/): features, audience, roadmap, pricing, waitlist
+## Who it is for
 
-## Capabilities at launch (MVP)
+- Documentary editors
+- Drama series editors
+- Podcast editors
+- Post houses and studios
 
-- **Story Cutter** — accepts Trint, Otter, Descript, Rev, SRT, VTT and Premiere native `.json` transcripts. Beat extraction, paper-edit review, rough-cut insertion at the playhead. Multicam aware (stacked V1/V2/V3).
-- **Color Grade Assistant** — frame-at-playhead capture, 0–100 technical score, one-click "Apply Recommended Look" writes to Lumetri. Custom .cube LUT generation. Skin-tone protection.
-- **Voiceover at Playhead** — AI voiceover generation directly into the Premiere timeline at the cursor. Ported from CineSmith — competitor ChatVideoPro has no audio integrations at all.
-- **Image & Thumbnail Generation** — multi-model (Flux 2 Max, Nano Banana Pro, GPT Image 2, Seedream, Grok Imagine). Live cost preview. Canvas editor.
+## Status
 
-## Roadmap
-
-- **Jun 2026** — Closed alpha with first cohort of working editors on doc + drama briefs
-- **Jul 2026** — Generative B-Roll (Sora 2, Veo 3.1, Kling, Hailuo, WAN, Seedance)
-- **Sep 2026** — SAM 3 Rotoscope ships with Hybrid Plugin (.uxpaddon) for FFmpeg + ProRes 4444
-- **Oct 2026** — Studio Tier: sovereign model hosting + SSO + per-seat billing
-- **Dec 2026** — After Effects parity
-
-## Pricing
-
-- Creator licence (one-time): from $99, up to $249 across tiers. Solo licence, 2 concurrent sessions, BYO Fal.ai key, generation cost is pass-through.
-- Studio tier: $200 per seat per month. Managed sovereign model hosting, SSO, single invoice — for editorial teams who cannot run individual Fal.ai accounts.
-
-## Why this exists
-
-The existing AI plugin in this space (ChatVideoPro) is built on Adobe's CEP runtime, which Adobe is removing by November 2026. CineSmithPro is UXP-native from day one. The competitor also accepts only Premiere's native `.json` transcript format — locking out editors who use Trint, Otter, Descript, or Rev (i.e., most working documentary and drama editors). It has zero audio integrations. CineSmithPro is the UXP-native, transcript-flexible, audio-capable alternative.
-
-## Compatibility
-
-- Adobe Premiere Pro 25.6 or newer (UXP runtime required — not CEP)
-- macOS and Windows
-- Distribution: self-hosted `.ccx` direct from cinesmithpro.com
+Pre-launch. Waitlist now open at https://cinesmithpro.com. First fifty working editors get prioritised access. Pricing and full feature list announced at launch.
 
 ## Operating company
 
@@ -49,5 +31,5 @@ Press: press@cineartai.com · +44 7958 707232
 
 ## Related products
 
-- [CineSmith](https://cinesmith.io) — sister product, full agentic production platform (web-based, separate from this plugin)
+- [CineSmith](https://cinesmith.io) — sister product, separate from this plugin
 - [CineArt AI](https://www.cineartai.com) — parent company / production studio

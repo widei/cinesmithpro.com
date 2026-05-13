@@ -2,33 +2,32 @@
 <!--
   cinesmithpro.com — Waitlist
   ──────────────────────────────────────────────────────────────
-  Dark control-surface aesthetic. Distinct from cinesmith.io
-  (which is editorial cinema magazine). This is the editor's tool —
-  feels like a Premiere panel at 2am: charcoal base, sodium amber
-  accent, monospaced details, technical readouts. Companion product
-  to CineSmith, separate brand expression.
+  Cutting-room paper aesthetic. Distinct from cinesmith.io
+  (editorial cinema-magazine). This is the editor's actual
+  workspace: aged paper, grease-pencil red, taped photo cards,
+  hand annotations, sprocket-edged film leader between sections.
+  Teaser-poster register — minimal copy, maximum atmosphere.
+  Pre-launch; product details deliberately withheld.
 -->
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CineSmithPro — AI editing companion for Adobe Premiere Pro</title>
-<meta name="description" content="Vertical-premium AI editing companion for Adobe Premiere Pro. Built for film, documentary, drama, and podcast editors. UXP plugin. Story Cutter, color grade, voiceover-at-playhead, image generation — inside Premiere. Waitlist now open.">
-<meta name="theme-color" content="#0A0A0F">
+<title>CineSmithPro — Save the hours. Make the cut. · Coming soon</title>
+<meta name="description" content="Save the hours. Make the cut. AI does the heavy lifting while you stay in the creative seat. An editor's companion inside Adobe Premiere Pro — for film, drama, documentary and podcast editors. Coming soon. Sign up for the magic.">
+<meta name="theme-color" content="#1A1612">
 <meta name="author" content="CineArt AI Limited">
 <link rel="canonical" href="https://cinesmithpro.com/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="CineSmithPro — AI editing companion for Adobe Premiere Pro">
-<meta property="og:description" content="UXP plugin built for film, documentary, drama, and podcast editors. Story Cutter, color grade, voiceover-at-playhead, generative b-roll. Coming soon.">
+<meta property="og:title" content="CineSmithPro — Save the hours. Make the cut.">
+<meta property="og:description" content="An editor's companion inside Adobe Premiere Pro. AI does the heavy lifting while you stay in the creative seat. Coming soon.">
 <meta property="og:url" content="https://cinesmithpro.com/">
 <meta property="og:site_name" content="CineSmithPro">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@khantaimur">
 
-<!-- Structured data — SoftwareApplication + Organization. Same family as
-     cinesmith.io but distinct product. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,7 +37,6 @@
       "@id": "https://cinesmithpro.com/#organization",
       "name": "CineArt AI Limited",
       "url": "https://www.cineartai.com",
-      "logo": "https://cinesmithpro.com/assets/favicon.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "85 Great Portland Street",
@@ -54,38 +52,15 @@
       "@type": "SoftwareApplication",
       "@id": "https://cinesmithpro.com/#product",
       "name": "CineSmithPro",
-      "alternateName": "CineSmith Pro",
       "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Editing Plugin",
-      "operatingSystem": "Adobe Premiere Pro 25.6+ (UXP)",
-      "description": "Vertical-premium AI editing companion for Adobe Premiere Pro. Built for film, documentary, drama, and podcast editors. Native UXP plugin with Story Cutter, color grade assistant, voiceover at playhead, and multi-model image generation.",
+      "operatingSystem": "Adobe Premiere Pro",
+      "description": "AI editing companion for Adobe Premiere Pro, built for film, documentary, drama, and podcast editors. Pre-launch — waitlist open.",
       "url": "https://cinesmithpro.com/",
       "creator": { "@id": "https://cinesmithpro.com/#organization" },
-      "isRelatedTo": { "@id": "https://cinesmith.io/#product" },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Creator Licence",
-          "priceCurrency": "USD",
-          "lowPrice": "99",
-          "highPrice": "249",
-          "availability": "https://schema.org/PreOrder"
-        },
-        {
-          "@type": "Offer",
-          "name": "Studio Tier",
-          "price": "200",
-          "priceCurrency": "USD",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "200",
-            "priceCurrency": "USD",
-            "billingIncrement": 1,
-            "unitText": "seat/month"
-          },
-          "availability": "https://schema.org/PreOrder"
-        }
-      ]
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder"
+      }
     }
   ]
 }
@@ -94,606 +69,595 @@
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Cardo:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:          #0A0A0F;
-    --surface:     #14141C;
-    --surface-2:   #1B1B26;
-    --line:        rgba(255, 255, 255, 0.08);
-    --line-strong: rgba(255, 255, 255, 0.18);
-    --text:        #E8E8EC;
-    --text-mute:   rgba(232, 232, 236, 0.62);
-    --text-dim:    rgba(232, 232, 236, 0.38);
-    --amber:       #FFA940;
-    --amber-soft:  rgba(255, 169, 64, 0.18);
-    --amber-deep:  #C77520;
-    --magenta:     #FF3D8B;
-    --cyan:        #4DD0E1;
-    --green:       #4CAF50;
+    /* Cutting room palette */
+    --paper:        #F0EAD8;          /* aged paper base — warmer than cinesmith.io's #F2EBDC */
+    --paper-deep:   #E5DDC8;          /* shadowed paper */
+    --paper-warm:   #ECE3CC;          /* highlight paper */
+    --ink:          #1A1612;          /* typewriter black, slight brown undertone */
+    --ink-soft:     #3B342C;          /* less weighty ink */
+    --ink-mute:     rgba(26, 22, 18, 0.55);
+    --ink-dim:      rgba(26, 22, 18, 0.32);
+    --rule:         rgba(26, 22, 18, 0.16);
+    --rule-soft:    rgba(26, 22, 18, 0.08);
 
-    --display:     'Space Grotesk', system-ui, sans-serif;
-    --body:        'Inter', system-ui, sans-serif;
-    --mono:        'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --grease:       #D2342B;          /* grease pencil / proof red */
+    --grease-deep:  #9F2419;
+    --amber:        #C58B3E;          /* sodium tungsten — set lamp */
+    --green-pip:    #2B7A3F;          /* EBU pip green — used very sparingly */
 
-    --w-max:       1280px;
-    --gutter:      clamp(20px, 4vw, 56px);
-    --ease:        cubic-bezier(0.22, 1, 0.36, 1);
+    --tape:         rgba(204, 184, 138, 0.55);   /* masking tape tan */
+
+    /* Type */
+    --display:  'GFS Didot', 'Bodoni 72', 'Didot', serif;
+    --body:     'Cardo', 'EB Garamond', Georgia, serif;
+    --mono:     'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --hand:     'Caveat', cursive;
+
+    --w-max:    1240px;
+    --gutter:   clamp(20px, 4.5vw, 64px);
+    --ease:     cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     font-family: var(--body);
-    color: var(--text);
-    background: var(--bg);
-    font-size: 16px;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 17px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    min-height: 100vh;
   }
+
+  /* Real paper grain — SVG turbulence overlay */
   body::before {
     content: '';
     position: fixed; inset: 0;
     pointer-events: none;
-    z-index: 1;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 169, 64, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(255, 61, 139, 0.04) 0%, transparent 50%);
+    z-index: 90;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    opacity: 0.55;
   }
+
+  /* Subtle paper edge vignette */
   body::after {
     content: '';
     position: fixed; inset: 0;
     pointer-events: none;
-    z-index: 2;
-    background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mix-blend-mode: lighten;
+    z-index: 91;
+    background: radial-gradient(ellipse 100% 70% at 50% 50%, transparent 60%, rgba(26, 22, 18, 0.08) 100%);
   }
 
-  ::selection { background: var(--amber); color: var(--bg); }
+  ::selection { background: var(--grease); color: var(--paper); }
   a { color: inherit; text-decoration: none; }
-  a:hover { color: var(--amber); }
 
   .wrap { max-width: var(--w-max); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 5; }
 
-  /* ─── Topbar ─────────────────────────────────────────────── */
-  .topbar {
-    border-bottom: 1px solid var(--line);
-    background: rgba(10, 10, 15, 0.78);
-    backdrop-filter: blur(12px);
-    position: sticky; top: 0; z-index: 50;
+  /* ─── Topbar ──────────────────────────────────────────────────── */
+  .topbar { padding: 22px 0 14px; border-bottom: 1px solid var(--rule-soft); }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+  .topbar .roll {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--ink-mute);
   }
-  .topbar .wrap {
-    display: flex; align-items: center; justify-content: space-between;
-    padding-top: 14px; padding-bottom: 14px;
-    font-family: var(--mono); font-size: 12px; letter-spacing: 0.5px;
+  .topbar .brand {
+    font-family: var(--display); font-size: clamp(20px, 1.8vw, 24px);
+    letter-spacing: 0.01em; color: var(--ink);
   }
-  .topbar .brand { font-family: var(--display); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; color: var(--text); }
-  .topbar .brand b { color: var(--amber); font-weight: 600; }
-  .topbar .meta { color: var(--text-mute); display: flex; gap: 28px; }
-  .topbar .meta .live { color: var(--amber); }
-  .topbar .meta .dot { width: 6px; height: 6px; background: var(--amber); border-radius: 50%; display: inline-block; margin-right: 6px; animation: pulse 1.6s infinite; vertical-align: middle; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .topbar .brand b { font-weight: 400; font-style: italic; }
+  .topbar .rec {
+    font-family: var(--hand); font-size: 22px; color: var(--grease);
+    transform: rotate(-3deg); display: inline-flex; align-items: center; gap: 8px;
+  }
+  .topbar .rec::before {
+    content: ''; width: 9px; height: 9px; background: var(--grease); border-radius: 50%;
+    animation: rec-blink 1.4s steps(1, end) infinite;
+  }
+  @keyframes rec-blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.25; } }
 
-  /* ─── Hero ───────────────────────────────────────────────── */
-  .hero { padding: clamp(60px, 10vw, 140px) 0 clamp(48px, 8vw, 96px); position: relative; }
-  .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
-  @media (max-width: 880px) { .hero .wrap { grid-template-columns: 1fr; } }
-
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--text-mute);
-    padding: 6px 12px; border: 1px solid var(--line-strong);
-    margin-bottom: 28px;
-  }
-  .hero-eyebrow b { color: var(--amber); font-weight: 600; }
-
-  .hero h1 {
-    font-family: var(--display);
-    font-size: clamp(40px, 6.8vw, 88px);
-    line-height: 0.98;
-    letter-spacing: -0.025em;
-    font-weight: 600;
-    margin-bottom: 28px;
-  }
-  .hero h1 .it { font-weight: 400; font-style: italic; color: var(--amber); }
-  .hero h1 .lo { color: var(--text-mute); font-weight: 400; }
-
-  .hero-lead {
-    font-size: clamp(16px, 1.4vw, 19px);
-    color: var(--text-mute);
-    line-height: 1.55;
-    max-width: 56ch;
-    margin-bottom: 36px;
-  }
-  .hero-lead strong { color: var(--text); font-weight: 600; }
-
-  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-  .cta {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-family: var(--mono); font-size: 13px; font-weight: 600;
-    letter-spacing: 1px; text-transform: uppercase;
-    background: var(--amber); color: var(--bg);
-    padding: 18px 28px;
-    border: 0;
-    transition: background 200ms var(--ease), transform 200ms var(--ease);
-  }
-  .cta::after { content: '→'; }
-  .cta:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); }
-  .cta-ghost {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--text-mute);
-    padding: 16px 22px;
-    border: 1px solid var(--line-strong);
-    transition: color 200ms var(--ease), border-color 200ms var(--ease);
-  }
-  .cta-ghost:hover { color: var(--amber); border-color: var(--amber); }
-
-  .hero-spec {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    padding: 28px;
+  /* ─── Hero — Production slate ─────────────────────────────────── */
+  .hero {
+    padding: clamp(60px, 9vw, 130px) 0 clamp(40px, 6vw, 80px);
     position: relative;
   }
-  .hero-spec::before {
-    content: 'SPECS'; position: absolute; top: -8px; left: 18px;
-    background: var(--bg); padding: 0 8px;
-    font-family: var(--mono); font-size: 10px; letter-spacing: 2.5px; color: var(--text-dim);
-  }
-  .hero-spec dl { display: grid; grid-template-columns: 110px 1fr; gap: 14px 16px; font-size: 13.5px; }
-  .hero-spec dt { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); align-self: center; }
-  .hero-spec dd { color: var(--text); }
-  .hero-spec dd .em { color: var(--amber); }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 84px); align-items: end; }
+  @media (max-width: 920px) { .hero .wrap { grid-template-columns: 1fr; } }
 
-  /* ─── Section frame ───────────────────────────────────────── */
-  section.frame { padding: clamp(60px, 9vw, 110px) 0; border-top: 1px solid var(--line); position: relative; }
-  .section-head { margin-bottom: clamp(40px, 6vw, 68px); }
-  .section-tag {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 20px;
+  /* The slate */
+  .slate {
+    border: 2.5px solid var(--ink);
+    background: var(--paper);
+    padding: clamp(28px, 3.6vw, 42px) clamp(28px, 3.6vw, 44px);
+    position: relative;
+    box-shadow: 6px 7px 0 var(--ink-soft);
+    transform: rotate(-0.4deg);
   }
-  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--amber); }
+  .slate::before {
+    /* clapper stripes top-edge */
+    content: ''; position: absolute; top: -2.5px; left: -2.5px; right: -2.5px; height: 18px;
+    background: repeating-linear-gradient(135deg, var(--ink) 0 14px, var(--paper) 14px 28px);
+    border-bottom: 2.5px solid var(--ink);
+  }
+  .slate-meta {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px 24px;
+    margin-top: 22px; margin-bottom: clamp(28px, 4vw, 44px);
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .slate-meta dt { display: block; opacity: 0.7; margin-bottom: 2px; }
+  .slate-meta dd { display: block; color: var(--ink); font-weight: 500; letter-spacing: 1.4px; }
+  @media (max-width: 540px) { .slate-meta { grid-template-columns: 1fr 1fr; } }
+
+  .slate-title {
+    font-family: var(--display);
+    font-size: clamp(56px, 9.5vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .slate-title .it { font-style: italic; color: var(--grease); }
+
+  .slate-tag {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 22px; padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Hand-circled annotation around the title — pure CSS pseudo-element ellipse */
+  .slate .hand-mark {
+    position: absolute;
+    bottom: -42px; right: -18px;
+    font-family: var(--hand); font-size: 28px; color: var(--grease);
+    transform: rotate(-6deg);
+  }
+  .slate .hand-mark::before {
+    content: '↗ '; font-size: 32px;
+  }
+
+  /* Hero right column — taped photo card */
+  .hero-card {
+    background: var(--paper-warm);
+    padding: 22px 22px 28px;
+    position: relative;
+    box-shadow: 4px 5px 0 var(--ink-soft);
+    transform: rotate(2.2deg);
+    max-width: 380px;
+    justify-self: end;
+  }
+  .hero-card::before, .hero-card::after {
+    content: ''; position: absolute;
+    width: 84px; height: 22px;
+    background: var(--tape);
+    border: 1px solid rgba(180, 158, 110, 0.6);
+  }
+  .hero-card::before { top: -10px; left: -22px; transform: rotate(-32deg); }
+  .hero-card::after  { top: -10px; right: -22px; transform: rotate(32deg); }
+  .hero-card p {
+    font-family: var(--body); font-size: 16.5px; line-height: 1.5; color: var(--ink-soft);
+  }
+  .hero-card .first {
+    font-family: var(--display); font-style: italic;
+    font-size: 56px; line-height: 0.7;
+    float: left; margin: 8px 10px 0 0; color: var(--grease);
+  }
+  .hero-card-tag {
+    font-family: var(--hand); font-size: 26px; color: var(--ink);
+    margin-top: 20px; transform: rotate(-1.5deg); display: inline-block;
+  }
+  .hero-card-tag .stress { color: var(--grease); }
+
+  .hero-cta-row { margin-top: clamp(36px, 5vw, 56px); display: flex; gap: 22px; align-items: center; flex-wrap: wrap; grid-column: 1 / -1; }
+  .stamp-cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 2.4px; text-transform: uppercase;
+    color: var(--paper); background: var(--ink);
+    padding: 22px 30px;
+    border: 1.5px solid var(--ink);
+    transform: rotate(-0.5deg);
+    box-shadow: 4px 4px 0 var(--grease);
+    transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), background 200ms var(--ease);
+  }
+  .stamp-cta::after { content: '→'; font-family: var(--display); font-size: 22px; line-height: 0; transform: translateY(-1px); }
+  .stamp-cta:hover { transform: translate(-2px, -2px) rotate(-0.5deg); box-shadow: 6px 6px 0 var(--grease); background: var(--grease-deep); }
+  .stamp-cta-mute {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    font-family: var(--hand); font-size: 24px; color: var(--ink-mute);
+    transition: color 200ms var(--ease);
+  }
+  .stamp-cta-mute:hover { color: var(--grease); }
+
+  /* ─── Film leader strip — section divider ─────────────────────── */
+  .leader {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .leader::before, .leader::after {
+    /* 35mm sprocket holes top + bottom */
+    content: ''; position: absolute; left: 0; right: 0; height: 14px;
+    background-image: radial-gradient(circle, var(--paper) 0 4px, transparent 5px);
+    background-size: 32px 14px;
+    background-repeat: repeat-x;
+  }
+  .leader::before { top: 0; }
+  .leader::after { bottom: 0; }
+  .leader .wrap {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: rgba(240, 234, 216, 0.7);
+    padding-top: 6px; padding-bottom: 6px;
+  }
+  .leader .pip {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--green-pip); display: inline-block; margin-right: 6px;
+    vertical-align: middle;
+  }
+  .leader .ft { color: var(--paper); }
+
+  /* ─── Section frame ───────────────────────────────────────────── */
+  section.col { padding: clamp(64px, 9vw, 120px) 0; position: relative; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 22px;
+  }
+  .section-tag::before { content: ''; width: 28px; height: 1px; background: var(--ink-mute); }
+  .section-tag b { color: var(--grease); font-weight: 400; }
+
+  .section-head { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); align-items: end; margin-bottom: clamp(48px, 7vw, 80px); }
+  @media (max-width: 880px) { .section-head { grid-template-columns: 1fr; } }
   .section-title {
     font-family: var(--display);
-    font-size: clamp(32px, 4.4vw, 56px);
-    line-height: 1.04;
+    font-size: clamp(40px, 6.4vw, 88px);
+    line-height: 1.0;
     letter-spacing: -0.02em;
-    font-weight: 500;
-    max-width: 22ch;
+    color: var(--ink);
+    max-width: 16ch;
   }
-  .section-title .it { font-style: italic; font-weight: 400; color: var(--amber); }
-  .section-lead { color: var(--text-mute); margin-top: 18px; max-width: 56ch; font-size: 15.5px; line-height: 1.65; }
+  .section-title .it { font-style: italic; color: var(--grease); }
+  .section-lead {
+    font-family: var(--body); font-size: 18px; line-height: 1.55;
+    color: var(--ink-soft); max-width: 50ch;
+  }
+  .section-lead .first {
+    font-family: var(--display); font-style: italic;
+    font-size: 4.4em; line-height: 0.78;
+    float: left; margin: 0.06em 12px 0 0; color: var(--grease);
+  }
 
-  /* ─── Feature grid ───────────────────────────────────────── */
-  .features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border: 1px solid var(--line);
-    background: var(--surface);
+  /* ─── What it is — capability glyph row ───────────────────────── */
+  .glyphs {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: clamp(24px, 3vw, 36px);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(36px, 5vw, 56px) 0;
   }
-  @media (max-width: 880px) { .features { grid-template-columns: 1fr; } }
-  .feature {
-    padding: 32px 28px;
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    display: flex; flex-direction: column; gap: 14px;
-    position: relative;
-    transition: background 220ms var(--ease);
-  }
-  .feature:hover { background: var(--surface-2); }
-  .feature:nth-child(3n) { border-right: 0; }
-  .feature .num {
+  @media (max-width: 720px) { .glyphs { grid-template-columns: repeat(2, 1fr); } }
+  .glyph { text-align: center; padding: 0 8px; }
+  .glyph .num {
     font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--ink-dim); display: block; margin-bottom: 12px;
   }
-  .feature .status {
-    position: absolute; top: 28px; right: 28px;
-    font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.8px; text-transform: uppercase;
-    padding: 3px 7px;
-    border: 1px solid currentColor;
+  .glyph .word {
+    font-family: var(--display); font-style: italic;
+    font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05;
+    color: var(--ink);
   }
-  .feature .status.live    { color: var(--amber); }
-  .feature .status.soon    { color: var(--cyan); }
-  .feature .status.roadmap { color: var(--text-dim); }
-  .feature h3 {
-    font-family: var(--display); font-size: 22px; line-height: 1.15; font-weight: 600;
-    letter-spacing: -0.01em; margin-top: 6px;
-  }
-  .feature p { color: var(--text-mute); font-size: 14px; line-height: 1.6; }
-  .feature .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-  .feature .tag-row span {
-    font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 3px 7px; background: rgba(255,255,255,0.04); color: var(--text-dim);
+  .glyph .word.mark { color: var(--grease); }
+  .glyph .sub {
+    font-family: var(--body); font-size: 14px; line-height: 1.45;
+    color: var(--ink-mute); margin-top: 12px;
+    max-width: 22ch; margin-left: auto; margin-right: auto;
   }
 
-  /* ─── Built for ───────────────────────────────────────────── */
-  .built-for { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
-  @media (max-width: 880px) { .built-for { grid-template-columns: 1fr; } }
-  .audience-list {
-    border-top: 1px solid var(--line);
-    margin-top: 28px;
+  /* ─── Built for — taped photo cards ───────────────────────────── */
+  .who-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: clamp(28px, 3.6vw, 48px) clamp(20px, 2.4vw, 36px);
+    margin-top: 18px;
   }
-  .audience-list li {
-    list-style: none;
-    display: grid; grid-template-columns: 80px 1fr;
-    gap: 20px;
-    padding: 22px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: baseline;
+  @media (max-width: 880px) { .who-grid { grid-template-columns: repeat(2, 1fr); } }
+  .who-card {
+    background: var(--paper-warm);
+    padding: 18px 18px 22px;
+    position: relative;
+    box-shadow: 3px 4px 0 var(--ink-soft);
   }
-  .audience-list li .who {
-    font-family: var(--mono); font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase;
-    color: var(--amber);
+  .who-card:nth-child(odd)  { transform: rotate(-1.6deg); }
+  .who-card:nth-child(even) { transform: rotate(1.4deg); }
+  .who-card::before {
+    content: ''; position: absolute; top: -9px; left: 50%;
+    width: 70px; height: 18px; background: var(--tape);
+    border: 1px solid rgba(180, 158, 110, 0.55);
+    transform: translateX(-50%) rotate(-2deg);
   }
-  .audience-list li .what { font-size: 15px; color: var(--text); }
-  .audience-list li .what strong { font-weight: 600; }
+  .who-card .frame-no {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--ink-dim); display: block; margin-bottom: 8px;
+  }
+  .who-card .role {
+    font-family: var(--display); font-size: 28px; line-height: 1.05;
+    color: var(--ink);
+  }
+  .who-card .role.it { font-style: italic; color: var(--grease); }
+  .who-card .annotate {
+    font-family: var(--hand); font-size: 22px; color: var(--ink-soft);
+    margin-top: 10px; transform: rotate(-1.5deg); display: inline-block;
+  }
 
-  /* ─── Roadmap ────────────────────────────────────────────── */
-  .roadmap { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
-  .roadmap-row {
-    display: grid; grid-template-columns: 140px 100px 1fr;
-    background: var(--surface);
-    padding: 22px 24px;
-    gap: 24px;
-    align-items: center;
-  }
-  @media (max-width: 720px) {
-    .roadmap-row { grid-template-columns: 100px 1fr; }
-    .roadmap-row .when { grid-column: 1; }
-    .roadmap-row .status-pill { grid-column: 2; }
-    .roadmap-row .what { grid-column: 1 / -1; margin-top: 4px; }
-  }
-  .roadmap-row .when {
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--text-dim);
-  }
-  .roadmap-row .status-pill {
-    font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.8px; text-transform: uppercase;
-    padding: 3px 8px;
-    border: 1px solid currentColor;
-    justify-self: start;
-  }
-  .roadmap-row .status-pill.now    { color: var(--amber); }
-  .roadmap-row .status-pill.soon   { color: var(--cyan); }
-  .roadmap-row .status-pill.later  { color: var(--text-dim); }
-  .roadmap-row .what { color: var(--text); font-size: 14.5px; line-height: 1.5; }
-  .roadmap-row .what strong { color: var(--text); font-weight: 600; }
-
-  /* ─── Pricing ───────────────────────────────────────────── */
-  .pricing-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-  }
-  @media (max-width: 720px) { .pricing-grid { grid-template-columns: 1fr; } }
-  .price-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    padding: 36px 32px;
+  /* ─── Closer — END OF REEL ────────────────────────────────────── */
+  .closer {
+    padding: clamp(80px, 12vw, 160px) 0 clamp(60px, 9vw, 120px);
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
     position: relative;
   }
-  .price-card.featured { border-color: var(--amber); }
-  .price-card .label {
-    font-family: var(--mono); font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 18px;
+  .closer .wrap { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+  .closer .fin {
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--ink-mute);
   }
-  .price-card.featured .label { color: var(--amber); }
-  .price-card h4 {
-    font-family: var(--display); font-size: 26px; font-weight: 600; line-height: 1.15;
-    letter-spacing: -0.01em; margin-bottom: 12px;
+  .closer .fin::before, .closer .fin::after {
+    content: '\00a0\00a0·\00a0\00a0';
   }
-  .price-card .price {
-    font-family: var(--display); font-size: clamp(36px, 4.2vw, 52px); font-weight: 500;
-    color: var(--text); letter-spacing: -0.02em; margin: 16px 0 4px;
-  }
-  .price-card .price small {
-    font-family: var(--body); font-size: 14px; color: var(--text-mute); font-weight: 400;
-    margin-left: 6px;
-  }
-  .price-card .blurb { color: var(--text-mute); font-size: 14px; line-height: 1.55; margin-bottom: 22px; }
-  .price-card ul { list-style: none; padding: 0; }
-  .price-card ul li {
-    padding: 9px 0; border-bottom: 1px solid var(--line);
-    font-size: 13.5px; color: var(--text);
-    display: flex; gap: 12px; align-items: baseline;
-  }
-  .price-card ul li:last-child { border-bottom: 0; }
-  .price-card ul li::before {
-    content: '+'; font-family: var(--mono); color: var(--amber); font-weight: 600;
-    width: 14px; flex-shrink: 0;
-  }
-
-  /* ─── Closer ─────────────────────────────────────────────── */
-  .closer {
-    padding: clamp(80px, 12vw, 160px) 0;
-    border-top: 1px solid var(--line);
-    background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
-  }
-  .closer .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
-  @media (max-width: 880px) { .closer .wrap { grid-template-columns: 1fr; } }
   .closer h2 {
     font-family: var(--display);
-    font-size: clamp(36px, 5vw, 64px); line-height: 1.02; font-weight: 500;
-    letter-spacing: -0.02em;
+    font-size: clamp(48px, 7.4vw, 104px);
+    line-height: 0.96; letter-spacing: -0.022em;
+    color: var(--ink);
+    max-width: 18ch;
   }
-  .closer h2 .it { font-style: italic; color: var(--amber); font-weight: 400; }
-  .closer p { color: var(--text-mute); font-size: 16px; line-height: 1.6; margin: 20px 0 0; max-width: 50ch; }
+  .closer h2 .it { font-style: italic; color: var(--grease); }
+  .closer .post {
+    font-family: var(--hand); font-size: 28px; color: var(--ink-soft);
+    transform: rotate(-1.5deg); max-width: 30ch;
+  }
 
-  /* ─── Footer ─────────────────────────────────────────────── */
-  footer { background: var(--bg); border-top: 1px solid var(--line); padding: 56px 0 32px; }
-  footer .wrap { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
-  @media (max-width: 720px) { footer .wrap { grid-template-columns: 1fr; } }
+  /* ─── Footer — production credits ─────────────────────────────── */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: clamp(56px, 8vw, 80px) 0 32px;
+    position: relative; z-index: 5;
+    font-family: var(--body);
+  }
+  footer::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 14px;
+    background-image: radial-gradient(circle, var(--paper) 0 4px, transparent 5px);
+    background-size: 32px 14px; background-repeat: repeat-x;
+  }
+  footer .wrap { padding-top: 22px; }
+  footer .credits {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: clamp(28px, 4vw, 56px);
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(240, 234, 216, 0.16);
+  }
+  @media (max-width: 720px) { footer .credits { grid-template-columns: 1fr; gap: 28px; } }
   footer h5 {
     font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 14px;
+    color: var(--amber); margin-bottom: 14px;
   }
-  footer p, footer address { font-size: 13.5px; line-height: 1.7; color: var(--text-mute); font-style: normal; }
-  footer .credo { font-family: var(--display); font-style: italic; font-size: 18px; line-height: 1.4; color: var(--text); max-width: 36ch; }
+  footer .credo {
+    font-family: var(--display); font-style: italic;
+    font-size: clamp(20px, 1.6vw, 24px); line-height: 1.4;
+    color: var(--paper); max-width: 28ch;
+  }
   footer ul { list-style: none; }
-  footer ul li { padding: 4px 0; }
-  footer ul a { color: var(--text-mute); }
+  footer ul li { padding: 4px 0; font-size: 14px; color: rgba(240, 234, 216, 0.78); }
+  footer ul a { color: rgba(240, 234, 216, 0.78); transition: color 160ms var(--ease); }
   footer ul a:hover { color: var(--amber); }
-  .copyline {
-    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--text-dim);
+  footer address { font-style: normal; font-size: 13.5px; line-height: 1.7; color: rgba(240, 234, 216, 0.78); }
+  footer address a { color: var(--paper); }
+  footer address a:hover { color: var(--amber); }
+  footer .copyline {
+    margin-top: 28px; padding-top: 20px;
+    border-top: 1px solid rgba(240, 234, 216, 0.08);
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase;
+    color: rgba(240, 234, 216, 0.5);
   }
-  .copyline a { color: var(--text-mute); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .topbar .rec::before { animation: none; }
+    .stamp-cta { transition: none; }
+  }
 </style>
 </head>
 
 <body>
 
-<!-- ═══ TOPBAR ════════════════════════════════════════════════════ -->
+<!-- ═══ TOPBAR ═══════════════════════════════════════════════════ -->
 <header class="topbar">
   <div class="wrap">
-    <a href="/" class="brand">CineSmith<b>Pro</b></a>
-    <div class="meta">
-      <span><span class="dot"></span><span class="live">WAITLIST OPEN</span></span>
-      <span>v0.1 · BETA SOON</span>
-    </div>
+    <span class="roll">FILM ROLL · 001 · MMXXVI</span>
+    <a href="/" class="brand">CineSmith<b>Pro.</b></a>
+    <span class="rec">Waitlist open</span>
   </div>
 </header>
 
-<!-- ═══ HERO ═════════════════════════════════════════════════════ -->
+<!-- ═══ HERO — Production slate ══════════════════════════════════ -->
 <section class="hero">
   <div class="wrap">
-    <div>
-      <span class="hero-eyebrow"><b>UXP PLUGIN</b> · ADOBE PREMIERE PRO 25.6+</span>
-      <h1>
-        AI editing<br>
-        companion for<br>
-        <span class="it">filmmakers.</span>
-      </h1>
-      <p class="hero-lead">
-        <strong>CineSmithPro</strong> is the AI editing companion for Adobe Premiere Pro — built specifically for film, documentary, drama, and podcast editors. Story Cutter on Trint, Otter, Descript, Rev or SRT. One-click color grade. Voiceover at the playhead. Image generation inside the panel. <strong>Native UXP — not legacy CEP.</strong>
-      </p>
-      <div class="cta-row">
-        <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="cta">Join the waitlist</a>
-        <a href="https://cinesmith.io" target="_blank" rel="noopener noreferrer" class="cta-ghost">cinesmith.io ↗</a>
-      </div>
-    </div>
-    <aside class="hero-spec">
-      <dl>
-        <dt>Platform</dt><dd>Adobe Premiere Pro <span class="em">25.6+</span></dd>
-        <dt>Format</dt><dd>UXP plugin (.ccx)</dd>
-        <dt>Built for</dt><dd>Film · doc · drama · podcasts</dd>
-        <dt>Distribution</dt><dd>Direct from cinesmithpro.com</dd>
-        <dt>Status</dt><dd><span class="em">Pre-launch · Beta soon</span></dd>
-        <dt>Pricing</dt><dd>From <span class="em">$99</span> one-time</dd>
+
+    <div class="slate">
+      <dl class="slate-meta">
+        <div><dt>Scene</dt><dd>SC.01</dd></div>
+        <div><dt>Take</dt><dd>01</dd></div>
+        <div><dt>Roll</dt><dd>001</dd></div>
+        <div><dt>Director</dt><dd>T. Khan</dd></div>
+        <div><dt>Editor</dt><dd>Coming soon</dd></div>
+        <div><dt>Date</dt><dd>2026</dd></div>
       </dl>
+      <h1 class="slate-title">
+        Cine<span class="it">Smith</span><br>
+        Pro.
+      </h1>
+      <div class="slate-tag">An AI editing companion · Adobe Premiere Pro</div>
+      <span class="hand-mark">join the list</span>
+    </div>
+
+    <aside class="hero-card">
+      <p>
+        <span class="first">A</span>I does the heavy lifting. You stay in the creative seat. Hours come back to you. <em>Transcripts come alive.</em>
+      </p>
+      <span class="hero-card-tag">Sign up for <span class="stress">the magic</span>.</span>
     </aside>
+
+    <div class="hero-cta-row">
+      <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="stamp-cta">Sign up for the magic</a>
+      <span style="font-family:var(--hand); font-size:24px; color:var(--ink-mute); transform:rotate(-2deg); display:inline-block;">( kind of )</span>
+      <a href="https://cinesmith.io" target="_blank" rel="noopener noreferrer" class="stamp-cta-mute">cinesmith.io ↗</a>
+    </div>
   </div>
 </section>
 
-<!-- ═══ FEATURES ═════════════════════════════════════════════════ -->
-<section class="frame">
+<!-- ═══ FILM LEADER ══════════════════════════════════════════════ -->
+<div class="leader">
+  <div class="wrap">
+    <span class="ft">FT 0001 · SC.02</span>
+    <span><span class="pip"></span>REC</span>
+  </div>
+</div>
+
+<!-- ═══ WHAT IT DOES (HIGH LEVEL ONLY) ═══════════════════════════ -->
+<section class="col">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">CAPABILITIES</span>
-      <h2 class="section-title">The full edit, <span class="it">inside Premiere.</span></h2>
-      <p class="section-lead">
-        Eight capabilities at launch. The hero workflow is Story Cutter for documentary and drama editors. Everything else lives one click away in the same panel.
-      </p>
-    </div>
-
-    <div class="features">
-
-      <article class="feature">
-        <span class="num">01</span>
-        <span class="status live">MVP</span>
-        <h3>Story Cutter</h3>
-        <p>Drop in a Trint, Otter, Descript, Rev, SRT, VTT or native Premiere transcript. The agent reads it, finds beats, builds a paper edit, and inserts the rough cut at the playhead. Multicam aware (stacked V1/V2/V3).</p>
-        <div class="tag-row"><span>Trint</span><span>Otter</span><span>Descript</span><span>Rev</span><span>SRT</span><span>VTT</span></div>
-      </article>
-
-      <article class="feature">
-        <span class="num">02</span>
-        <span class="status live">MVP</span>
-        <h3>Color Grade Assistant</h3>
-        <p>Frame-at-playhead capture, technical score 0–100, one-click "Apply Recommended Look" writes directly to the selected clip's Lumetri. Generate a custom .cube LUT. Skin-tone protection on.</p>
-        <div class="tag-row"><span>Lumetri</span><span>.cube LUT</span><span>Style transfer</span></div>
-      </article>
-
-      <article class="feature">
-        <span class="num">03</span>
-        <span class="status live">MVP</span>
-        <h3>Voiceover at Playhead</h3>
-        <p>Generate audio voiceover directly into the timeline at the cursor. Ported from CineSmith's audio orchestration — the thing no other Premiere AI plugin offers. Drop, place, render.</p>
-        <div class="tag-row"><span>Audio</span><span>ElevenLabs-class</span><span>Timeline-native</span></div>
-      </article>
-
-      <article class="feature">
-        <span class="num">04</span>
-        <span class="status live">MVP</span>
-        <h3>Image &amp; Thumbnail Gen</h3>
-        <p>Multi-model (Flux 2 Max, Nano Banana Pro, GPT Image 2, Seedream, Grok Imagine). Live cost preview before each generation. Canvas editor for retouching. Drag back into composer.</p>
-        <div class="tag-row"><span>Flux 2 Max</span><span>Nano Banana</span><span>GPT Image 2</span><span>Topaz</span></div>
-      </article>
-
-      <article class="feature">
-        <span class="num">05</span>
-        <span class="status soon">MONTH 2</span>
-        <h3>Generative B-Roll</h3>
-        <p>Text-to-video and image-to-video at the playhead. Routes Sora 2, Veo 3.1, Kling, Hailuo, WAN, Seedance behind one composer with reference-image support.</p>
-        <div class="tag-row"><span>Sora 2</span><span>Veo 3.1</span><span>Kling</span></div>
-      </article>
-
-      <article class="feature">
-        <span class="num">06</span>
-        <span class="status soon">MONTH 4</span>
-        <h3>SAM 3 Rotoscope</h3>
-        <p>Text, box, or point prompt → tracked alpha mask → ProRes 4444 ready for compositing. The hardest workflow CVP charges $169 for. Built right.</p>
-        <div class="tag-row"><span>SAM 3</span><span>ProRes 4444</span><span>Tracked</span></div>
-      </article>
-
-      <article class="feature">
-        <span class="num">07</span>
-        <span class="status roadmap">MONTH 5+</span>
-        <h3>Studio Tier</h3>
-        <p>Sovereign model hosting for studios who can't bring their own Fal.ai key — managed inference, single invoice, $200/seat/month. Built for editorial teams of 3 to 30.</p>
-        <div class="tag-row"><span>Sovereign hosting</span><span>SSO</span><span>Per-seat</span></div>
-      </article>
-
-      <article class="feature">
-        <span class="num">08</span>
-        <span class="status roadmap">MONTH 7+</span>
-        <h3>After Effects parity</h3>
-        <p>Same panel, same workflows, inside After Effects. Hybrid Plugin (.uxpaddon) lands at the same time — unlocks FFmpeg, native processing, ProRes export from the agent.</p>
-        <div class="tag-row"><span>After Effects</span><span>Hybrid Plugin</span><span>FFmpeg</span></div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BUILT FOR ════════════════════════════════════════════════ -->
-<section class="frame">
-  <div class="wrap built-for">
-    <div>
-      <span class="section-tag">AUDIENCE</span>
-      <h2 class="section-title">Built for editors who <span class="it">already work this way.</span></h2>
-      <p class="section-lead">
-        Most "AI for Premiere" tools are built for the creator-economy YouTube editor. CineSmithPro is built for the cohort the existing tools cannot reach — film, drama, documentary, and podcast editors who already use Trint, Otter, Descript or Rev, and who need their AI to understand a story.
-      </p>
-    </div>
-    <ul class="audience-list">
-      <li><span class="who">Doc edit</span><span class="what"><strong>Documentary editors</strong> turning 90-minute interviews into 22-minute cuts.</span></li>
-      <li><span class="who">Drama</span><span class="what"><strong>Drama editors</strong> wrangling multicam shoots with story-aware assembly.</span></li>
-      <li><span class="who">Podcast</span><span class="what"><strong>Podcast editors</strong> cutting talking-head video podcasts to social.</span></li>
-      <li><span class="who">Studios</span><span class="what"><strong>Post houses</strong> who need sovereign model hosting and SSO at seat scale.</span></li>
-      <li><span class="who">Solo</span><span class="what"><strong>Working editors</strong> done paying for six subscriptions to do one job.</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ═══ ROADMAP ══════════════════════════════════════════════════ -->
-<section class="frame">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-tag">ROADMAP</span>
-      <h2 class="section-title">A 7-day MVP, then <span class="it">monthly drops.</span></h2>
-      <p class="section-lead">Solo-founder velocity, AI-agent-augmented. UXP-native from day one. No legacy CEP to maintain past November 2026.</p>
-    </div>
-
-    <div class="roadmap">
-      <div class="roadmap-row"><span class="when">May 2026</span><span class="status-pill now">SHIPPING</span><span class="what"><strong>MVP code-complete.</strong> Story Cutter · Color Grade · Voiceover · Image Gen · Direct download from cinesmithpro.com.</span></div>
-      <div class="roadmap-row"><span class="when">Jun 2026</span><span class="status-pill now">SOON</span><span class="what"><strong>Closed alpha.</strong> First cohort of working editors on doc + drama briefs.</span></div>
-      <div class="roadmap-row"><span class="when">Jul 2026</span><span class="status-pill soon">SOON</span><span class="what"><strong>Generative B-Roll.</strong> Sora 2 / Veo 3.1 / Kling routed through the composer at the playhead.</span></div>
-      <div class="roadmap-row"><span class="when">Sep 2026</span><span class="status-pill soon">SOON</span><span class="what"><strong>SAM 3 Rotoscope</strong> ships with the Hybrid Plugin (.uxpaddon) for FFmpeg + ProRes 4444 export.</span></div>
-      <div class="roadmap-row"><span class="when">Oct 2026</span><span class="status-pill later">LATER</span><span class="what"><strong>Studio Tier</strong> opens. Sovereign model hosting + SSO + per-seat billing for post houses.</span></div>
-      <div class="roadmap-row"><span class="when">Dec 2026</span><span class="status-pill later">LATER</span><span class="what"><strong>After Effects parity.</strong> Same panel, same workflows.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PRICING ══════════════════════════════════════════════════ -->
-<section class="frame">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-tag">PRICING</span>
-      <h2 class="section-title">One-time for editors. <span class="it">Per-seat for studios.</span></h2>
-      <p class="section-lead">Final prices land at general availability. Waitlist members get the first cohort discount.</p>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="price-card featured">
-        <span class="label">Creator licence · One-time</span>
-        <h4>For working editors</h4>
-        <div class="price">From $99<small>up to $249</small></div>
-        <p class="blurb">Solo licence, two concurrent sessions (typically one Premiere + one web), free updates within the major version. No subscription. No vendor lock-in.</p>
-        <ul>
-          <li>Story Cutter + Color Grade + Voiceover + Image Gen at launch</li>
-          <li>Generative B-Roll + SAM 3 as they ship</li>
-          <li>BYO Fal.ai key — generation cost is pass-through, never marked up</li>
-          <li>Self-hosted distribution — no marketplace gatekeeping</li>
-        </ul>
+      <div>
+        <span class="section-tag"><b>SC.02</b> · The promise</span>
+        <h2 class="section-title">Save the hours. <span class="it">Make the cut.</span></h2>
       </div>
-      <div class="price-card">
-        <span class="label">Studio tier · Per seat / month</span>
-        <h4>For post houses</h4>
-        <div class="price">$200<small>per seat / month</small></div>
-        <p class="blurb">Managed sovereign model hosting, SSO, single invoice, role-based access. For editorial teams who can't run individual Fal.ai accounts.</p>
-        <ul>
-          <li>Everything in the creator licence</li>
-          <li>Sovereign hosted models — no per-editor account setup</li>
-          <li>SSO + role-based access</li>
-          <li>SLA + priority support</li>
-        </ul>
+      <p class="section-lead">
+        <span class="first">A</span>I does the heavy lifting &mdash; the scrubbing, the searching, the assembly &mdash; while you stay in the creative seat where you belong. Live inside Premiere. Two licences per seat, so while you cut, your EP is pulling the next sequence on the web. Hours saved on every brief.
+      </p>
+    </div>
+
+    <div class="glyphs">
+      <div class="glyph">
+        <span class="num">I.</span>
+        <span class="word it mark">Hours.</span>
+        <p class="sub">Saved.</p>
+      </div>
+      <div class="glyph">
+        <span class="num">II.</span>
+        <span class="word">Transcripts.</span>
+        <p class="sub">Alive.</p>
+      </div>
+      <div class="glyph">
+        <span class="num">III.</span>
+        <span class="word it">Two seats.</span>
+        <p class="sub">One licence. You and your EP.</p>
+      </div>
+      <div class="glyph">
+        <span class="num">IV.</span>
+        <span class="word">And&hellip;</span>
+        <p class="sub">Much, much more.</p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ═══ FILM LEADER ══════════════════════════════════════════════ -->
+<div class="leader">
+  <div class="wrap">
+    <span class="ft">FT 0024 · SC.03</span>
+    <span>For the cutting room</span>
+  </div>
+</div>
+
+<!-- ═══ BUILT FOR — Photo card grid ══════════════════════════════ -->
+<section class="col">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-tag"><b>SC.03</b> · Built for</span>
+        <h2 class="section-title">Editors who <span class="it">already</span> work this way.</h2>
+      </div>
+      <p class="section-lead">
+        <span class="first">F</span>ilm. Drama. Documentary. Podcasts. The post-production cohort the creator-economy tools have never reached &mdash; and the studios who need a managed tier the rest of the market does not offer.
+      </p>
+    </div>
+
+    <div class="who-grid">
+      <article class="who-card">
+        <span class="frame-no">FRAME 01</span>
+        <h3 class="role it">Documentary</h3>
+        <span class="annotate">90 min interview → 22 min cut</span>
+      </article>
+      <article class="who-card">
+        <span class="frame-no">FRAME 02</span>
+        <h3 class="role">Drama series</h3>
+        <span class="annotate">multicam · long form</span>
+      </article>
+      <article class="who-card">
+        <span class="frame-no">FRAME 03</span>
+        <h3 class="role it">Podcasts</h3>
+        <span class="annotate">talking head · social cutdowns</span>
+      </article>
+      <article class="who-card">
+        <span class="frame-no">FRAME 04</span>
+        <h3 class="role">Post houses</h3>
+        <span class="annotate">studios · seat-scale teams</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FILM LEADER ══════════════════════════════════════════════ -->
+<div class="leader">
+  <div class="wrap">
+    <span class="ft">FT 0048 · END OF REEL</span>
+    <span><span class="pip"></span>FIN</span>
+  </div>
+</div>
 
 <!-- ═══ CLOSER ═══════════════════════════════════════════════════ -->
 <section class="closer">
   <div class="wrap">
-    <div>
-      <h2>Beta opens this summer. <span class="it">First 50 editors.</span></h2>
-      <p>Working editors with active doc, drama, or podcast briefs get prioritised. The platform is shaped by the first cohort. Add yourself to the waitlist and tell us what you're cutting.</p>
-    </div>
-    <div>
-      <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="cta">Join the waitlist</a>
-    </div>
+    <span class="fin">END OF REEL · 01</span>
+    <h2>Sign up for the <span class="it">magic.</span></h2>
+    <p class="post">Kind of. Working editors with active doc, drama or podcast briefs go to the front of the queue. The first fifty shape the platform.</p>
+    <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="stamp-cta">Get on the list</a>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══════════════════════════════════════════════════ -->
+<!-- ═══ FOOTER — Production credits ══════════════════════════════ -->
 <footer>
   <div class="wrap">
-    <div>
-      <h5>CineSmith Pro</h5>
-      <p class="credo">The AI editing companion for film, doc, drama and podcast editors. Built inside Adobe Premiere Pro.</p>
+    <div class="credits">
+      <div>
+        <h5>CineSmith Pro</h5>
+        <p class="credo">An editor's companion, built inside Adobe Premiere Pro &mdash; for the cutting room, by people who have spent careers in it.</p>
+      </div>
+      <div>
+        <h5>The family</h5>
+        <ul>
+          <li><a href="https://cinesmith.io" target="_blank" rel="noopener noreferrer">cinesmith.io ↗</a></li>
+          <li><a href="https://cinesmith.io/team/" target="_blank" rel="noopener noreferrer">Team</a></li>
+          <li><a href="https://www.cineartai.com" target="_blank" rel="noopener noreferrer">cineartai.com ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <address>
+          General: <a href="mailto:cinesmith@cineartai.com">cinesmith@cineartai.com</a><br>
+          Press: <a href="mailto:press@cineartai.com">press@cineartai.com</a><br>
+          <a href="tel:+447958707232">+44 7958 707232</a>
+        </address>
+      </div>
     </div>
-    <div>
-      <h5>The family</h5>
-      <ul>
-        <li><a href="https://cinesmith.io" target="_blank" rel="noopener noreferrer">cinesmith.io ↗</a></li>
-        <li><a href="https://cinesmith.io/team/" target="_blank" rel="noopener noreferrer">Team</a></li>
-        <li><a href="https://www.cineartai.com" target="_blank" rel="noopener noreferrer">cineartai.com ↗</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>Contact</h5>
-      <ul>
-        <li>General: <a href="mailto:cinesmith@cineartai.com">cinesmith@cineartai.com</a></li>
-        <li>Press: <a href="mailto:press@cineartai.com">press@cineartai.com</a></li>
-        <li><a href="tel:+447958707232">+44 7958 707232</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap">
     <div class="copyline">
       <span>CineArt AI Limited · 85 Great Portland Street, London W1W 7LT · Registered in England &amp; Wales</span>
       <span>© MMXXVI · All Rights Reserved</span>
