@@ -86,12 +86,26 @@
     --rule:         rgba(26, 22, 18, 0.16);
     --rule-soft:    rgba(26, 22, 18, 0.08);
 
-    --grease:       #D2342B;          /* grease pencil / proof red */
-    --grease-deep:  #9F2419;
-    --amber:        #C58B3E;          /* sodium tungsten — set lamp */
-    --green-pip:    #2B7A3F;          /* EBU pip green — used very sparingly */
+    /* Silver gelatin — strict monochrome.
+       --emph is pure black (vs --ink which is warm typewriter).
+       The contrast between warm ink and pure black reads as "more
+       emphatic ink" without resorting to colour. --silver replaces
+       what was an amber/grease accent; --pip is bright silver so it
+       stays visible on the dark leader bands. */
+    --emph:         #000000;          /* pure black — for stamps, italics, key marks */
+    --emph-soft:    #2B2620;          /* slightly darker than --ink for hover states */
+    --silver:       #9B9B9B;          /* chrome / mid-grey accent */
+    --silver-soft:  #C8C8C8;          /* light silver */
+    --pip:          #E0E0E0;          /* bright silver — for the leader REC indicator */
 
-    --tape:         rgba(204, 184, 138, 0.55);   /* masking tape tan */
+    /* Aliases so existing rules keep working without rewriting every selector.
+       These point at the silver-gelatin tones above. */
+    --grease:       var(--emph);
+    --grease-deep:  var(--emph-soft);
+    --amber:        var(--silver);
+    --green-pip:    var(--pip);
+
+    --tape:         rgba(204, 184, 138, 0.55);   /* masking tape tan — warm paper-tone, untouched */
 
     /* Type */
     --display:  'GFS Didot', 'Bodoni 72', 'Didot', serif;
