@@ -197,12 +197,20 @@
 
   .slate-title {
     font-family: var(--display);
-    font-size: clamp(56px, 9.5vw, 132px);
-    line-height: 0.92;
+    font-size: clamp(52px, 7.6vw, 96px);
+    line-height: 0.95;
     letter-spacing: -0.015em;
     color: var(--ink);
   }
   .slate-title .it { font-style: italic; color: var(--grease); }
+  .slate-title .sub-mark {
+    display: block;
+    font-style: italic;
+    color: var(--grease);
+    font-size: 0.62em;
+    letter-spacing: 0.005em;
+    margin-top: -0.04em;
+  }
 
   .slate-tag {
     font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
@@ -356,9 +364,9 @@
   }
   .glyph .word.mark { color: var(--grease); }
   .glyph .sub {
-    font-family: var(--body); font-size: 14px; line-height: 1.45;
-    color: var(--ink-mute); margin-top: 12px;
-    max-width: 22ch; margin-left: auto; margin-right: auto;
+    font-family: var(--body); font-size: 17px; line-height: 1.5;
+    color: var(--ink); margin-top: 14px;
+    max-width: 24ch; margin-left: auto; margin-right: auto;
   }
 
   /* ─── Built for — taped photo cards ───────────────────────────── */
@@ -501,8 +509,8 @@
         <div><dt>Date</dt><dd>2026</dd></div>
       </dl>
       <h1 class="slate-title">
-        Cine<span class="it">Smith</span><br>
-        Pro.
+        CineSmith
+        <span class="sub-mark">Pro.</span>
       </h1>
       <div class="slate-tag">An AI editing companion · Adobe Premiere Pro</div>
       <span class="hand-mark">join the list</span>
