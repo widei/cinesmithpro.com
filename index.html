@@ -2,12 +2,12 @@
 <!--
   cinesmithpro.com — Waitlist
   ──────────────────────────────────────────────────────────────
-  Cutting-room paper aesthetic. Distinct from cinesmith.io
-  (editorial cinema-magazine). This is the editor's actual
-  workspace: aged paper, grease-pencil red, taped photo cards,
-  hand annotations, sprocket-edged film leader between sections.
-  Teaser-poster register — minimal copy, maximum atmosphere.
-  Pre-launch; product details deliberately withheld.
+  Aesthetic aligned with the parent brand cineartai.com:
+  white base / Oswald display / Open Sans body / silver-and-black
+  palette / diagonal-fill CTA button / underline-dash nav hover.
+  Bridge-theme signature elements (centered restraint, generous
+  spacing, italic emphasis with serif inline, animated buttons).
+  Family cohesion — same visual register as cineartai.com.
 -->
 <html lang="en-GB">
 <head>
@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CineSmithPro — Save the hours. Make the cut. · Coming soon</title>
 <meta name="description" content="Save the hours. Make the cut. AI does the heavy lifting while you stay in the creative seat. An editor's companion inside Adobe Premiere Pro — for film, drama, documentary and podcast editors. Coming soon. Sign up for the magic.">
-<meta name="theme-color" content="#1A1612">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="author" content="CineArt AI Limited">
 <link rel="canonical" href="https://cinesmithpro.com/">
 
@@ -69,599 +69,470 @@
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Cardo:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* Cutting room palette */
-    --paper:        #F0EAD8;          /* aged paper base — warmer than cinesmith.io's #F2EBDC */
-    --paper-deep:   #E5DDC8;          /* shadowed paper */
-    --paper-warm:   #ECE3CC;          /* highlight paper */
-    --ink:          #1A1612;          /* typewriter black, slight brown undertone */
-    --ink-soft:     #3B342C;          /* less weighty ink */
-    --ink-mute:     rgba(26, 22, 18, 0.55);
-    --ink-dim:      rgba(26, 22, 18, 0.32);
-    --rule:         rgba(26, 22, 18, 0.16);
-    --rule-soft:    rgba(26, 22, 18, 0.08);
-
-    /* Silver gelatin — strict monochrome.
-       --emph is pure black (vs --ink which is warm typewriter).
-       The contrast between warm ink and pure black reads as "more
-       emphatic ink" without resorting to colour. --silver replaces
-       what was an amber/grease accent; --pip is bright silver so it
-       stays visible on the dark leader bands. */
-    --emph:         #000000;          /* pure black — for stamps, italics, key marks */
-    --emph-soft:    #2B2620;          /* slightly darker than --ink for hover states */
-    --silver:       #9B9B9B;          /* chrome / mid-grey accent */
-    --silver-soft:  #C8C8C8;          /* light silver */
-    --pip:          #E0E0E0;          /* bright silver — for the leader REC indicator */
-
-    /* Aliases so existing rules keep working without rewriting every selector.
-       These point at the silver-gelatin tones above. */
-    --grease:       var(--emph);
-    --grease-deep:  var(--emph-soft);
-    --amber:        var(--silver);
-    --green-pip:    var(--pip);
-
-    --tape:         rgba(204, 184, 138, 0.55);   /* masking tape tan — warm paper-tone, untouched */
+    /* cineartai.com palette — white base, black ink, silver accents */
+    --base:        #FFFFFF;
+    --base-alt:    #F7F7F7;          /* very subtle off-white for section alternation */
+    --ink:         #000000;          /* pure black for primary type + CTAs */
+    --ink-soft:    #2A2A2A;          /* body weight */
+    --mute:        #B0B0B0;          /* muted gray (Open Sans gray from parent) */
+    --silver:      #C0C0C0;          /* decorative silver for icons + rules */
+    --rule:        #E8E8E8;          /* hairline divider */
+    --rule-soft:   #F0F0F0;          /* even fainter */
 
     /* Type */
-    --display:  'GFS Didot', 'Bodoni 72', 'Didot', serif;
-    --body:     'Cardo', 'EB Garamond', Georgia, serif;
-    --mono:     'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-    --hand:     'Caveat', cursive;
+    --display:     'Oswald', 'Arial Narrow', sans-serif;
+    --body:        'Open Sans', system-ui, -apple-system, sans-serif;
 
-    --w-max:    1240px;
-    --gutter:   clamp(20px, 4.5vw, 64px);
-    --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+    /* Layout */
+    --w-max:       1300px;
+    --gutter:      clamp(20px, 4.5vw, 70px);
+    --ease:        cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     font-family: var(--body);
-    color: var(--ink);
-    background: var(--paper);
-    font-size: 17px;
-    line-height: 1.55;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    background: var(--base);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 
-  /* Real paper grain — SVG turbulence overlay */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    pointer-events: none;
-    z-index: 90;
-    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    mix-blend-mode: multiply;
-    opacity: 0.55;
-  }
+  ::selection { background: var(--ink); color: var(--base); }
 
-  /* Subtle paper edge vignette */
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    pointer-events: none;
-    z-index: 91;
-    background: radial-gradient(ellipse 100% 70% at 50% 50%, transparent 60%, rgba(26, 22, 18, 0.08) 100%);
-  }
-
-  ::selection { background: var(--grease); color: var(--paper); }
   a { color: inherit; text-decoration: none; }
 
-  .wrap { max-width: var(--w-max); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 5; }
+  .wrap { max-width: var(--w-max); margin: 0 auto; padding: 0 var(--gutter); position: relative; }
 
-  /* ─── Topbar ──────────────────────────────────────────────────── */
-  .topbar { padding: 22px 0 14px; border-bottom: 1px solid var(--rule-soft); }
-  .topbar .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
-  .topbar .roll {
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.8px; text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-  .topbar .brand {
-    font-family: var(--display); font-size: clamp(20px, 1.8vw, 24px);
-    letter-spacing: 0.01em; color: var(--ink);
-  }
-  .topbar .brand b { font-weight: 400; font-style: italic; }
-  .topbar .rec {
-    font-family: var(--hand); font-size: 22px; color: var(--grease);
-    transform: rotate(-3deg); display: inline-flex; align-items: center; gap: 8px;
-  }
-  .topbar .rec::before {
-    content: ''; width: 9px; height: 9px; background: var(--grease); border-radius: 50%;
-    animation: rec-blink 1.4s steps(1, end) infinite;
-  }
-  @keyframes rec-blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.25; } }
-
-  /* ─── Hero — Production slate ─────────────────────────────────── */
-  .hero {
-    padding: clamp(60px, 9vw, 130px) 0 clamp(40px, 6vw, 80px);
-    position: relative;
-  }
-  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 84px); align-items: end; }
-  @media (max-width: 920px) { .hero .wrap { grid-template-columns: 1fr; } }
-
-  /* The slate */
-  .slate {
-    border: 2.5px solid var(--ink);
-    background: var(--paper);
-    padding: clamp(28px, 3.6vw, 42px) clamp(28px, 3.6vw, 44px);
-    position: relative;
-    box-shadow: 6px 7px 0 var(--ink-soft);
-    transform: rotate(-0.4deg);
-  }
-  .slate::before {
-    /* clapper stripes top-edge */
-    content: ''; position: absolute; top: -2.5px; left: -2.5px; right: -2.5px; height: 18px;
-    background: repeating-linear-gradient(135deg, var(--ink) 0 14px, var(--paper) 14px 28px);
-    border-bottom: 2.5px solid var(--ink);
-  }
-  .slate-meta {
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px 24px;
-    margin-top: 22px; margin-bottom: clamp(28px, 4vw, 44px);
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-  .slate-meta dt { display: block; opacity: 0.7; margin-bottom: 2px; }
-  .slate-meta dd { display: block; color: var(--ink); font-weight: 500; letter-spacing: 1.4px; }
-  @media (max-width: 540px) { .slate-meta { grid-template-columns: 1fr 1fr; } }
-
-  .slate-title {
+  /* ─── Type defaults — Oswald display, Open Sans body ─────────── */
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--display);
-    font-size: clamp(52px, 7.6vw, 96px);
-    line-height: 0.95;
-    letter-spacing: -0.015em;
     color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0;
   }
-  .slate-title .it { font-style: italic; color: var(--grease); }
-  .slate-title .sub-mark {
-    display: block;
-    font-style: italic;
-    color: var(--grease);
-    font-size: 0.62em;
-    letter-spacing: 0.005em;
-    margin-top: -0.04em;
+  h1 { font-size: clamp(48px, 7.5vw, 96px); line-height: 1.05; letter-spacing: -0.005em; }
+  h2 { font-size: clamp(32px, 4.8vw, 60px); line-height: 1.08; }
+  h3 { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.25; font-weight: 500; }
+  h4 { font-size: 17px; line-height: 1.4; font-weight: 600; }
+  h5 { font-size: 14px; line-height: 1.4; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; }
+  em { font-family: 'Open Sans', serif; font-style: italic; }
+  p { color: var(--ink-soft); }
+
+  /* ─── Underline-dash nav hover (cineartai signature) ─────────── */
+  .nav-link { position: relative; display: inline-block; padding: 4px 2px; color: var(--ink); }
+  .nav-link::after {
+    content: ''; position: absolute; left: 50%; bottom: -1px;
+    width: 18px; height: 1px; background: var(--ink);
+    transform: translateX(-50%) scaleX(0); transform-origin: right;
+    transition: transform 0.2s ease-in;
+  }
+  .nav-link:hover::after, .nav-link.active::after {
+    transform: translateX(-50%) scaleX(1); transform-origin: left;
   }
 
-  .slate-tag {
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--ink-mute);
-    margin-top: 22px; padding-top: 18px;
-    border-top: 1px solid var(--rule);
+  /* ─── Header / masthead ──────────────────────────────────────── */
+  .masthead {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--base);
+    position: sticky; top: 0; z-index: 50;
   }
+  .masthead .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .brand {
+    font-family: var(--display);
+    font-size: 24px; font-weight: 500; letter-spacing: 0.01em;
+    color: var(--ink); text-transform: uppercase;
+  }
+  .brand .pro { font-weight: 300; color: var(--mute); }
+  .mast-nav {
+    display: flex; align-items: center; gap: 32px;
+    font-family: var(--body); font-size: 13px; font-weight: 400;
+  }
+  .mast-status {
+    font-family: var(--body); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .mast-status::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--ink); display: inline-block;
+    animation: pulse 1.8s steps(1) infinite;
+  }
+  @keyframes pulse { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.3; } }
 
-  /* Hand-circled annotation around the title — pure CSS pseudo-element ellipse */
-  .slate .hand-mark {
-    position: absolute;
-    bottom: -42px; right: -18px;
-    font-family: var(--hand); font-size: 28px; color: var(--grease);
-    transform: rotate(-6deg);
-  }
-  .slate .hand-mark::before {
-    content: '↗ '; font-size: 32px;
-  }
-
-  /* Hero right column — taped photo card */
-  .hero-card {
-    background: var(--paper-warm);
-    padding: 22px 22px 28px;
+  /* ─── Hero — centered Oswald title ───────────────────────────── */
+  .hero {
+    padding: clamp(96px, 14vw, 200px) 0 clamp(64px, 10vw, 130px);
+    text-align: center;
     position: relative;
-    box-shadow: 4px 5px 0 var(--ink-soft);
-    transform: rotate(2.2deg);
-    max-width: 380px;
-    justify-self: end;
   }
-  .hero-card::before, .hero-card::after {
-    content: ''; position: absolute;
-    width: 84px; height: 22px;
-    background: var(--tape);
-    border: 1px solid rgba(180, 158, 110, 0.6);
+  .hero-tag {
+    font-family: var(--body); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--mute);
+    margin-bottom: 32px;
   }
-  .hero-card::before { top: -10px; left: -22px; transform: rotate(-32deg); }
-  .hero-card::after  { top: -10px; right: -22px; transform: rotate(32deg); }
-  .hero-card p {
-    font-family: var(--body); font-size: 16.5px; line-height: 1.5; color: var(--ink-soft);
+  .hero h1 {
+    font-weight: 500;
+    max-width: 18ch;
+    margin: 0 auto 28px;
+    text-transform: uppercase;
   }
-  .hero-card .first {
-    font-family: var(--display); font-style: italic;
-    font-size: 56px; line-height: 0.7;
-    float: left; margin: 8px 10px 0 0; color: var(--grease);
+  .hero h1 .it {
+    display: block; font-style: italic; font-weight: 300;
+    color: var(--mute); text-transform: lowercase;
+    font-family: 'Open Sans', serif;
+    font-size: 0.7em;
+    margin-top: 6px;
+    letter-spacing: 0;
   }
-  .hero-card-tag {
-    font-family: var(--hand); font-size: 26px; color: var(--ink);
-    margin-top: 20px; transform: rotate(-1.5deg); display: inline-block;
+  .hero .divider {
+    width: 245px; height: 1px; background: var(--silver);
+    margin: 36px auto;
   }
-  .hero-card-tag .stress { color: var(--grease); }
+  .hero p.lead {
+    font-family: var(--body);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.65; color: var(--ink-soft);
+    max-width: 56ch; margin: 0 auto 44px;
+  }
+  .hero p.lead em { color: var(--ink); font-style: italic; font-weight: 600; }
 
-  .hero-cta-row { margin-top: clamp(36px, 5vw, 56px); display: flex; gap: 22px; align-items: center; flex-wrap: wrap; grid-column: 1 / -1; }
-  .stamp-cta {
-    display: inline-flex; align-items: center; gap: 14px;
-    font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--paper); background: var(--ink);
-    padding: 22px 30px;
-    border: 1.5px solid var(--ink);
-    transform: rotate(-0.5deg);
-    box-shadow: 4px 4px 0 var(--grease);
-    transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), background 200ms var(--ease);
-  }
-  .stamp-cta::after { content: '→'; font-family: var(--display); font-size: 22px; line-height: 0; transform: translateY(-1px); }
-  .stamp-cta:hover { transform: translate(-2px, -2px) rotate(-0.5deg); box-shadow: 6px 6px 0 var(--grease); background: var(--grease-deep); }
-  .stamp-cta-mute {
-    display: inline-flex; align-items: baseline; gap: 8px;
-    font-family: var(--hand); font-size: 24px; color: var(--ink-mute);
+  /* ─── Signature CTA button (cineartai diagonal-fill) ─────────── */
+  .cta {
+    position: relative;
+    display: inline-block;
+    font-family: var(--display); font-size: 14px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink); background: transparent;
+    border: 1px solid var(--ink);
+    padding: 0;
+    min-width: 240px; height: 56px; line-height: 54px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    box-sizing: border-box;
     transition: color 200ms var(--ease);
   }
-  .stamp-cta-mute:hover { color: var(--grease); }
-
-  /* ─── Film leader strip — section divider ─────────────────────── */
-  .leader {
+  .cta span.label {
+    position: relative; z-index: 2;
+    display: inline-block; padding: 0 28px;
+    transition: color 200ms var(--ease);
+  }
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
     background: var(--ink);
-    color: var(--paper);
-    padding: 14px 0;
-    position: relative;
-    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateX(-101%);
+    transition: transform 0.5s var(--ease);
+    z-index: 1;
   }
-  .leader::before, .leader::after {
-    /* 35mm sprocket holes top + bottom */
-    content: ''; position: absolute; left: 0; right: 0; height: 14px;
-    background-image: radial-gradient(circle, var(--paper) 0 4px, transparent 5px);
-    background-size: 32px 14px;
-    background-repeat: repeat-x;
-  }
-  .leader::before { top: 0; }
-  .leader::after { bottom: 0; }
-  .leader .wrap {
-    display: flex; justify-content: space-between; align-items: center;
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: rgba(240, 234, 216, 0.7);
-    padding-top: 6px; padding-bottom: 6px;
-  }
-  .leader .pip {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--green-pip); display: inline-block; margin-right: 6px;
-    vertical-align: middle;
-  }
-  .leader .ft { color: var(--paper); }
+  .cta:hover { color: var(--base); }
+  .cta:hover::before { transform: translateX(0); }
 
-  /* ─── Section frame ───────────────────────────────────────────── */
-  section.col { padding: clamp(64px, 9vw, 120px) 0; position: relative; }
-  .section-tag {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase;
-    color: var(--ink-mute);
-    margin-bottom: 22px;
+  .cta-ghost {
+    font-family: var(--body); font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    padding: 0 8px;
+    transition: color 200ms var(--ease);
   }
-  .section-tag::before { content: ''; width: 28px; height: 1px; background: var(--ink-mute); }
-  .section-tag b { color: var(--grease); font-weight: 400; }
+  .cta-ghost:hover { color: var(--ink); }
 
-  .section-head { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); align-items: end; margin-bottom: clamp(48px, 7vw, 80px); }
-  @media (max-width: 880px) { .section-head { grid-template-columns: 1fr; } }
+  .hero-cta-row {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    align-items: center; justify-content: center;
+  }
+  .hero-cta-row .note {
+    font-family: 'Open Sans', serif; font-style: italic;
+    font-size: 13px; color: var(--mute);
+  }
+
+  /* ─── Section frame ──────────────────────────────────────────── */
+  section.col { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
+  section.alt { background: var(--base-alt); }
+
+  .section-head { text-align: center; margin-bottom: clamp(56px, 7vw, 90px); }
+  .section-eyebrow {
+    font-family: var(--body); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--mute);
+    display: inline-block; margin-bottom: 20px;
+  }
   .section-title {
-    font-family: var(--display);
-    font-size: clamp(40px, 6.4vw, 88px);
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    max-width: 16ch;
+    text-transform: uppercase;
+    font-weight: 500;
+    max-width: 18ch; margin: 0 auto 24px;
   }
-  .section-title .it { font-style: italic; color: var(--grease); }
+  .section-title .it {
+    display: block; font-style: italic; font-weight: 300;
+    color: var(--mute); text-transform: lowercase;
+    font-family: 'Open Sans', serif;
+    font-size: 0.62em;
+    margin-top: 6px;
+    letter-spacing: 0;
+  }
+  .section-divider {
+    width: 245px; height: 1px; background: var(--silver);
+    margin: 28px auto 32px;
+  }
   .section-lead {
-    font-family: var(--body); font-size: 18px; line-height: 1.55;
-    color: var(--ink-soft); max-width: 50ch;
-  }
-  .section-lead .first {
-    font-family: var(--display); font-style: italic;
-    font-size: 4.4em; line-height: 0.78;
-    float: left; margin: 0.06em 12px 0 0; color: var(--grease);
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.65;
+    color: var(--ink-soft); max-width: 58ch; margin: 0 auto;
   }
 
-  /* ─── What it is — capability glyph row ───────────────────────── */
-  .glyphs {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: clamp(24px, 3vw, 36px);
+  /* ─── Feature blocks (3/4-up with silver icon) ───────────────── */
+  .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(28px, 3.5vw, 48px); }
+  @media (max-width: 880px) { .features { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .features { grid-template-columns: 1fr; } }
+
+  .feature { text-align: center; padding: 0 12px; }
+  .feature .num {
+    font-family: var(--display); font-size: 12px;
+    letter-spacing: 0.3em; color: var(--silver);
+    margin-bottom: 22px; display: block;
+  }
+  .feature h3 {
+    text-transform: uppercase; letter-spacing: 0.01em;
+    margin-bottom: 14px; font-size: 28px;
+  }
+  .feature h3 .it {
+    display: block; font-family: 'Open Sans', serif; font-style: italic;
+    font-weight: 300; color: var(--mute); text-transform: lowercase;
+    font-size: 0.55em; margin-top: 4px; letter-spacing: 0;
+  }
+  .feature .body {
+    font-size: 14px; line-height: 1.65; color: var(--ink-soft);
+    max-width: 26ch; margin: 0 auto;
+  }
+
+  /* ─── Audience strip (centered with rules) ───────────────────── */
+  .audience {
+    text-align: center;
+  }
+  .audience-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
-    padding: clamp(36px, 5vw, 56px) 0;
   }
-  @media (max-width: 720px) { .glyphs { grid-template-columns: repeat(2, 1fr); } }
-  .glyph { text-align: center; padding: 0 8px; }
-  .glyph .num {
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--ink-dim); display: block; margin-bottom: 12px;
-  }
-  .glyph .word {
-    font-family: var(--display); font-style: italic;
-    font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05;
-    color: var(--ink);
-  }
-  .glyph .word.mark { color: var(--grease); }
-  .glyph .sub {
-    font-family: var(--body); font-size: 17px; line-height: 1.5;
-    color: var(--ink); margin-top: 14px;
-    max-width: 24ch; margin-left: auto; margin-right: auto;
-  }
-
-  /* ─── Built for — taped photo cards ───────────────────────────── */
-  .who-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: clamp(28px, 3.6vw, 48px) clamp(20px, 2.4vw, 36px);
-    margin-top: 18px;
-  }
-  @media (max-width: 880px) { .who-grid { grid-template-columns: repeat(2, 1fr); } }
-  .who-card {
-    background: var(--paper-warm);
-    padding: 18px 18px 22px;
-    position: relative;
-    box-shadow: 3px 4px 0 var(--ink-soft);
-  }
-  .who-card:nth-child(odd)  { transform: rotate(-1.6deg); }
-  .who-card:nth-child(even) { transform: rotate(1.4deg); }
-  .who-card::before {
-    content: ''; position: absolute; top: -9px; left: 50%;
-    width: 70px; height: 18px; background: var(--tape);
-    border: 1px solid rgba(180, 158, 110, 0.55);
-    transform: translateX(-50%) rotate(-2deg);
-  }
-  .who-card .frame-no {
-    font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.6px; text-transform: uppercase;
-    color: var(--ink-dim); display: block; margin-bottom: 8px;
-  }
-  .who-card .role {
-    font-family: var(--display); font-size: 28px; line-height: 1.05;
-    color: var(--ink);
-  }
-  .who-card .role.it { font-style: italic; color: var(--grease); }
-  .who-card .annotate {
-    font-family: var(--hand); font-size: 22px; color: var(--ink-soft);
-    margin-top: 10px; transform: rotate(-1.5deg); display: inline-block;
-  }
-
-  /* ─── Closer — END OF REEL ────────────────────────────────────── */
-  .closer {
-    padding: clamp(80px, 12vw, 160px) 0 clamp(60px, 9vw, 120px);
+  @media (max-width: 720px) { .audience-grid { grid-template-columns: repeat(2, 1fr); } }
+  .audience-cell {
+    padding: 44px 24px;
+    border-right: 1px solid var(--rule);
     text-align: center;
-    border-top: 1px solid var(--rule);
-    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
-    position: relative;
   }
-  .closer .wrap { display: flex; flex-direction: column; align-items: center; gap: 36px; }
-  .closer .fin {
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--ink-mute);
+  .audience-cell:last-child { border-right: none; }
+  @media (max-width: 720px) {
+    .audience-cell:nth-child(2n) { border-right: none; }
+    .audience-cell:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
   }
-  .closer .fin::before, .closer .fin::after {
-    content: '\00a0\00a0·\00a0\00a0';
+  .audience-cell .role {
+    font-family: var(--display); font-size: 20px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.02em;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .audience-cell .role.it {
+    font-family: 'Open Sans', serif; font-style: italic; font-weight: 300;
+    text-transform: lowercase; color: var(--mute);
+  }
+  .audience-cell .note {
+    font-family: 'Open Sans', serif; font-style: italic;
+    font-size: 13px; color: var(--mute);
+  }
+
+  /* ─── Closer with circle border decoration (cineartai signature) */
+  .closer {
+    padding: clamp(96px, 14vw, 180px) 0 clamp(80px, 12vw, 140px);
+    text-align: center;
+    background: var(--base);
+    position: relative; overflow: hidden;
+  }
+  .closer::before {
+    /* Decorative circle border — Bridge theme signature */
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(520px, 60vw, 780px); height: clamp(520px, 60vw, 780px);
+    border: 1px solid var(--rule);
+    border-radius: 50%; z-index: 0;
+    pointer-events: none;
+  }
+  .closer .wrap { position: relative; z-index: 2; }
+  .closer .eyebrow {
+    font-family: var(--body); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--mute);
+    margin-bottom: 28px;
   }
   .closer h2 {
-    font-family: var(--display);
-    font-size: clamp(48px, 7.4vw, 104px);
-    line-height: 0.96; letter-spacing: -0.022em;
-    color: var(--ink);
-    max-width: 18ch;
+    text-transform: uppercase;
+    max-width: 16ch; margin: 0 auto 24px;
   }
-  .closer h2 .it { font-style: italic; color: var(--grease); }
-  .closer .post {
-    font-family: var(--hand); font-size: 28px; color: var(--ink-soft);
-    transform: rotate(-1.5deg); max-width: 30ch;
+  .closer h2 .it {
+    display: block; font-family: 'Open Sans', serif; font-style: italic;
+    font-weight: 300; color: var(--mute); text-transform: lowercase;
+    font-size: 0.55em; margin-top: 8px; letter-spacing: 0;
+  }
+  .closer p {
+    max-width: 46ch; margin: 0 auto 44px;
+    font-size: 15px; line-height: 1.7; color: var(--ink-soft);
   }
 
-  /* ─── Footer — production credits ─────────────────────────────── */
-  footer {
-    background: var(--ink);
-    color: var(--paper);
-    padding: clamp(56px, 8vw, 80px) 0 32px;
-    position: relative; z-index: 5;
-    font-family: var(--body);
-  }
-  footer::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 14px;
-    background-image: radial-gradient(circle, var(--paper) 0 4px, transparent 5px);
-    background-size: 32px 14px; background-repeat: repeat-x;
-  }
-  footer .wrap { padding-top: 22px; }
-  footer .credits {
-    display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: clamp(28px, 4vw, 56px);
-    padding-bottom: 36px;
-    border-bottom: 1px solid rgba(240, 234, 216, 0.16);
-  }
-  @media (max-width: 720px) { footer .credits { grid-template-columns: 1fr; gap: 28px; } }
-  footer h5 {
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: var(--amber); margin-bottom: 14px;
-  }
-  footer .credo {
-    font-family: var(--display); font-style: italic;
-    font-size: clamp(20px, 1.6vw, 24px); line-height: 1.4;
-    color: var(--paper); max-width: 28ch;
-  }
+  /* ─── Footer ─────────────────────────────────────────────────── */
+  footer { background: var(--ink); color: var(--base); padding: clamp(70px, 9vw, 100px) 0 40px; }
+  footer .credits { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: clamp(36px, 5vw, 64px); padding-bottom: 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+  @media (max-width: 720px) { footer .credits { grid-template-columns: 1fr; gap: 36px; } }
+  footer h5 { color: var(--silver); font-family: var(--body); font-weight: 600; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 18px; }
+  footer .credo { font-family: 'Open Sans', serif; font-style: italic; font-size: 17px; line-height: 1.5; color: var(--base); max-width: 36ch; }
   footer ul { list-style: none; }
-  footer ul li { padding: 4px 0; font-size: 14px; color: rgba(240, 234, 216, 0.78); }
-  footer ul a { color: rgba(240, 234, 216, 0.78); transition: color 160ms var(--ease); }
-  footer ul a:hover { color: var(--amber); }
-  footer address { font-style: normal; font-size: 13.5px; line-height: 1.7; color: rgba(240, 234, 216, 0.78); }
-  footer address a { color: var(--paper); }
-  footer address a:hover { color: var(--amber); }
+  footer ul li { padding: 4px 0; font-size: 14px; color: rgba(255, 255, 255, 0.7); }
+  footer ul a { color: rgba(255, 255, 255, 0.7); transition: color 160ms var(--ease); }
+  footer ul a:hover { color: var(--base); }
+  footer address { font-style: normal; font-size: 13px; line-height: 1.85; color: rgba(255, 255, 255, 0.7); }
+  footer address a { color: var(--base); }
+  footer address a:hover { color: var(--silver); }
   footer .copyline {
-    margin-top: 28px; padding-top: 20px;
-    border-top: 1px solid rgba(240, 234, 216, 0.08);
+    margin-top: 30px; padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-    font-family: var(--mono); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase;
-    color: rgba(240, 234, 216, 0.5);
+    font-family: var(--body); font-size: 11px; letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.5); text-transform: uppercase;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .topbar .rec::before { animation: none; }
-    .stamp-cta { transition: none; }
+    .mast-status::before { animation: none; }
+    .cta { transition: none; }
+    .cta::before { transition: none; }
   }
 </style>
 </head>
 
 <body>
 
-<!-- ═══ TOPBAR ═══════════════════════════════════════════════════ -->
-<header class="topbar">
+<!-- ═══ MASTHEAD ════════════════════════════════════════════════════ -->
+<header class="masthead">
   <div class="wrap">
-    <span class="roll">FILM ROLL · 001 · MMXXVI</span>
-    <a href="/" class="brand">CineSmith<b>Pro.</b></a>
-    <span class="rec">Waitlist open</span>
+    <a href="/" class="brand">CineSmith<span class="pro"> Pro</span></a>
+    <span class="mast-status">Waitlist open</span>
   </div>
 </header>
 
-<!-- ═══ HERO — Production slate ══════════════════════════════════ -->
+<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="wrap">
-
-    <div class="slate">
-      <dl class="slate-meta">
-        <div><dt>Scene</dt><dd>SC.01</dd></div>
-        <div><dt>Take</dt><dd>01</dd></div>
-        <div><dt>Roll</dt><dd>001</dd></div>
-        <div><dt>Director</dt><dd>T. Khan</dd></div>
-        <div><dt>Editor</dt><dd>Coming soon</dd></div>
-        <div><dt>Date</dt><dd>2026</dd></div>
-      </dl>
-      <h1 class="slate-title">
-        CineSmith
-        <span class="sub-mark">Pro.</span>
-      </h1>
-      <div class="slate-tag">An AI editing companion · Adobe Premiere Pro</div>
-      <span class="hand-mark">join the list</span>
-    </div>
-
-    <aside class="hero-card">
-      <p>
-        <span class="first">Y</span>ou stay in the creative seat. AI does the heavy lifting. Hours come back to you. <em>Transcripts come alive.</em>
-      </p>
-      <span class="hero-card-tag">Sign up for <span class="stress">the magic</span>.</span>
-    </aside>
-
+    <span class="hero-tag">An Adobe Premiere Pro Companion · Coming Soon</span>
+    <h1>
+      Save the hours.
+      <span class="it">make the cut.</span>
+    </h1>
+    <div class="divider"></div>
+    <p class="lead">
+      You stay in the creative seat. AI does the heavy lifting — the scrubbing, the searching, the assembly. <em>Transcripts come alive.</em> Hours come back to you on every brief.
+    </p>
     <div class="hero-cta-row">
-      <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="stamp-cta">Sign up for the magic</a>
-      <span style="font-family:var(--hand); font-size:24px; color:var(--ink-mute); transform:rotate(-2deg); display:inline-block;">( kind of )</span>
-      <a href="https://cinesmith.io" target="_blank" rel="noopener noreferrer" class="stamp-cta-mute">cinesmith.io ↗</a>
+      <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="cta"><span class="label">Sign up for the magic</span></a>
+      <span class="note">( kind of )</span>
+      <a href="https://cinesmith.io" target="_blank" rel="noopener noreferrer" class="cta-ghost">cinesmith.io ↗</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ FILM LEADER ══════════════════════════════════════════════ -->
-<div class="leader">
-  <div class="wrap">
-    <span class="ft">FT 0001 · SC.02</span>
-    <span><span class="pip"></span>REC</span>
-  </div>
-</div>
-
-<!-- ═══ WHAT IT DOES (HIGH LEVEL ONLY) ═══════════════════════════ -->
-<section class="col">
+<!-- ═══ THE PROMISE — feature blocks ═══════════════════════════════ -->
+<section class="col alt">
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <span class="section-tag"><b>SC.02</b> · The promise</span>
-        <h2 class="section-title">Save the hours. <span class="it">Make the cut.</span></h2>
-      </div>
+      <span class="section-eyebrow">The Promise</span>
+      <h2 class="section-title">Built for working <span class="it">editors.</span></h2>
+      <div class="section-divider"></div>
       <p class="section-lead">
-        <span class="first">Y</span>ou stay in the creative seat where you belong &mdash; AI does the heavy lifting. The scrubbing, the searching, the assembly. Live inside Premiere. Two licences per seat, so while you cut, your EP is pulling the next sequence on the web. Hours saved on every brief.
+        An editor's companion inside Adobe Premiere Pro. Live beside the timeline, where the work actually happens. Two licences per seat — while you cut, your EP is pulling the next sequence on the web. Both at once.
       </p>
     </div>
 
-    <div class="glyphs">
-      <div class="glyph">
-        <span class="num">I.</span>
-        <span class="word it mark">Hours.</span>
-        <p class="sub">Saved.</p>
-      </div>
-      <div class="glyph">
-        <span class="num">II.</span>
-        <span class="word">Transcripts.</span>
-        <p class="sub">Alive.</p>
-      </div>
-      <div class="glyph">
-        <span class="num">III.</span>
-        <span class="word it">Two seats.</span>
-        <p class="sub">One licence. You and your EP.</p>
-      </div>
-      <div class="glyph">
-        <span class="num">IV.</span>
-        <span class="word">And&hellip;</span>
-        <p class="sub">Much, much more.</p>
-      </div>
+    <div class="features">
+      <article class="feature">
+        <span class="num">01</span>
+        <h3>Hours <span class="it">saved</span></h3>
+        <p class="body">Hand off the scrubbing and the assembly. Get the hours back.</p>
+      </article>
+      <article class="feature">
+        <span class="num">02</span>
+        <h3>Transcripts <span class="it">alive</span></h3>
+        <p class="body">Read it once. Find any beat, any line, any take.</p>
+      </article>
+      <article class="feature">
+        <span class="num">03</span>
+        <h3>Two seats <span class="it">one licence</span></h3>
+        <p class="body">You and your EP. Editing and pulling in parallel.</p>
+      </article>
+      <article class="feature">
+        <span class="num">04</span>
+        <h3>And&hellip; <span class="it">much more</span></h3>
+        <p class="body">Wait for the magic. Plenty more to share at launch.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ═══ FILM LEADER ══════════════════════════════════════════════ -->
-<div class="leader">
-  <div class="wrap">
-    <span class="ft">FT 0024 · SC.03</span>
-    <span>For the cutting room</span>
-  </div>
-</div>
-
-<!-- ═══ BUILT FOR — Photo card grid ══════════════════════════════ -->
-<section class="col">
+<!-- ═══ AUDIENCE STRIP ══════════════════════════════════════════════ -->
+<section class="col audience">
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <span class="section-tag"><b>SC.03</b> · Built for</span>
-        <h2 class="section-title">Editors who <span class="it">already</span> work this way.</h2>
-      </div>
+      <span class="section-eyebrow">Built For</span>
+      <h2 class="section-title">Editors who <span class="it">already work this way.</span></h2>
+      <div class="section-divider"></div>
       <p class="section-lead">
-        <span class="first">F</span>ilm. Drama. Documentary. Podcasts. The post-production cohort the creator-economy tools have never reached &mdash; and the studios who need a managed tier the rest of the market does not offer.
+        Film, drama, documentary, podcasts. The post-production cohort the creator-economy tools have never reached — and the studios who need a managed tier the rest of the market cannot offer.
       </p>
     </div>
 
-    <div class="who-grid">
-      <article class="who-card">
-        <span class="frame-no">FRAME 01</span>
-        <h3 class="role it">Documentary</h3>
-        <span class="annotate">90 min interview → 22 min cut</span>
-      </article>
-      <article class="who-card">
-        <span class="frame-no">FRAME 02</span>
-        <h3 class="role">Drama series</h3>
-        <span class="annotate">multicam · long form</span>
-      </article>
-      <article class="who-card">
-        <span class="frame-no">FRAME 03</span>
-        <h3 class="role it">Podcasts</h3>
-        <span class="annotate">talking head · social cutdowns</span>
-      </article>
-      <article class="who-card">
-        <span class="frame-no">FRAME 04</span>
-        <h3 class="role">Post houses</h3>
-        <span class="annotate">studios · seat-scale teams</span>
-      </article>
+    <div class="audience-grid">
+      <div class="audience-cell">
+        <div class="role">Documentary</div>
+        <div class="note">90 min interview → 22 min cut</div>
+      </div>
+      <div class="audience-cell">
+        <div class="role">Drama series</div>
+        <div class="note">multicam · long form</div>
+      </div>
+      <div class="audience-cell">
+        <div class="role">Podcasts</div>
+        <div class="note">talking head · social cutdowns</div>
+      </div>
+      <div class="audience-cell">
+        <div class="role">Post houses</div>
+        <div class="note">studios · seat-scale teams</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FILM LEADER ══════════════════════════════════════════════ -->
-<div class="leader">
-  <div class="wrap">
-    <span class="ft">FT 0048 · END OF REEL</span>
-    <span><span class="pip"></span>FIN</span>
-  </div>
-</div>
-
-<!-- ═══ CLOSER ═══════════════════════════════════════════════════ -->
+<!-- ═══ CLOSER — with decorative circle ═════════════════════════════ -->
 <section class="closer">
   <div class="wrap">
-    <span class="fin">END OF REEL · 01</span>
+    <span class="eyebrow">End of Reel</span>
     <h2>Sign up for the <span class="it">magic.</span></h2>
-    <p class="post">Kind of. Working editors with active doc, drama or podcast briefs go to the front of the queue. The first fifty shape the platform.</p>
-    <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="stamp-cta">Get on the list</a>
+    <p>Kind of. Working editors with active doc, drama or podcast briefs go to the front of the queue. The first fifty shape the platform.</p>
+    <a href="https://forms.gle/REPLACE_ME" target="_blank" rel="noopener noreferrer" class="cta"><span class="label">Get on the list</span></a>
   </div>
 </section>
 
-<!-- ═══ FOOTER — Production credits ══════════════════════════════ -->
+<!-- ═══ FOOTER ══════════════════════════════════════════════════════ -->
 <footer>
   <div class="wrap">
     <div class="credits">
       <div>
         <h5>CineSmith Pro</h5>
-        <p class="credo">An editor's companion, built inside Adobe Premiere Pro &mdash; for the cutting room, by people who have spent careers in it.</p>
+        <p class="credo">An editor's companion, built inside Adobe Premiere Pro — for the cutting room, by people who have spent careers in it.</p>
       </div>
       <div>
         <h5>The family</h5>
