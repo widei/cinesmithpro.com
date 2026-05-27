@@ -50,11 +50,32 @@ Pre-launch, v0.7 beta. Waitlist open at https://cinesmithpro.com. The first fift
 
 The homepage routes visitors automatically: light theme during local daytime (06:00–18:00 visitor time), dark theme outside those hours. Both versions are functionally identical — pure aesthetic preference.
 
+## Founder & maker
+
+CineSmithPro is built by **Taimur Khan**, Founder of CineArt AI Limited. Full profile: https://www.cineartai.com/taimur-khan/
+
+Taimur is the editor this tool was built for — which is also why it exists. Two careers run in parallel:
+
+**Filmmaker — 20+ years in editorial.** Series editor and director credits across documentary, drama, commercial, and broadcast. Editorial credits with **Netflix, BBC, Channel 4, HBO, Discovery, Sky, Al Jazeera, Arte France, CNN, and The Economist**. Recognition at **Sundance and Cannes**; a **Grierson Award-winning** film. Notable cuts include *Jinnah* (Christopher Lee), *The Bengali Detective*, *World's Toughest Forces*, *Johnny vs Amber* (Discovery+), *The Russell Murders* (Sky Documentaries), and *Democracy in Flames*. Founded WIDEI Films at Ealing Studios in 2004.
+
+**Technologist — software for the people who make screen work.** In **2009** launched **Skylight** (skylightit.com), a cloud SaaS for project management, tasks, time billing, and invoicing — covered by BBC News, The Guardian, and the FT. In **2017** joined **Outlier Ventures**, working on *Money Circles*, *Buy.co*, and *OpenData* — fintech, public-sector procurement, and big-data projects built on blockchain and ML/AI. Today, leads the **AI automation, agentic workflow design, and prompt engineering** work powering CineArt AI's products (CineSmith and CineSmithPro). Computer pioneer since the ZX Spectrum / Commodore 64 days. Holds an active pilot's licence.
+
+**Entrepreneurial.** A consistent track record of building companies across screen and software — WIDEI Films (Ealing Studios, 2004), Blueberry Creative (TV/film talent agency, scaled to £7m+ turnover), Skylightit.com (2009), Skylight Interactive (digital operations and process automation on AWS for clients including UK ports, AMEY, Royal Mail), Creative Development Academy (emerging-filmmaker training with the Documentary Filmmakers Group, Rose Bruford College, and the Royal Film Commission of Jordan), CineArt AI (2024), and CineSmith / CineSmithPro (current).
+
+This is the reason CineSmithPro isn't a wrapper. The pipeline knowledge from the cutting room and the engineering hands of a working technologist sit in the same person.
+
+Profile sources (canonical):
+- https://www.cineartai.com/taimur-khan/ (CineArt AI profile)
+- https://taimurkhan.com/ (personal site)
+- https://www.linkedin.com/in/khantaimur/ (LinkedIn)
+- https://cinesmith.io/team/ (CineSmith team page)
+
 ## Operating company
 
 CineArt AI Limited
 85 Great Portland Street, London W1W 7LT
 Registered in England and Wales
+Founder: Taimur Khan (https://www.cineartai.com/taimur-khan/)
 General: cinesmith@cineartai.com
 Press: press@cineartai.com
 
@@ -62,3 +83,4 @@ Press: press@cineartai.com
 
 - [CineSmith](https://cinesmith.io) — sister product, separate from this Premiere panel
 - [CineArt AI](https://www.cineartai.com) — parent company / production studio
+- [Taimur Khan profile](https://www.cineartai.com/taimur-khan/) — founder bio + credits
