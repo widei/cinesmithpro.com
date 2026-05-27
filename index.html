@@ -6,16 +6,141 @@
 <title>CineSmithPro — Save the hours. Make the cut.</title>
 <meta name="description" content="An editor's companion inside Adobe Premiere Pro. AI does the scrubbing, searching, and assembly. You stay in the creative seat. Coming soon — waitlist open.">
 <meta name="theme-color" content="#18181B">
+<meta name="author" content="CineArt AI Limited">
 <link rel="canonical" href="https://cinesmithpro.com/">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
+<!-- Favicon + icons -->
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="CineSmithPro — Save the hours. Make the cut.">
-<meta property="og:description" content="An editor's companion inside Adobe Premiere Pro. Coming soon — waitlist open.">
+<meta property="og:description" content="An editor's companion inside Adobe Premiere Pro. 47+ AI tools threaded through your edit. Coming soon — waitlist open.">
 <meta property="og:url" content="https://cinesmithpro.com/">
 <meta property="og:site_name" content="CineSmithPro">
 <meta property="og:locale" content="en_GB">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://cinesmithpro.com/assets/og.png">
+<meta property="og:image:secure_url" content="https://cinesmithpro.com/assets/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CineSmithPro — Save the hours. Make the cut. An editor's companion inside Adobe Premiere Pro.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CineSmithPro — Save the hours. Make the cut.">
+<meta name="twitter:description" content="An editor's companion inside Adobe Premiere Pro. 47+ AI tools threaded through your edit.">
+<meta name="twitter:image" content="https://cinesmithpro.com/assets/og.png">
+<meta name="twitter:image:alt" content="CineSmithPro — an editor's companion inside Adobe Premiere Pro.">
+
+<!-- Structured data: Organisation, Software, Founder -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cinesmithpro.com/#organization",
+      "name": "CineArt AI Limited",
+      "alternateName": "CineArt AI",
+      "url": "https://www.cineartai.com",
+      "logo": "https://cinesmithpro.com/assets/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "85 Great Portland Street",
+        "addressLocality": "London",
+        "postalCode": "W1W 7LT",
+        "addressCountry": "GB"
+      },
+      "email": "press@cineartai.com",
+      "founder": { "@id": "https://cineartai.com/taimur-khan/#person" },
+      "foundingLocation": "London, United Kingdom",
+      "sameAs": [
+        "https://www.cineartai.com",
+        "https://cinesmith.io",
+        "https://github.com/widei"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://cineartai.com/taimur-khan/#person",
+      "name": "Taimur Khan",
+      "givenName": "Taimur",
+      "familyName": "Khan",
+      "jobTitle": "Founder, CineArt AI Limited",
+      "url": "https://www.cineartai.com/taimur-khan/",
+      "sameAs": [
+        "https://www.cineartai.com/taimur-khan/",
+        "https://taimurkhan.com/",
+        "https://www.linkedin.com/in/khantaimur/",
+        "https://twitter.com/khantaimur",
+        "https://cinesmith.io/team/"
+      ],
+      "worksFor": { "@id": "https://cinesmithpro.com/#organization" },
+      "founderOf": [
+        { "@type": "Organization", "name": "CineArt AI Limited" },
+        { "@type": "Organization", "name": "WIDEI Films" },
+        { "@type": "Organization", "name": "Skylight (skylightit.com)" },
+        { "@type": "Organization", "name": "Blueberry Creative" }
+      ],
+      "knowsAbout": [
+        "Film editing", "Documentary editorial", "Drama series editorial",
+        "Adobe Premiere Pro", "Avid Media Composer", "DaVinci Resolve",
+        "Agentic AI", "Prompt engineering", "AI workflow design"
+      ],
+      "award": ["Grierson Award", "Sundance Film Festival recognition", "Cannes Film Festival recognition"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cinesmithpro.com/#website",
+      "url": "https://cinesmithpro.com/",
+      "name": "CineSmithPro",
+      "description": "An editor's companion that lives inside Adobe Premiere Pro (Resolve and Avid coming soon).",
+      "publisher": { "@id": "https://cinesmithpro.com/#organization" },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://cinesmithpro.com/#product",
+      "name": "CineSmithPro",
+      "alternateName": "CineSmithPro Panel for Adobe Premiere Pro",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "VideoEditing",
+      "operatingSystem": "Adobe Premiere Pro (Avid, DaVinci Resolve coming soon)",
+      "description": "An editor's companion inside Adobe Premiere Pro. 47+ AI tools threaded through the edit: transcript search and semantic find, rough assembly, video extension and generation, voice cloning, image generation, sync-cut multicam, best-sheet selects, footage restoration, auto reframe. One subscription = two seats (editor in Premiere + EP web companion).",
+      "url": "https://cinesmithpro.com/",
+      "image": "https://cinesmithpro.com/assets/og.png",
+      "creator": { "@id": "https://cinesmithpro.com/#organization" },
+      "author": { "@id": "https://cineartai.com/taimur-khan/#person" },
+      "featureList": [
+        "Transcript search and semantic find",
+        "AI rough assembly with brief-driven structure",
+        "Video extension (generative)",
+        "Voice cloning (ADR)",
+        "Image generation (concept boards, references)",
+        "Sync-cut multicam assembly",
+        "Best-sheet automated selects",
+        "Footage restoration (denoise, deflicker, upscale, stabilise)",
+        "Auto reframe (16:9 to 9:16 / 1:1, subject-tracked)",
+        "Two seats per subscription (editor + EP web companion)"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Working editors in documentary, drama, podcasts, commercials, long-form; post houses and studios."
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder",
+        "priceCurrency": "GBP",
+        "description": "Pre-launch closed beta. Waitlist open; first fifty working editors shape the platform."
+      }
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

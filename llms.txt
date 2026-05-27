@@ -48,8 +48,6 @@ CineSmithPro is a forthcoming Adobe Premiere Pro panel from CineArt AI Limited (
 
 Pre-launch, v0.7 beta. Waitlist open at https://cinesmithpro.com. The first fifty working editors with active doc, drama, or podcast briefs shape the platform — they get prioritised access. Pricing announced at launch. Studios and post houses managed tier from Q3 2026.
 
-The homepage routes visitors automatically: light theme during local daytime (06:00–18:00 visitor time), dark theme outside those hours. Both versions are functionally identical — pure aesthetic preference.
-
 ## Founder & maker
 
 CineSmithPro is built by **Taimur Khan**, Founder of CineArt AI Limited. Full profile: https://www.cineartai.com/taimur-khan/

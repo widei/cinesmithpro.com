@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- Internal template used to render /assets/og.png via Playwright at 1200x630.
+     Not linked anywhere; safe to keep in the repo for re-generation. -->
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>OG · CineSmithPro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #18181B; --ink: #F4EFE6; --ink-dim: #A8A39A; --ink-mute: #6E6A63;
+    --ember: #FF5A1F; --ember-glow: rgba(255,90,31,0.35);
+    --violet: #9B6BFF; --violet-dim: rgba(155,107,255,0.18);
+    --line: rgba(255,255,255,0.09); --line-2: rgba(255,255,255,0.16);
+  }
+  html, body { width: 1200px; height: 630px; background: var(--bg); color: var(--ink); font-family: 'Host Grotesk', sans-serif; overflow: hidden; }
+  body {
+    position: relative;
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(255,90,31,0.18), transparent 55%),
+      radial-gradient(ellipse at 18% 78%, rgba(155,107,255,0.12), transparent 50%),
+      var(--bg);
+  }
+  /* subtle grid */
+  body::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at 50% 50%, black 10%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 10%, transparent 75%);
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .top {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 16px;
+    font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 22px;
+  }
+  .brand-mark { width: 44px; height: 44px; position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .brand-mark::after {
+    content: ''; position: absolute; inset: -8px; border-radius: 50%;
+    background: radial-gradient(circle, var(--ember-glow) 0%, transparent 70%);
+    z-index: -1;
+  }
+  .brand .pro {
+    color: var(--ember); font-family: 'Instrument Serif', serif; font-style: italic;
+    font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 26px;
+    margin-left: 4px;
+  }
+  .meta {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: 'JetBrains Mono', monospace; font-size: 15px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);
+  }
+  .live { color: var(--ember); display: inline-flex; align-items: center; gap: 10px; }
+  .live::before {
+    content: ''; width: 9px; height: 9px; border-radius: 50%;
+    background: var(--ember); box-shadow: 0 0 10px var(--ember);
+  }
+  .pr-badge {
+    width: 34px; height: 34px; border-radius: 6px;
+    background: var(--violet-dim); border: 1.5px solid var(--violet); color: var(--violet);
+    font-family: 'Host Grotesk', sans-serif; font-weight: 700; font-size: 16px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+
+  .center {
+    position: relative; z-index: 2;
+  }
+  h1 {
+    font-weight: 500; font-size: 132px; line-height: 0.9;
+    letter-spacing: -0.045em;
+  }
+  h1 .strike { color: var(--ink-mute); position: relative; display: inline-block; }
+  h1 .strike::after {
+    content: ''; position: absolute; left: -2%; right: -2%; top: 54%;
+    height: 6px; background: var(--ember);
+  }
+  h1 em {
+    font-family: 'Instrument Serif', serif; font-style: italic;
+    color: var(--ember); font-weight: 400;
+  }
+  .sub {
+    margin-top: 24px;
+    font-size: 22px; color: var(--ink-dim); max-width: 880px; line-height: 1.4;
+  }
+  .sub em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--ink); font-weight: 400; }
+
+  .bot {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);
+  }
+  .bot .url { color: var(--ink); }
+  .bot .right { color: var(--ember); }
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="#F4EFE6" stroke-width="1.4"/>
+          <circle cx="16" cy="16" r="4" fill="#FF5A1F"/>
+          <line x1="16" y1="2" x2="16" y2="8" stroke="#F4EFE6" stroke-width="1.4"/>
+          <line x1="16" y1="24" x2="16" y2="30" stroke="#F4EFE6" stroke-width="1.4"/>
+          <line x1="2" y1="16" x2="8" y2="16" stroke="#F4EFE6" stroke-width="1.4"/>
+          <line x1="24" y1="16" x2="30" y2="16" stroke="#F4EFE6" stroke-width="1.4"/>
+        </svg>
+      </span>
+      CineSmith<span class="pro">Pro</span>
+    </div>
+    <div class="meta">
+      <span class="pr-badge">Pr</span>
+      Lives inside Adobe Premiere Pro
+    </div>
+  </div>
+
+  <div class="center">
+    <h1>
+      Save the <span class="strike">hours.</span><br>
+      Make the <em>cut.</em>
+    </h1>
+    <p class="sub">
+      An editor's companion inside Adobe Premiere Pro — <em>47+ AI tools</em> threaded through your edit. Giving back hours and days.
+    </p>
+  </div>
+
+  <div class="bot">
+    <span class="url">cinesmithpro.com</span>
+    <span class="live">Waitlist Open · Coming Soon</span>
+  </div>
+
+</body>
+</html>
