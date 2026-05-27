@@ -1,35 +1,64 @@
 # CineSmithPro
 
-> Save the hours. Make the cut. An AI editing companion for Adobe Premiere Pro, built for film, drama, documentary and podcast editors. AI does the heavy lifting; the editor stays in the creative seat. Coming soon — waitlist open.
+> Save the hours. Make the cut. An editor's companion that lives inside Adobe Premiere Pro. AI does the scrubbing, searching, and rough assembly. The editor stays in the creative seat. Two seats per subscription — editor in Premiere, EP on the web — both at once. Waitlist open.
 
-CineSmithPro is a forthcoming product from CineArt AI Limited (London), a companion to CineSmith (cinesmith.io) — same company, separate product, separate brand expression. Designed for working editors in post-production, not the creator-economy YouTube cohort.
+CineSmithPro is a forthcoming Adobe Premiere Pro panel from CineArt AI Limited (London), and a companion to CineSmith (cinesmith.io). Same company, separate product, separate brand expression. Designed for working editors in post-production — documentary, drama, podcast, long-form — not the creator-economy / TikTok cohort.
 
-## The promise
+## Positioning
 
-- **Hours saved.** AI handles the scrubbing, the searching, the assembly. The editor handles the creative.
-- **Transcripts come alive.** Read once; find anything inside Premiere afterwards.
-- **Two licences per seat.** The editor cuts on Premiere while their EP or assistant pulls the next sequence on the web — both at once, one licence.
-- **Much, much more.** Detailed feature list at general availability.
+- Lives **inside Adobe Premiere Pro** as a native panel — beside the timeline, not in a browser tab.
+- **No round-trips, no exports, no second timeline.** The project never leaves Adobe.
+- **Two seats per subscription** — the editor in Premiere, the EP/assistant in a web companion. They work in parallel on the same bin, transcripts, and project.
+- **Built by editors for editors.** Two decades of editorial credits, multi-broadcaster delivery, Sundance and Cannes selections, a Grierson-recognised feature.
+
+## The promise (the hours back)
+
+- **Find the line in seconds, not 90 minutes.** Every clip transcribed and speaker-labelled on ingest. Type a phrase or a feeling, get every variant across every take with in/out points ready.
+- **Hand off the rough.** Brief the panel ("32-min episode, intro + 3 acts, leave room for music beds"); it pulls selects, sequences them, lays a placeholder edit you shape.
+- **EP works alongside, not after.** Web companion (no Premiere licence required) lets the EP pull tomorrow's selects, flag clips, drop voice-over notes — lands back in the panel ready to cut.
+- **More than search.** A creative arsenal threaded into the edit, not bolted on the side (see Arsenal below).
+
+## The Arsenal (AI capabilities, all inside the panel)
+
+1. **Video extension** — extend a shot past its captured frame, generatively, into the timeline.
+2. **Voice cloning** — patch a flubbed word, drop a clean re-read, fill the ADR gap. Speaker-faithful, frame-accurate.
+3. **Image generation** — concept boards, lookups, stills, references — generated to brief, dropped into the bin labelled and project-tagged.
+4. **Sync-cut assembly** — multicam aligned, takes locked, dialogue snapped to script, music bed laid in.
+5. **Best sheet** — hand it every transcript in the project, get back a ranked best-of with timecodes and emotional context.
+6. **Deep find** — semantic search beyond words. "The moment she gets emotional." "The bit that breaks the tension."
+7. **Video generation** — net-new shots from a prompt or a still. Pickups, inserts, cutaways.
+8. **Footage restoration** — denoise, deflicker, upscale, stabilise. Archive-grade.
+9. **Auto reframe** — one cut, every aspect. 16:9 → 9:16 / 1:1, subject-tracked, never just letterboxed.
 
 ## Who it is for
 
-- Documentary editors
-- Drama series editors
-- Podcast editors
-- Post houses and studios
+- Documentary editors (90-minute interview → 22-minute cut)
+- Drama series editors (multicam, long form)
+- Podcast editors (talking head, social cutdowns)
+- Post houses and studios (managed tier, SSO, seat-scale)
+
+## What it is not
+
+- Not auto-edit. The creative seat stays the editor's.
+- Not a separate website. The panel mounts inside Premiere.
+- Not a creator-tier toy. Built for working editors with doc/drama/long-form briefs.
+- Not priced per head. One subscription = two seats (editor + EP).
 
 ## Status
 
-Pre-launch. Waitlist now open at https://cinesmithpro.com. First fifty working editors get prioritised access. Pricing and full feature list announced at launch.
+Pre-launch, v0.7 beta. Waitlist open at https://cinesmithpro.com. The first fifty working editors with active doc, drama, or podcast briefs shape the platform — they get prioritised access. Pricing announced at launch. Studios and post houses managed tier from Q3 2026.
+
+The homepage routes visitors automatically: light theme during local daytime (06:00–18:00 visitor time), dark theme outside those hours. Both versions are functionally identical — pure aesthetic preference.
 
 ## Operating company
 
 CineArt AI Limited
 85 Great Portland Street, London W1W 7LT
 Registered in England and Wales
-Press: press@cineartai.com · +44 7958 707232
+General: cinesmith@cineartai.com
+Press: press@cineartai.com
 
 ## Related products
 
-- [CineSmith](https://cinesmith.io) — sister product, separate from this plugin
+- [CineSmith](https://cinesmith.io) — sister product, separate from this Premiere panel
 - [CineArt AI](https://www.cineartai.com) — parent company / production studio
