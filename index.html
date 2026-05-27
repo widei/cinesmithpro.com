@@ -216,17 +216,27 @@
     opacity: 0.5;
   }
 
+  /* Make .hero the positioning context for the meta strip
+     (otherwise abs-positioning would use the flex-centred .wrap) */
+  .hero > .wrap { position: static; }
   .hero-meta {
+    position: absolute;
+    top: 86px;                 /* sit just under the fixed nav */
+    left: 0; right: 0;
+    width: auto;
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 56px;
     font-family: var(--f-mono);
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-mute);
+    z-index: 3;
   }
   .hero-meta .left { display: flex; align-items: center; gap: 14px; }
   .hero-meta .live {
@@ -623,7 +633,7 @@
 
     .hero { padding: 130px 0 60px; }
     .hero-row { grid-template-columns: 1fr; gap: 40px; }
-    .hero-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .hero-meta { top: 70px; padding: 0 22px; flex-direction: column; align-items: flex-start; gap: 10px; }
     .hero-meta .divider { display: none; }
 
     .section { padding: 80px 0; }
