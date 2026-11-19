@@ -138,3 +138,10 @@
 .tx-smithy { overflow-y: auto; scrollbar-width: none; scroll-behavior: smooth; }
 .tx-smithy::-webkit-scrollbar { display: none; }
 .tx-chips { max-height: 184px; }
+
+/* Play buttons on transcript lines and selects, matching the main demo. */
+.csp-tx .csp-play { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--c-hair); color: var(--c-mute); font-size: 8px; line-height: 1; vertical-align: 1px; }
+.tx-line .tc .csp-play { width: 15px; height: 15px; font-size: 7px; margin-right: 6px; }
+.tx-chip { grid-template-columns: 22px 20px 196px 1fr auto; }
+.tx-chip .csp-play { border-color: rgba(249,115,22,.5); color: var(--c-orange); }
+@media (max-width: 760px) { .tx-chip { grid-template-columns: 18px 20px 1fr; } }

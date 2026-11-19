@@ -127,7 +127,7 @@
     var r = el('div', 'tx-line');
     r.setAttribute('data-in', '');
     r.innerHTML = '<span class="who' + (l[0] === 'REPORTER' ? ' rep' : '') + '">' + l[0] + '</span>' +
-      '<span class="tc mono">' + l[1] + '</span>' +
+      '<span class="tc mono"><span class="csp-play">&#9654;</span>' + l[1] + '</span>' +
       '<span class="txt">' + l[2].split(' ').map(function (w) { return '<span>' + w + '</span>'; }).join(' ') + '</span>';
     return r;
   }
@@ -237,7 +237,7 @@
       pop.classList.remove('in'); park(); row.classList.add('added');
       empty.remove();
       var q = Array.prototype.slice.call(words, 0, SEL_TO + 1).map(function (w) { return w.textContent; }).join(' ').replace(/,$/, '.');
-      var c = el('div', 'tx-chip', '<span class="n mono">1.</span><span class="tc mono">00:04:12:08 – 00:04:16:02</span><span class="q">“' + q + '”</span><span class="who">Council leader</span>');
+      var c = el('div', 'tx-chip', '<span class="n mono">1.</span><span class="csp-play">&#9654;</span><span class="tc mono">00:04:12:08 – 00:04:16:02</span><span class="q">“' + q + '”</span><span class="who">Council leader</span>');
       c.setAttribute('data-in', ''); chips.appendChild(c); later(function () { c.classList.add('in'); }, 20);
       zoom($('.tx-selects'), 1.3);
       say(3, 'In your selects, with its timecode', true);
@@ -303,7 +303,7 @@
       park(); sm.classList.remove('in');
       SUGGEST.forEach(function (x, k) {
         later(function () {
-          var c = el('div', 'tx-chip', '<span class="n mono">' + (k + 2) + '.</span><span class="tc mono">' + x[1] + '</span><span class="q">“' + x[2] + '”</span><span class="who">' + x[3] + '</span>');
+          var c = el('div', 'tx-chip', '<span class="n mono">' + (k + 2) + '.</span><span class="csp-play">&#9654;</span><span class="tc mono">' + x[1] + '</span><span class="q">“' + x[2] + '”</span><span class="who">' + x[3] + '</span>');
           c.setAttribute('data-in', ''); chips.appendChild(c); later(function () { c.classList.add('in'); }, 20);
         }, k * 250);
       });

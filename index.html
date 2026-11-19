@@ -776,6 +776,18 @@
   .trust h3 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--ember); }
   .trust-body p { color: var(--ink-dim); font-size: 17px; line-height: 1.6; margin: 0 0 14px; }
   .trust-body a { color: var(--ember); text-decoration: underline; text-underline-offset: 3px; }
+  .trust-side { align-self: start; position: sticky; top: 96px; }
+  .trust-ex { margin-top: 28px; display: grid; gap: 10px; }
+  .trust-ex .lbl { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 6px; }
+  .trust-ex .card { border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; background: rgba(255,255,255,0.02); }
+  .trust-ex .dead p { margin: 0; color: rgba(255,255,255,0.32); font-size: 15px; line-height: 1.5; }
+  .trust-ex .live { border-color: rgba(249,115,22,.35); background: rgba(249,115,22,.05); }
+  .trust-ex .live p { margin: 0 0 10px; font-size: 15px; line-height: 1.5; }
+  .trust-ex .live mark { background: rgba(249,115,22,.22); color: inherit; border-radius: 2px; padding: 0 2px; }
+  .trust-ex .meta { font-family: ui-monospace, monospace; font-size: 11px; color: var(--ink-dim); margin-bottom: 6px; }
+  .trust-ex .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .trust-ex .tags span { font-size: 12px; padding: 3px 8px; border-radius: 99px; border: 1px solid rgba(249,115,22,.4); color: var(--ember); }
+  @media (max-width: 760px) { .trust-side { position: static; } }
   @media (max-width: 760px) { .trust { grid-template-columns: 1fr; gap: 18px; margin-top: 48px; padding-top: 28px; } .trust-body p { font-size: 16px; } }
 </style>
 <!-- Demo version switch: v3 by default; ?demo=v1 or ?demo=v2 loads an earlier version. -->
@@ -912,7 +924,17 @@
 
     <!-- Accuracy: Smithy is grounded the same way as Sentinel -->
     <div class="trust reveal">
-      <h3>Transcripts are dead text. <em>Smithy brings them to life.</em></h3>
+      <div class="trust-side">
+        <h3>Transcripts are dead text. <em>Smithy brings them to life.</em></h3>
+        <div class="trust-ex" aria-label="Example: one transcript line, before and after Smithy">
+          <div class="card dead"><div class="lbl">A normal transcript</div><p>We started that work in 2019 and we didn&rsquo;t finish it. That&rsquo;s on us.</p></div>
+          <div class="card live"><div class="lbl">With Smithy</div>
+            <div class="meta">COUNCIL LEADER &middot; 00:01:17:20</div>
+            <p>We started that work in 2019 and&hellip; <mark>we didn&rsquo;t finish it. That&rsquo;s on us.</mark></p>
+            <div class="tags"><span>Pause before the admission</span><span>Regret</span><span>Contradicts 00:03:02</span><span>Strong select</span></div>
+          </div>
+        </div>
+      </div>
       <div class="trust-body">
         <p>On a long-form job, the story can be hours deep in the rushes. A normal transcript gives you the words, but not the context, the hesitation, the contradiction or the moment that makes a scene work. So the scrubbing, logging and re-listening still fall to you.</p>
         <p>Smithy reads your footage with an editor&rsquo;s eye. It follows ideas across interviews, hears what sits between the lines, and finds the beats, quotes and selects where the emotion carries the story. Every answer comes from your own rushes, linked to the exact words, speaker and timecode. No invented quotes. No answers without evidence.</p>
