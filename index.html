@@ -777,16 +777,23 @@
   .trust-body p { color: var(--ink-dim); font-size: 17px; line-height: 1.6; margin: 0 0 14px; }
   .trust-body a { color: var(--ember); text-decoration: underline; text-underline-offset: 3px; }
   .trust-side { align-self: start; position: sticky; top: 96px; }
-  .trust-ex { margin-top: 28px; display: grid; gap: 10px; }
-  .trust-ex .lbl { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 6px; }
-  .trust-ex .card { border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; background: rgba(255,255,255,0.02); }
-  .trust-ex .dead p { margin: 0; color: rgba(255,255,255,0.32); font-size: 15px; line-height: 1.5; }
-  .trust-ex .live { border-color: rgba(249,115,22,.35); background: rgba(249,115,22,.05); }
-  .trust-ex .live p { margin: 0 0 10px; font-size: 15px; line-height: 1.5; }
-  .trust-ex .live mark { background: rgba(249,115,22,.22); color: inherit; border-radius: 2px; padding: 0 2px; }
-  .trust-ex .meta { font-family: ui-monospace, monospace; font-size: 11px; color: var(--ink-dim); margin-bottom: 6px; }
-  .trust-ex .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .trust-ex .tags span { font-size: 12px; padding: 3px 8px; border-radius: 99px; border: 1px solid rgba(249,115,22,.4); color: var(--ember); }
+  .trust-chat { margin-top: 28px; display: grid; gap: 12px; min-height: 330px; align-content: start; font-size: 14.5px; line-height: 1.45; }
+  .trust-chat .msg { border-radius: 12px; padding: 12px 14px; opacity: 0; transform: translateY(8px); transition: opacity .4s, transform .4s; }
+  .trust-chat .msg.in { opacity: 1; transform: none; }
+  .trust-chat .you { justify-self: end; max-width: 85%; background: rgba(255,255,255,0.08); min-height: 1.45em; }
+  .trust-chat .you .typed::after { content: "|"; opacity: .6; margin-left: 1px; }
+  .trust-chat .you.done .typed::after { content: ""; }
+  .trust-chat .smithy { border: 1px solid rgba(249,115,22,.35); background: rgba(249,115,22,.05); }
+  .trust-chat .who { font-size: 11px; letter-spacing: .12em; color: var(--ember); margin-bottom: 6px; }
+  .trust-chat .dots { display: flex; gap: 5px; padding: 4px 0; }
+  .trust-chat .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--ember); animation: tc-dot 1s infinite ease-in-out; }
+  .trust-chat .dots i:nth-child(2) { animation-delay: .15s; } .trust-chat .dots i:nth-child(3) { animation-delay: .3s; }
+  @keyframes tc-dot { 50% { opacity: 1; transform: translateY(-3px); } 0%, 100% { opacity: .3; } }
+  .trust-chat .ans { display: none; } .trust-chat .ans p { margin: 0 0 8px; color: var(--ink-dim); }
+  .trust-chat .hit { display: grid; gap: 2px; padding: 8px 10px; margin-top: 6px; border-radius: 8px; background: rgba(0,0,0,.35); opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; }
+  .trust-chat .hit.in { opacity: 1; transform: none; }
+  .trust-chat .hit .tc { font-family: ui-monospace, monospace; font-size: 11px; color: var(--ink-dim); }
+  .trust-chat .hit .tag { justify-self: start; font-size: 11.5px; padding: 1px 8px; border-radius: 99px; border: 1px solid rgba(249,115,22,.4); color: var(--ember); margin-top: 3px; }
   @media (max-width: 760px) { .trust-side { position: static; } }
   @media (max-width: 760px) { .trust { grid-template-columns: 1fr; gap: 18px; margin-top: 48px; padding-top: 28px; } .trust-body p { font-size: 16px; } }
 </style>
@@ -926,12 +933,17 @@
     <div class="trust reveal">
       <div class="trust-side">
         <h3>Transcripts are dead text. <em>Smithy brings them to life.</em></h3>
-        <div class="trust-ex" aria-label="Example: one transcript line, before and after Smithy">
-          <div class="card dead"><div class="lbl">A normal transcript</div><p>We started that work in 2019 and we didn&rsquo;t finish it. That&rsquo;s on us.</p></div>
-          <div class="card live"><div class="lbl">With Smithy</div>
-            <div class="meta">COUNCIL LEADER &middot; 00:01:17:20</div>
-            <p>We started that work in 2019 and&hellip; <mark>we didn&rsquo;t finish it. That&rsquo;s on us.</mark></p>
-            <div class="tags"><span>Pause before the admission</span><span>Regret</span><span>Contradicts 00:03:02</span><span>Strong select</span></div>
+        <div class="trust-chat" aria-label="Example: asking Smithy for emotional sync across interviews">
+          <div class="msg you"><span class="typed"></span></div>
+          <div class="msg smithy">
+            <div class="who">SMITHY</div>
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="ans">
+              <p>Found 3 moments across 2 interviews:</p>
+              <div class="hit"><span class="tc">00:04:12 &middot; Council leader</span><span class="q">&ldquo;That&rsquo;s on us. I should have said it sooner.&rdquo;</span><span class="tag">Voice breaks</span></div>
+              <div class="hit"><span class="tc">00:02:14 &middot; Resident</span><span class="q">&ldquo;Three times. Three times since I moved in.&rdquo;</span><span class="tag">Anger, then tears</span></div>
+              <div class="hit"><span class="tc">00:07:41 &middot; Resident</span><span class="q">&ldquo;My daughter still won&rsquo;t sleep when it rains.&rdquo;</span><span class="tag">Long pause</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1098,5 +1110,29 @@
   (function () { var s = document.createElement("script"); s.src = "assets/demo" + window.CSP_DEMO + ".js"; document.body.appendChild(s); })();
 </script>
 <script src="assets/transcript-demo.js" defer></script>
+<script>
+/* Accuracy block: a short looping chat, someone asks Smithy for emotional sync. Plays once in view, then loops. */
+(function () {
+  var box = document.querySelector('.trust-chat'); if (!box) return;
+  var you = box.querySelector('.you'), typed = you.querySelector('.typed'), sm = box.querySelector('.smithy'),
+      dots = sm.querySelector('.dots'), ans = sm.querySelector('.ans'), hits = ans.querySelectorAll('.hit');
+  var Q = 'Find me sync where the interviewees get emotional. I remember there were a few.';
+  function run() {
+    you.classList.remove('done'); sm.classList.remove('in'); dots.style.display = ''; ans.style.display = 'none';
+    hits.forEach(function (h) { h.classList.remove('in'); }); typed.textContent = ''; you.classList.add('in');
+    var i = 0, t = setInterval(function () {
+      typed.textContent = Q.slice(0, ++i);
+      if (i >= Q.length) { clearInterval(t); you.classList.add('done');
+        setTimeout(function () { sm.classList.add('in'); }, 400);
+        setTimeout(function () { dots.style.display = 'none'; ans.style.display = 'block';
+          hits.forEach(function (h, k) { setTimeout(function () { h.classList.add('in'); }, 200 + k * 450); }); }, 2000);
+        setTimeout(function () { you.classList.remove('in'); sm.classList.remove('in'); }, 11000);
+        setTimeout(run, 11800);
+      }
+    }, 38);
+  }
+  new IntersectionObserver(function (e, o) { if (e[0].isIntersecting) { o.disconnect(); run(); } }, { threshold: 0.3 }).observe(box);
+})();
+</script>
 </body>
 </html>
