@@ -771,9 +771,9 @@
     .footer-legal { flex-direction: column; gap: 10px; align-items: flex-start; }
   }
 </style>
-<!-- Demo version switch: v1 by default, ?demo=v2 loads the v2 files (side-by-side review). -->
+<!-- Demo version switch: v1 by default; ?demo=v2 or ?demo=v3 loads that version (side-by-side review). -->
 <script>
-  window.CSP_DEMO = /[?&]demo=v2(&|$)/.test(location.search) ? "-v2" : "";
+  window.CSP_DEMO = (function (m) { return m ? "-" + m[1] : ""; })(/[?&]demo=(v[23])(&|$)/.exec(location.search));
   document.write('<link rel="stylesheet" href="assets/demo' + window.CSP_DEMO + '.css">');
 </script>
 </head>
