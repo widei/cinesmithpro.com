@@ -78,3 +78,63 @@
   .tx-chip { grid-template-columns: 18px 1fr; }
   .tx-chip .tc, .tx-chip .who { display: none; }
 }
+
+/* Long transcript: the panel scrolls (scrollbar hidden), fading at the bottom edge. */
+.tx-lines { overflow-y: auto; scrollbar-width: none; scroll-behavior: smooth;
+  -webkit-mask-image: linear-gradient(#000 calc(100% - 48px), transparent); mask-image: linear-gradient(#000 calc(100% - 48px), transparent); }
+.tx-lines::-webkit-scrollbar { display: none; }
+.tx-lines { gap: 8px; }
+
+/* Hold the body to the frame so the long transcript scrolls instead of spilling. */
+.csp-tx .tx-body { grid-template-rows: minmax(0, 1fr); }
+.tx-main { min-height: 0; overflow: hidden; }
+.tx-bin { min-height: 0; overflow: hidden; }
+
+/* Multi-file drop: a stacked card, a list of files, the open one marked. */
+.tx-drag { box-shadow: 5px 5px 0 -1px var(--c-raised), 5px 5px 0 0 #3a3a42, 10px 10px 0 -1px var(--c-raised), 10px 10px 0 0 #3a3a42, 0 16px 40px rgba(0,0,0,.6); font-weight: 600; }
+.tx-drag small { font-weight: 400; line-height: 1.5; }
+.tx-files { display: grid; gap: 6px; }
+.tx-file.open { border-color: var(--c-orange); }
+@media (max-width: 760px) {
+  .csp-tx .tx-body { grid-template-rows: auto minmax(0, 1fr); }
+  .tx-bin { flex-direction: column; align-items: stretch; }
+  .tx-files { grid-template-columns: 1fr 1fr; gap: 5px; }
+  .tx-file { padding: 6px; font-size: 10.5px; }
+  .tx-file .st { margin-top: 3px; font-size: 9.5px; }
+  .tx-file .tx-bar { margin-top: 4px; }
+}
+
+/* 05 Ask Smithy: answer panel slides over the transcript from the right. */
+.tx-file { min-width: 0; }
+.csp-tx .tx-body { position: relative; }
+.tx-smithy { position: absolute; z-index: 3; top: 12px; right: 12px; bottom: 12px; width: min(440px, 52%); overflow: hidden;
+  background: var(--c-orange-soft); border: 1px solid rgba(249,115,22,.4); border-radius: 10px; padding: 14px 16px;
+  box-shadow: -20px 0 60px rgba(0,0,0,.55); transform: translateX(24px); opacity: 0; transition: transform .4s cubic-bezier(.2,.8,.2,1), opacity .3s; }
+.tx-smithy.in { transform: none; opacity: 1; }
+.tx-smithy .who { font-size: 10.5px; letter-spacing: .1em; color: var(--c-orange); margin-bottom: 6px; }
+.tx-smithy .ask { color: var(--c-soft); font-size: 12.5px; margin-bottom: 10px; }
+.tx-smithy .ask b { color: var(--c-ink); background: rgba(96,140,255,.3); border-radius: 2px; padding: 0 2px; }
+.tx-smithy .dots { display: flex; gap: 5px; padding: 6px 0; }
+.tx-smithy .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--c-orange); animation: tx-dot 1s infinite ease-in-out; }
+.tx-smithy .dots i:nth-child(2) { animation-delay: .15s; } .tx-smithy .dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes tx-dot { 0%, 100% { opacity: .25; transform: none; } 50% { opacity: 1; transform: translateY(-3px); } }
+.tx-smithy p { margin: 0 0 8px; font-size: 13px; line-height: 1.45; }
+.tx-smithy .men { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 4px; }
+.tx-smithy .men li { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; color: var(--c-soft); padding: 5px 8px; background: rgba(10,10,12,.55); border-radius: 4px; }
+.tx-smithy .men li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tx-smithy .men li b { color: var(--c-orange); }
+.tx-smithy .sug { display: grid; gap: 6px; margin-bottom: 10px; }
+.tx-smithy .sg { display: grid; gap: 2px; padding: 7px 9px; background: rgba(10,10,12,.6); border: 1px solid var(--c-hair); border-radius: 6px; }
+.tx-smithy .sg .tc { font-size: 10px; color: var(--c-mute); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tx-smithy .sg .q { font-size: 12.5px; line-height: 1.4; }
+.tx-smithy .sg .by { font-size: 10.5px; color: var(--c-dim); }
+.tx-smithy .addall { display: inline-block; border: 1px solid var(--c-orange); color: var(--c-orange); padding: 5px 10px; border-radius: 4px; font-size: 12px; transition: all .15s; }
+.tx-smithy .addall.press { background: var(--c-orange); color: #0a0a0c; transform: scale(.95); }
+.tx-chips { max-height: 150px; overflow: hidden; }
+@media (max-width: 760px) {
+  .tx-smithy { left: 8px; right: 8px; top: 8px; bottom: 8px; width: auto; padding: 12px; }
+  .tx-smithy .sg .tc { display: none; }
+}
+.tx-smithy { overflow-y: auto; scrollbar-width: none; scroll-behavior: smooth; }
+.tx-smithy::-webkit-scrollbar { display: none; }
+.tx-chips { max-height: 184px; }
