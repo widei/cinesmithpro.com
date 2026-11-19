@@ -32,6 +32,12 @@
   .csp-wl .ok { display: none; } .csp-wl .ok.show { display: block; }
   .csp-wl .ok strong { display: block; margin-bottom: 6px; }
   @media (max-width: 520px) { .csp-wl form { flex-direction: column; border-radius: 16px; } }
+  .band-insi .members { margin-top: 0; padding-top: 0; border-top: 0; }
+  .insi-cta { margin-top: 32px; text-align: center; color: #fff; }
+  .insi-cta p { margin: 0 0 16px; font-size: 18px; color: #fff; }
+  .insi-cta .actions { justify-content: center; }
+  .insi-cta .insi-out { border: 1px solid rgba(255,255,255,.6); color: #fff; }
+  .insi-cta .by { margin: 14px 0 0; font-size: 14px; color: #c6d2e4; }
 </style>
 </head>
 <body>
@@ -42,11 +48,7 @@
     <div class="hero-copy">
       <h1 id="hero-h">Agentic AI intelligence,<br> built for journalist safety.</h1>
       <p class="lede">Sentinel's autonomous AI agents monitor official announcements, the news cycle and the online information environment around the clock — analysing what they find and turning it into alerts and briefings that help newsrooms anticipate risk and keep reporters safe in the field.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#demo">See it work</a>
-        <a class="btn btn-quiet" href="https://sentinel-insi.org" target="_blank" rel="noopener noreferrer">Visit sentinel-insi.org &#8599;</a>
-      </div>
-      <p class="cta-note">Built by CineArt AI, the team behind CineSmithPro.</p>
+      
     </div>
 
     <figure class="map-panel" aria-label="Example of the Sentinel map with a pinned alert">
@@ -85,19 +87,16 @@
 <!-- INSI -->
 <section class="band band-insi" id="insi" aria-labelledby="insi-h">
   <div class="wrap">
-    <div class="insi">
-      <div>
-        <h2 class="h2" id="insi-h">Provided by the International News Safety Institute</h2>
-        <p class="body-lg">INSI is the news industry's coalition for the safety of journalists and media workers. Its members include many of the world's leading news organisations. Sentinel extends that safety mission into the information environment, because knowing what is coming is the first layer of protection.</p>
-      </div>
-      <div class="insi-side">
-        <p class="insi-note">For INSI members, Sentinel is a member service. INSI provides it to member newsrooms as part of its work for the safety of journalists.</p>
-        <a class="insi-link" href="https://newssafety.org/" target="_blank" rel="noopener">More about INSI at newssafety.org &rarr;</a>
-      </div>
-    </div>
-
     <div class="members">
       <div class="member-strip" id="member-strip" role="group" aria-label="INSI members"></div>
+    </div>
+    <div class="insi-cta">
+      <p>Available to INSI member newsrooms.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#demo">See it work</a>
+        <a class="btn insi-out" href="https://sentinel-insi.org" target="_blank" rel="noopener noreferrer">Visit sentinel-insi.org &#8599;</a>
+      </div>
+      <p class="by">Built by CineArt AI, the team behind CineSmithPro.</p>
     </div>
   </div>
 </section>
