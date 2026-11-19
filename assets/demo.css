@@ -139,3 +139,7 @@
   .csp-beat { grid-template-columns: 1fr; }
   .csp-find { grid-row: auto; justify-self: start; }
 }
+
+/* Camera: demo.js scales/translates this layer to push in on the current
+   action and pull back out, so the eye follows the work. */
+.csp-cam { position: relative; transform-origin: 0 0; transition: transform 1.1s cubic-bezier(.65,0,.25,1); will-change: transform; }

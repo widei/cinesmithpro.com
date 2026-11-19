@@ -46,11 +46,43 @@
   function show(e, ms) { later(function () { e.classList.add('in'); }, ms); }
   function step(i) { steps.forEach(function (s, k) { s.classList.toggle('on', k === i); }); }
 
-  // Move the fake pointer onto an element (coordinates relative to the mock).
+  // ── Camera ───────────────────────────────────────────────
+  // The whole mock sits in .csp-cam (transform-origin 0 0). zoom() pushes in
+  // on one element; wide() pulls back out. Positions are measured in the
+  // camera's own (unscaled) space: screen offset ÷ current scale.
+  var cam = $('.csp-cam'), camScale = 1;
+  var phone = matchMedia('(max-width: 760px)');
+
+  // Layout position inside the camera, unaffected by any transform in flight
+  // (.csp-cam is position:relative, so the offsetParent chain ends there).
+  function local(target) {
+    var x = 0, y = 0, n = target;
+    while (n && n !== cam) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+    return { x: x, y: y, w: target.offsetWidth, h: target.offsetHeight };
+  }
+
+  // anchor 'left': frame the element's start edge (for wide things like the
+  // composer or timeline, whose action begins at the left); default centres it.
+  function zoom(target, s, anchor) {
+    if (!cam) return;
+    if (phone.matches) return;   // phones: the mock already fills the screen; zooming only crops it
+    var p = local(target), W = root.clientWidth, H = root.clientHeight;
+    var tx = anchor === 'left' ? -(p.x - 24) * s : W / 2 - (p.x + p.w / 2) * s;
+    var ty = H / 2 - (p.y + p.h / 2) * s;
+    tx = Math.min(0, Math.max(W - W * s, tx));   // never show past the frame edge
+    ty = Math.min(0, Math.max(H - cam.offsetHeight * s, ty));
+    camScale = s;
+    cam.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + s + ')';
+  }
+
+  function wide() { if (!cam) return; camScale = 1; cam.style.transform = ''; }
+
+  // Move the fake pointer onto an element. The pointer lives inside the camera,
+  // so it is placed in camera space and zooms with everything else.
   function pointAt(target) {
-    var r = root.getBoundingClientRect(), t = target.getBoundingClientRect();
+    var p = local(target);
     cursor.style.opacity = '1';
-    cursor.style.transform = 'translate(' + (t.left - r.left + t.width * 0.55) + 'px,' + (t.top - r.top + t.height * 0.55) + 'px)';
+    cursor.style.transform = 'translate(' + (p.x + p.w * 0.55) + 'px,' + (p.y + p.h * 0.55) + 'px)';
   }
 
   function setHost(name) {
@@ -65,6 +97,7 @@
     head.style.transition = 'none'; head.style.left = '56px';
     nleState.textContent = 'Waiting for a batch';
     cursor.style.opacity = '0'; ship.classList.remove('press');
+    wide();
   }
 
   function beatCard(b, i) {
@@ -127,58 +160,71 @@
   function play() {
     reset();
     setHost(HOSTS[loop % HOSTS.length]);
-    var t = 400;
+    var t = 900;   // a beat on the wide shot first, so viewers see the whole app
+    var composer = $('.csp-composer'), chat = $('.csp-chat');
+    var batch = $('.csp-batch'), nle = $('.csp-nle');
 
-    // 1. Type the request.
+    // 1. Push in on the composer and type the request.
     step(0);
+    later(function () { zoom(composer, 1.7, 'left'); }, t);
+    t += 1100;
     PROMPT.split('').forEach(function (ch, i) { later(function () { typed.textContent += ch; }, t + i * 38); });
     t += PROMPT.length * 38 + 300;
-    later(function () { pointAt(sendBtn); }, t - 200);
-    later(function () { sendBtn.classList.add('press'); }, t + 500);
+    later(function () { zoom(sendBtn, 1.7); }, t + 300);   // pan only once the request is fully typed
+    later(function () { pointAt(sendBtn); }, t + 1100);
+    later(function () { sendBtn.classList.add('press'); }, t + 1700);
     later(function () {
       sendBtn.classList.remove('press'); typed.textContent = '';
       var u = user(PROMPT); thread.appendChild(u); show(u, 20);
-    }, t + 700);
-    t += 1500;
+      cursor.style.opacity = '0';
+    }, t + 1900);
+    t += 2300;
 
-    // 2. Smithy returns beats, one at a time.
-    later(function () { step(1); }, t);
+    // 2. Ease back to the chat pane while Smithy returns beats, one at a time.
+    later(function () { step(1); zoom(chat, 1.2); }, t);
     var s;
-    later(function () { s = smithy(); thread.appendChild(s.node); show(s.node, 20); }, t);
+    later(function () { s = smithy(); thread.appendChild(s.node); show(s.node, 20); }, t + 300);
     BEATS.forEach(function (b, i) {
-      later(function () { var c = beatCard(b, i); s.list.appendChild(c); show(c, 20); }, t + 500 + i * 450);
+      later(function () { var c = beatCard(b, i); s.list.appendChild(c); show(c, 20); }, t + 800 + i * 450);
     });
-    t += 500 + BEATS.length * 450 + 700;
+    t += 800 + BEATS.length * 450 + 800;
 
-    // 3. Find selects on beat 1 → edit batch fills.
+    // 3. Push in on beat 1's "Find selects" and click it…
     later(function () {
       step(2);
       var f = s.list.querySelector('.csp-find');
-      pointAt(f);
-      later(function () { f.classList.add('hit'); }, 650);
+      zoom(f, 1.7);
+      later(function () { pointAt(f); }, 900);
+      later(function () { f.classList.add('hit'); }, 1600);
     }, t);
-    t += 1300;
-    later(function () { empty.style.display = 'none'; }, t);
+    t += 2100;
+    // …then pull out and settle on the edit batch as it fills.
+    later(function () { cursor.style.opacity = '0'; zoom(batch, 1.35, 'left'); empty.style.display = 'none'; }, t);
     SELECTS.forEach(function (x, i) {
-      later(function () { var r = selectRow(x, i, false); rows.appendChild(r); show(r, 20); }, t + i * 320);
+      later(function () { var r = selectRow(x, i, false); rows.appendChild(r); show(r, 20); }, t + 700 + i * 320);
     });
-    t += SELECTS.length * 320 + 700;
+    t += 700 + SELECTS.length * 320 + 700;
 
-    // 4. Send to the NLE → clips land on the timeline, playhead runs.
-    later(function () { step(3); pointAt(ship); }, t);
-    later(function () { ship.classList.add('press'); nleState.textContent = 'Building sequence…'; }, t + 750);
+    // 4. Push in on "Send to …", click, then cut to the timeline as clips land.
+    later(function () { step(3); zoom(ship, 1.9); }, t);
+    later(function () { pointAt(ship); }, t + 900);
+    later(function () { ship.classList.add('press'); nleState.textContent = 'Building sequence…'; }, t + 1600);
     later(function () {
-      ship.classList.remove('press');
+      ship.classList.remove('press'); cursor.style.opacity = '0';
       rows.querySelectorAll('.st').forEach(function (e) { e.classList.add('ok'); e.textContent = '● linked'; });
-      addClips(true);
-    }, t + 1000);
-    t += 1000 + CLIP_W.length * 260 + 400;
+      zoom(nle, 1.5, 'left');
+    }, t + 1900);
+    later(function () { addClips(true); }, t + 2700);
+    t += 2700 + CLIP_W.length * 260 + 400;
     later(function () {
       nleState.textContent = SELECTS.length + ' clips on the timeline';
-      cursor.style.opacity = '0';
       head.style.transition = ''; head.style.left = '62%';
     }, t);
-    t += 4200;
+    t += 2600;
+
+    // 5. Pull all the way out: the finished state, start to end, in one view.
+    later(function () { wide(); }, t);
+    t += 3200;
 
     later(function () { loop++; play(); }, t);
   }
