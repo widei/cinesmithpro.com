@@ -4,7 +4,7 @@
    All story content is invented (a fictional local-news interview) so the
    demo never puts words in a real person's mouth.
    Each loop alternates the host app (Premiere Pro, then DaVinci Resolve).
-   Reduced motion: renders the finished state once, no animation. */
+   Plays for everyone, including reduced-motion visitors: it is the product explanation. */
 (function () {
   'use strict';
   var root = document.querySelector('#demo .csp');
@@ -143,19 +143,6 @@
     return { node: m, list: list };
   }
 
-  // Finished state, no motion — for prefers-reduced-motion.
-  function staticEnd() {
-    setHost(HOSTS[0]);
-    thread.appendChild(user(PROMPT));
-    var s = smithy(); thread.appendChild(s.node);
-    BEATS.forEach(function (b, i) { s.list.appendChild(beatCard(b, i)); });
-    empty.style.display = 'none';
-    SELECTS.forEach(function (x, i) { rows.appendChild(selectRow(x, i, true)); });
-    addClips(false);
-    nleState.textContent = SELECTS.length + ' clips on the timeline';
-    root.querySelectorAll('[data-in]').forEach(function (e) { e.classList.add('in'); });
-    step(3);
-  }
 
   function play() {
     reset();
@@ -229,7 +216,8 @@
     later(function () { loop++; play(); }, t);
   }
 
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { staticEnd(); return; }
+  // Reduced motion (e.g. Windows "Animation effects" off) still plays the scene, since it IS the
+  // product explanation. The old static end frame read as broken to visitors with that setting.
 
   // Start the first time the mock scrolls into view, then keep looping.
   // (Resetting on every exit made it restart mid-scene as people scrolled.)
