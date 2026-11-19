@@ -287,7 +287,7 @@ function playback(frame, cursor) {
 /* INSI member logo strip (home page only; same list and rotation as the live site).
    No visible control: rotation (a fade) pauses on hover and focus. */
 (function () {
-  var LOGO_DIR = "logos/";
+  var LOGO_DIR = "assets/sentinel/logos/";
   var M = [
     ["ABC News","abc-news.png","https://abcnews.go.com/"],
     ["AFP","afp.png","https://www.afp.com/en"],
