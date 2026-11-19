@@ -770,6 +770,13 @@
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .footer-legal { flex-direction: column; gap: 10px; align-items: flex-start; }
   }
+  /* Accuracy note under the demo (Smithy grounded like Sentinel) */
+  .trust { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .trust h3 { font-family: var(--f-disp); font-weight: 500; letter-spacing: -0.02em; font-size: clamp(26px, 3vw, 40px); line-height: 1.08; margin: 0; }
+  .trust h3 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--ember); }
+  .trust-body p { color: var(--ink-dim); font-size: 17px; line-height: 1.6; margin: 0 0 14px; }
+  .trust-body a { color: var(--ember); text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 760px) { .trust { grid-template-columns: 1fr; gap: 18px; margin-top: 48px; padding-top: 28px; } .trust-body p { font-size: 16px; } }
 </style>
 <!-- Demo version switch: v3 by default; ?demo=v1 or ?demo=v2 loads an earlier version. -->
 <script>
@@ -902,6 +909,15 @@
         <span>Example project · in <span class="csp-host">Premiere Pro</span></span>
       </figcaption>
     </figure>
+
+    <!-- Accuracy: Smithy is grounded the same way as Sentinel -->
+    <div class="trust reveal">
+      <h3>Nothing invented. <em>Every line traced.</em></h3>
+      <div class="trust-body">
+        <p>Smithy only answers from your own transcripts. Every beat, quote and select links back to the exact words and timecode it came from. If it isn't in the footage, Smithy won't say it.</p>
+        <p>It's the same grounding technology we built for <a href="https://sentinel-insi.org" target="_blank" rel="noopener noreferrer">Sentinel</a>, which gives journalists in the field the safety information they need, with every answer traced to a source they can check. There, a wrong answer can put someone at risk. We hold Smithy to the same standard.</p>
+      </div>
+    </div>
   </div>
 </section>
 
