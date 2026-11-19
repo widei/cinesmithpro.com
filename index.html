@@ -770,6 +770,7 @@
     .footer-legal { flex-direction: column; gap: 10px; align-items: flex-start; }
   }
 </style>
+<link rel="stylesheet" href="assets/demo.css">
 </head>
 <body>
 
@@ -839,6 +840,64 @@
     </div>
   </div>
 </header>
+
+<!-- ───────── SEE IT WORK (animated product mock, assets/demo.js) ───────── -->
+<section class="section" id="demo" aria-labelledby="demo-h">
+  <div class="wrap">
+    <div class="section-index reveal">
+      <span class="num">[ 01 ]</span>
+      <span>SEE IT WORK</span>
+      <span class="rule"></span>
+    </div>
+    <div class="demo-intro reveal">
+      <h2 id="demo-h">From interview to <em>sequence</em>, before the coffee's cold.</h2>
+      <p>Ask for the beats. Pull the selects. Send them straight to your timeline in Premiere Pro or DaVinci Resolve.</p>
+    </div>
+
+    <figure class="reveal" style="margin:0">
+      <div class="csp" aria-hidden="true">
+        <span class="csp-cursor"></span>
+        <div class="csp-bar">
+          <span class="csp-logo"><i></i>CineSmith<b>Pro</b></span>
+          <span class="csp-crumb">Projects › <strong>Flood defences</strong></span>
+          <span class="csp-badge">● 3 files indexed</span>
+        </div>
+        <div class="csp-body">
+          <aside class="csp-side">
+            <h4>FILES</h4>
+            <div class="csp-new">+ New chat</div>
+            <div class="csp-file"><span>flood-defences_interview.srt</span><span class="ok">Indexed</span></div>
+            <div class="csp-file"><span>resident_vox-pops.srt</span><span class="ok">Indexed</span></div>
+            <div class="csp-file"><span>council-meeting_feed.srt</span><span class="ok">Indexed</span></div>
+          </aside>
+          <div class="csp-chat">
+            <div class="csp-thread"></div>
+            <div class="csp-composer"><span class="csp-typed"></span><span class="csp-send">Send</span></div>
+          </div>
+        </div>
+        <div class="csp-batch">
+          <div class="csp-batch-head">
+            <h4>EDIT BATCH</h4><span class="name">why-it-failed</span>
+            <span class="csp-draft">DRAFT</span>
+            <span class="csp-ship">Send to <span class="csp-ship-host">Premiere</span></span>
+          </div>
+          <div class="csp-rows"></div>
+          <p class="csp-batch-empty">Selects you pull land here.</p>
+        </div>
+        <div class="csp-nle">
+          <div class="csp-nle-head"><span class="host csp-host">Premiere Pro</span><span class="csp-nle-state">Waiting for a batch</span></div>
+          <div class="csp-track"><span class="lab mono">V1</span><div class="csp-lane v"></div></div>
+          <div class="csp-track"><span class="lab mono">A1</span><div class="csp-lane a"></div></div>
+          <span class="csp-head"></span>
+        </div>
+      </div>
+      <figcaption class="demo-caption">
+        <span class="demo-steps"><span>01 Ask</span><span>02 Beats</span><span>03 Selects</span><span>04 Timeline</span></span>
+        <span>Example project · in <span class="csp-host">Premiere Pro</span></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
 <!-- ───────── FROM THE CUTTING ROOM ───────── -->
 <section class="section" id="cred">
@@ -958,5 +1017,6 @@
     successEl.classList.add('show');
   });
 </script>
+<script src="assets/demo.js" defer></script>
 </body>
 </html>
