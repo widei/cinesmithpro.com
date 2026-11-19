@@ -138,12 +138,13 @@
     nleState.textContent = 'Waiting for a batch';
     if (batchName) batchName.textContent = PICK.batch;
     park(); wide();
+    var old = cam.querySelector('.csp-player'); if (old) old.remove();
   }
 
   function beatCard(b, i) {
     var c = el('div', 'csp-beat');
     c.setAttribute('data-in', '');
-    c.innerHTML = '<p>' + (i + 1) + '. ' + b.title + '</p><span class="csp-find">Find selects</span>' +
+    c.innerHTML = '<p><span class="csp-play">&#9654;</span>' + (i + 1) + '. ' + b.title + '</p><span class="csp-find">Find selects</span>' +
       '<span class="meta mono">' + b.tc + ' <span class="spk">· ' + b.who + ', <em>INTERVIEWEE</em></span></span>';
     return c;
   }
@@ -151,7 +152,7 @@
   function selectRow(s, i) {
     var r = el('div', 'csp-row');
     r.setAttribute('data-in', '');
-    r.innerHTML = '<span class="n mono">' + (i + 1) + '.</span><span class="tc mono">' + s[0] + '</span>' +
+    r.innerHTML = '<span class="n mono">' + (i + 1) + '.</span><span class="csp-play">&#9654;</span><span class="tc mono">' + s[0] + '</span>' +
       '<span class="q">' + s[1] + '</span><span class="st">○ draft</span>';
     return r;
   }
@@ -180,6 +181,24 @@
     var list = el('div', 'csp-beats');
     m.appendChild(list);
     return { node: m, list: list };
+  }
+
+  // ── Clip player: transcript text above an audio waveform; mark in / out ──
+  var WORDS = 'We started that work in 2019 and we didn’t finish it. That’s on us.'.split(' ');
+  var WT = 320;                                   // ms per word during playback
+  var IN_W = 7, OUT_W = WORDS.length - 1;         // new selection: "we didn't finish it. That's on us."
+  function frac(k) { return 0.04 + k * (0.92 / WORDS.length); }   // word k's position on the waveform
+  function buildPlayer() {
+    var pl = el('div', 'csp-player');
+    var bars = '';
+    for (var i = 0; i < 72; i++) bars += '<i style="height:' + Math.round(18 + Math.abs(Math.sin(i * 1.7) * Math.sin(i * 0.37 + 1)) * 78) + '%"></i>';
+    pl.innerHTML = '<div class="hd"><span><b>Select 1</b> · ' + FILE.replace('.srt', '.mov') + '</span><span class="mono">✕</span></div>' +
+      '<p class="csp-words">' + WORDS.map(function (w) { return '<span>' + w + '</span>'; }).join(' ') + '</p>' +
+      '<div class="csp-wave">' + bars + '<span class="rng"></span><span class="ph"></span></div>' +
+      '<div class="ctl"><span class="tc mono">00:01:14:06</span><span class="btn pp">&#9654; Play</span>' +
+      '<span class="btn mi">Mark in</span><span class="btn mo">Mark out</span><span class="btn use">Use selection</span></div>';
+    cam.appendChild(pl);
+    return pl;
   }
 
   function play() {
@@ -241,6 +260,55 @@
     t += 1000 + PICK.selects.length * 700;
     later(function () { say(2, '3 selects, timecoded, in the edit batch', true); }, t);
     t += 2400;
+
+    // 3b. Check a select by ear: play row 1, mark a tighter in / out, use it.
+    var pl, row1;
+    later(function () {
+      say(2, 'Play select 1 to check it');
+      row1 = rows.querySelector('.csp-row'); moveTo(row1.querySelector('.csp-play'));
+    }, t);
+    later(function () { click(row1.querySelector('.csp-play')); }, t + 900);
+    later(function () { park(); wide(); pl = buildPlayer(); later(function () { pl.classList.add('in'); }, 30); }, t + 1200);
+    t += 2200;
+    later(function () {
+      say(2, 'Listen, then mark a new in and out');
+      var ph = pl.querySelector('.ph');
+      ph.style.transition = 'left ' + (WORDS.length * WT / 1000) + 's linear';
+      ph.style.left = (frac(WORDS.length) * 100) + '%';
+      pl.querySelector('.pp').innerHTML = '&#10073;&#10073; Pause';
+      var ws = pl.querySelectorAll('.csp-words span'), tc = pl.querySelector('.tc');
+      ws.forEach(function (w, k) {
+        later(function () {
+          w.classList.add('on');
+          var f = 6 + k * 9, sec = 14 + Math.floor(f / 25);
+          tc.textContent = '00:01:' + sec + ':' + ('0' + (f % 25)).slice(-2);
+        }, k * WT);
+      });
+    }, t);
+    later(function () { moveTo(pl.querySelector('.mi')); }, t + IN_W * WT - 900);
+    later(function () {
+      click(pl.querySelector('.mi'));
+      var r = pl.querySelector('.rng'); r.style.left = (frac(IN_W) * 100) + '%'; r.style.width = '0'; r.classList.add('in');
+    }, t + IN_W * WT);
+    later(function () { moveTo(pl.querySelector('.mo')); }, t + (OUT_W + 1) * WT - 700);
+    later(function () {
+      click(pl.querySelector('.mo'));
+      pl.querySelector('.rng').style.width = ((frac(OUT_W + 1) - frac(IN_W)) * 100) + '%';
+      pl.querySelectorAll('.csp-words span').forEach(function (w, k) { if (k >= IN_W && k <= OUT_W) w.classList.add('sel'); });
+      pl.querySelector('.pp').innerHTML = '&#9654; Play';
+      say(2, 'New in and out: “we didn’t finish it. That’s on us.”', true);
+    }, t + (OUT_W + 1) * WT + 100);
+    t += (OUT_W + 1) * WT + 1800;
+    later(function () { moveTo(pl.querySelector('.use')); }, t);
+    later(function () { click(pl.querySelector('.use')); }, t + 900);
+    later(function () {
+      park(); pl.classList.remove('in'); zoom(batch, 1.4);
+      row1.querySelector('.tc').textContent = '00:01:17:20 – 00:01:22:18';
+      row1.querySelector('.q').textContent = '“We didn’t finish it. That’s on us.”';
+      row1.classList.add('trim');
+      say(2, 'Select 1 now uses the new in and out', true);
+    }, t + 1300);
+    t += 1300 + 2800;
 
     // 4. Send. Pointer to "Send to …", click, then cut to the timeline.
     later(function () { say(3, 'Send the selects to ' + host); moveTo(ship); }, t);
