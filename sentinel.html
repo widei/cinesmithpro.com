@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sentinel · CineSmithPro</title>
+<meta name="description" content="Sentinel is our AI intelligence service for journalists in the field. Every safety briefing traces back to a source they can check. Smithy, in CineSmithPro, is built on the same grounding.">
+<link rel="canonical" href="https://cinesmithpro.com/sentinel.html">
+<link rel="icon" href="assets/sentinel/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Host+Grotesk:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sentinel/style.css">
+<script src="assets/sentinel/site.js" defer></script>
+<style>
+  /* CineSmithPro chrome around the Sentinel sections */
+  .csp-top { background: #18181B; color: #F4EFE6; font-family: "Host Grotesk", system-ui, sans-serif; }
+  .csp-top .in { max-width: 1200px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .csp-top a { color: #F4EFE6; text-decoration: none; font-size: 14px; }
+  .csp-top .back::before { content: "← "; }
+  .csp-top .cta { border: 1px solid #FF5A1F; color: #FF5A1F; padding: 7px 14px; border-radius: 99px; }
+  .csp-wl { background: #18181B; color: #F4EFE6; font-family: "Host Grotesk", system-ui, sans-serif; padding: 88px 20px 96px; }
+  .csp-wl .in { max-width: 760px; margin: 0 auto; text-align: center; }
+  .csp-wl .k { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #FF5A1F; margin: 0 0 14px; }
+  .csp-wl h2 { color: #F4EFE6; font-family: "Host Grotesk", system-ui, sans-serif; font-weight: 500; letter-spacing: -0.02em; font-size: clamp(30px, 4vw, 48px); line-height: 1.08; margin: 0 0 18px; }
+  .csp-wl h2 em { font-family: "Instrument Serif", serif; font-weight: 400; color: #FF5A1F; }
+  .csp-wl p { color: rgba(244,239,230,.72); font-size: 17px; line-height: 1.6; margin: 0 auto 28px; max-width: 620px; }
+  .csp-wl form { display: flex; gap: 8px; max-width: 520px; margin: 0 auto; padding: 6px; border: 1px solid rgba(255,255,255,.14); border-radius: 99px; background: #1F1F22; }
+  .csp-wl input { flex: 1; min-width: 0; background: none; border: 0; color: #F4EFE6; font: inherit; font-size: 16px; padding: 10px 14px; outline: none; }
+  .csp-wl button { background: #FF5A1F; color: #18181B; border: 0; border-radius: 99px; padding: 10px 20px; font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .csp-wl .note { font-size: 13px; margin: 14px auto 0; }
+  .csp-wl .ok { display: none; } .csp-wl .ok.show { display: block; }
+  .csp-wl .ok strong { display: block; margin-bottom: 6px; }
+  @media (max-width: 520px) { .csp-wl form { flex-direction: column; border-radius: 16px; } }
+</style>
+</head>
+<body>
+<div class="csp-top"><div class="in"><a class="back" href="/">CineSmithPro</a><a class="cta" href="#waitlist">Join the CineSmithPro waitlist</a></div></div>
+<main>
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="hero-h">Agentic AI intelligence,<br> built for journalist safety.</h1>
+      <p class="lede">Sentinel's autonomous AI agents monitor official announcements, the news cycle and the online information environment around the clock — analysing what they find and turning it into alerts and briefings that help newsrooms anticipate risk and keep reporters safe in the field.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#demo">See it work</a>
+        <a class="btn btn-quiet" href="https://sentinel-insi.org" target="_blank" rel="noopener noreferrer">Visit sentinel-insi.org &#8599;</a>
+      </div>
+      <p class="cta-note">Built by CineArt AI, the team behind CineSmithPro.</p>
+    </div>
+
+    <figure class="map-panel" aria-label="Example of the Sentinel map with a pinned alert">
+      <div class="map-bar">
+        <span class="tag-example">Example</span>
+        <strong>Portland, Oregon</strong>
+        <span>Last 24 hours</span>
+        <span class="live"><span class="dot" aria-hidden="true"></span>Watching</span>
+      </div>
+      <div class="map-stage" id="map">
+        <canvas id="city" aria-hidden="true"></canvas>
+        <ul class="markers" aria-label="Example alerts on the map">
+          <li class="new" style="--x:58%;--y:30%"><span class="pin"></span><span class="lbl">Road closure posted</span></li>
+          <li style="--x:76%;--y:58%"><span class="pin"></span><span class="lbl">Local report</span></li>
+          <li style="--x:22%;--y:66%"><span class="pin"></span><span class="lbl">Social post</span></li>
+          <li class="new" style="--x:68%;--y:78%"><span class="pin"></span><span class="lbl">Rally announced</span></li>
+          <li style="--x:24%;--y:24%"><span class="pin"></span><span class="lbl">Official notice</span></li>
+          <li class="new lead" style="--x:44%;--y:36%"><span class="ring"></span><span class="pin"></span><span class="lbl">City hall</span></li>
+        </ul>
+        <article class="pin-card" style="--x:44%;--y:36%" aria-labelledby="alert-h">
+          <div class="meta"><span class="dot" aria-hidden="true"></span><span>New alert</span><span class="when">14 minutes ago</span></div>
+          <p class="pin-title" id="alert-h">Protest called outside city hall for Saturday</p>
+          <p class="place">Portland, Oregon</p>
+          <p class="detail">Two groups have announced rallies at the same time and place. Local police have posted road closures.</p>
+          <div class="sources" aria-label="Sources">
+            <span>3 news reports</span><span>1 official notice</span><span>4 social posts</span>
+          </div>
+        </article>
+      </div>
+    </figure>
+  </div>
+
+</section>
+
+
+<section class="band band-demo" id="demo" aria-labelledby="demo-h">
+  <div class="wrap">
+    <div class="demo-head">
+      <p class="kicker">Ask Sentinel</p>
+      <h2 class="h2" id="demo-h">Ask a question. Keep watch with a beat. Read the brief.</h2>
+    </div>
+    <figure class="demo" data-demo>
+      <div class="demo-frame" data-scene="ask" aria-hidden="true">
+        <div class="demo-bar">
+          <span class="demo-wm"><span class="s">S</span>entinel</span>
+          <span class="demo-tab" data-tab="ask">Ask Sentinel</span>
+          <span class="demo-tab" data-tab="beat">Beats</span>
+          <span class="demo-tag">Example</span>
+        </div>
+
+        <div class="demo-scene demo-ask">
+          <div class="demo-thread">
+            <p class="demo-q" data-q="1">What is happening in Ohio right now?</p>
+
+            <div class="demo-run" data-run="1" data-clock="0,4,9,14,19,26,34,41,47,52,58,64,71,79,86,94">
+              <ul class="demo-finds">
+                <li data-active="Reading the local picture in Ohio">Read the local picture</li>
+                <li data-active="Looking at the map of Ohio">Looked up place context</li>
+                <li data-active="Searching the news in Ohio">Searched Sentinel's news records: 113 matches (showing 10)</li>
+                <li data-active="Searching alerts in Ohio">Looked up alerts: 12</li>
+                <li data-active="Reading the threat picture in Ohio">Read the threat picture</li>
+                <li data-active="Searching the web">Searched the public web</li>
+                <li data-active="Searching the web">Searched the public web</li>
+                <li data-active="Searching the news in Ohio">Searched Sentinel's news records: no matches</li>
+                <li data-active="Reading a source">Read a source page: nothing came back this time</li>
+                <li data-active="Reading 2 sources">Read a source page: nothing came back this time</li>
+                <li data-active="Reading 3 sources">Read a source page</li>
+                <li data-active="Looking up demographics for Ohio">Looked up demographics</li>
+              </ul>
+              <p class="demo-howto">How I got here (12 steps)</p>
+              <p class="demo-stage"><span class="spin"></span><span class="txt">Writing the answer</span><span class="clock">1m 34s</span></p>
+            </div>
+
+            <div class="demo-answer" data-answer="1">
+              <p class="demo-draft"></p>
+              <div class="demo-md">
+                <p class="demo-note">Partial check: two of the newest web pages, from the Ohio Capital Journal (21 Oct) and WYTV in Mahoning County, wouldn't open. They're listed under Leads to check below. Sentinel's records run to 15 Oct, and the public web was checked on 21 Oct.</p>
+                <p><strong>Ohio is quiet today, but it's tense. The threats to watch are a powder letter sent to the Secretary of State's office, violence at Trump rallies, and the president calling for reporters to be arrested over Ohio rally coverage. Early voting runs to 1 Nov and Election Day is 3 Nov.</strong></p>
+                <h4>Threats to the press</h4>
+                <ul>
+                  <li>After a Trump rally on Sat 10 Oct at Butler High School in Vandalia (near Dayton), Trump said on Monday that reporters from the New York Times and other outlets &ldquo;should be arrested&rdquo; over how they covered the crowd size. The Times had reported empty upper-deck seats <span class="cite">thehill.com</span></li>
+                  <li>The Justice Department subpoenaed phone records of Times journalists over the summer, then dropped the request days later <span class="cite">thehill.com</span></li>
+                </ul>
+                <h4>Election administration</h4>
+                <ul>
+                  <li><strong>Powder letter, reported 14&ndash;15 Oct:</strong> Postal investigators intercepted a letter with a &ldquo;powdery white substance&rdquo; addressed to the Secretary of State's office. The FBI is investigating, and county boards of elections were told to &ldquo;remain vigilant&rdquo; <span class="cite">13abc.com</span> Per officials briefed on the case, more than 100 similar letters went out nationwide, to Oklahoma, Louisiana, Pennsylvania, Connecticut and other states <span class="cite">votebeat.org</span></li>
+                  <li><strong>Federal charges, 12 Oct:</strong> Prosecutors charged 16 people in a voter-fraud sweep covering Ohio, Pennsylvania, Alabama and other states <span class="cite">Alert</span></li>
+                  <li><strong>Poll monitors:</strong> The Vote Safe coalition is putting volunteers at Ohio polls to document intimidation. Organisers point to fears of ICE activity, especially around Springfield's Haitian community <span class="cite">kotatv.com</span></li>
+                  <li><strong>Early turnout:</strong> About 195,000 Ohioans voted early in person by the fifth day, nearly four times the number at the same point in 2022 <span class="cite">ms.now</span> That is roughly 3% of Ohio's ~6.6M registered voters <span class="cite">Demographics &middot; Ohio</span> The Senate race is rated a toss-up <span class="cite">ms.now</span></li>
+                </ul>
+                <h4>Protests and rally violence</h4>
+                <ul>
+                  <li><strong>Youngstown, Mon 12 Oct:</strong> At a Trump rally at the Covelli Centre, a protester was punched and grabbed by the hair by an attendee. Deputies removed <em>her</em>, and nobody was arrested. The mayor called it &ldquo;senseless (political) violence.&rdquo; Security was handled by the Mahoning County Sheriff and the Secret Service, not Youngstown police <span class="cite">nbcnews.com</span> <span class="cite">WKBN</span></li>
+                </ul>
+                <h4>Field hazards</h4>
+                <p>Last week's local emergencies were ordinary crime and fires, none tied to the press or the election. The worst was a fire in Felicity, Clermont County, on 14 Oct that killed three people <span class="cite">WHIO</span></p>
+                <h5>Leads to check</h5>
+                <ul>
+                  <li>Ohio Capital Journal, 21 Oct: pro-democracy groups are setting up poll monitors, a hotline and on-call lawyers. A search preview says the NAACP opens a legal &ldquo;war room&rdquo; on 24 Oct.</li>
+                  <li>WYTV, Mahoning County: officials say ICE won't be at the polls, and the sheriff will cover the county's 58 polling sites.</li>
+                </ul>
+                <h4>For your crews</h4>
+                <ul>
+                  <li><strong>Any Trump or surrogate rally in Ohio before 3 Nov:</strong> Plan for crowd hostility toward protesters, and possibly toward the press after the arrest remarks. Agree an exit route, and find out beforehand whether the venue's security is the sheriff or the Secret Service.</li>
+                  <li><strong>County boards of elections, now through 3 Nov:</strong> Expect tighter mail handling and possible evacuations if another suspicious envelope arrives. Confirm press access rules at each board before you arrive.</li>
+                  <li><strong>Springfield and Mahoning County polling sites, early voting to 1 Nov:</strong> Watch for poll-monitor and ICE-related tension, and get on-camera ground rules settled with monitors in advance.</li>
+                </ul>
+                <p class="demo-follow"><span>Has Ohio seen journalists arrested or assaulted in past elections?</span><span>What's planned in Columbus and Cleveland around Election Day?</span><span>Set up a beat watching Ohio's county boards of elections</span></p>
+              </div>
+            </div>
+
+            <p class="demo-q" data-q="2">Set up a beat on harassment of reporters at election offices</p>
+
+            <div class="demo-run" data-run="2" data-clock="0,5">
+              <p class="demo-stage"><span class="spin"></span><span class="txt">Proposing a beat</span><span class="clock">5s</span></p>
+            </div>
+
+            <div class="demo-answer" data-answer="2">
+              <div class="demo-md">
+                <p>I've put a card in your browser proposing an <strong>Election offices: press harassment</strong> beat covering everywhere Sentinel monitors. Click Yes there to create it.</p>
+              </div>
+            </div>
+
+            <div class="demo-card">
+              <div class="demo-card-head"><span class="demo-micro">New beat</span><span class="demo-badge">Waiting for you</span></div>
+              <dl>
+                <dt>Name</dt><dd>Election offices: press harassment</dd>
+                <dt>Areas</dt><dd>Everywhere</dd>
+                <dt>Topic</dt><dd>Harassment of reporters at election offices</dd>
+              </dl>
+              <p class="demo-card-note">You'll get alerts across all of Sentinel's safety categories for these areas, including threats to journalists.</p>
+              <div class="demo-actions"><span class="demo-btn demo-yes">Yes</span><span class="demo-btn">No</span><span class="demo-view">View &rarr;</span></div>
+            </div>
+          </div>
+          <div class="demo-composer"><span class="demo-typed"></span><span class="demo-caret"></span><span class="demo-ph">Ask about a place, a person or a trend</span><span class="demo-send"></span></div>
+        </div>
+
+        <div class="demo-scene demo-beat">
+          <div class="demo-beat-head">
+            <div>
+              <p class="demo-crumb">Beats</p>
+              <h3>Election offices: press harassment</h3>
+              <p class="demo-sub">Harassment of reporters at election offices</p>
+              <ul class="places"><li>Everywhere</li></ul>
+            </div>
+            <span class="demo-gen">Generate brief</span>
+          </div>
+          <div class="demo-body">
+            <div class="demo-run" data-run="brief" data-clock="0,6,11,17,24,31,39,46,52,60,67,75,83,92,101,110,118,126,133,141,150,158,167,176,188">
+              <ul class="demo-finds">
+                <li data-active="Searching the news">Searched Sentinel's news records: no matches</li>
+                <li data-active="Searching the news">Searched Sentinel's news records</li>
+                <li data-active="Searching alerts">Looked up alerts: 350</li>
+                <li data-active="Reading the threat picture">Read the threat picture</li>
+                <li data-active="Searching the news">Searched Sentinel's news records: 26 matches</li>
+                <li data-active="Searching the news">Searched Sentinel's news records: 8 matches</li>
+                <li data-active="Searching the news">Searched Sentinel's news records</li>
+                <li data-active="Searching past reports">Checked past reports</li>
+                <li data-active="Searching the news">Searched Sentinel's news records: 47 matches</li>
+                <li data-active="Searching the web">Searched the public web</li>
+                <li data-active="Searching the web">Searched the public web</li>
+                <li data-active="Searching the web">Searched the public web</li>
+                <li data-active="Searching the web">Searched the public web</li>
+                <li data-active="Reading a source">Read a source page</li>
+                <li data-active="Reading 2 sources">Read a source page: nothing came back this time</li>
+                <li data-active="Reading 3 sources">Read a source page</li>
+                <li data-active="Reading 4 sources">Read a source page</li>
+                <li data-active="Searching the news">Searched Sentinel's news records: 39 matches</li>
+                <li data-active="Reading a source">Read a source page</li>
+                <li data-active="Reading 2 sources">Read a source page</li>
+                <li data-active="Looking up upcoming elections">Looked up upcoming elections</li>
+              </ul>
+              <p class="demo-howto">How I got here (21 steps)</p>
+              <p class="demo-stage"><span class="spin"></span><span class="txt">Checking citations</span><span class="clock">3m 08s</span></p>
+            </div>
+            <article class="demo-brief">
+              <p class="demo-lead">Harassment of reporters at election offices &mdash; 7-day brief (14&ndash;21 Oct 2026)</p>
+              <p class="demo-when">Generated Wed 21 Oct, 08:43 &middot; last 7 days &middot; <span class="demo-ask-link">Ask Sentinel &rarr;</span></p>
+              <p class="demo-page-actions"><span class="demo-page-btn">Email this to me</span><span class="demo-page-btn">Print / Save as PDF</span></p>
+              <div class="demo-md demo-paper">
+                <h4>Summary</h4>
+                <p>In the 14&ndash;21 Oct window, Sentinel found <strong>no reported case of a journalist being harassed, assaulted, detained or removed at an election office</strong>, whether a county clerk's office, a counting centre or an early-voting site. The danger around those buildings did rise, though. The FBI is investigating a nationwide wave of suspicious letters, some containing white powder, sent to state election offices; at least one forced an evacuation, in Arizona on 15 Oct <span class="cite">votebeat.org</span> Hostility toward reporters this week happened at campaign events instead: a congressman called for police to take a student reporter's camera on 13 Oct <span class="cite">abcnews.com</span> The most recent case on file of an election official acting against reporters is Shasta County, California. Its registrar cut a local outlet from the media list in 2025 <span class="cite">pressfreedomtracker.us</span>, and a journalist reported an elections worker setting off what looked like a stun gun outside the office in June 2026 <span class="cite">calmatters.org</span> That registrar still runs the 3 Nov count <span class="cite">ww2.kqed.org</span> Data currency: Sentinel's records on this subject run to 15 Oct; the public web was checked 21 Oct.</p>
+                <h4>Key developments</h4>
+                <ul>
+                  <li><strong>13&ndash;14 Oct, Cambridge, Maryland.</strong> After a debate, [a congressman] told [a Capital News Service reporter] she could not record him. He threatened to refer her to prosecutors and called for an officer to &ldquo;take her camera,&rdquo; citing Maryland's two-party consent law, which a lawyer said does not apply to a public press gaggle <span class="cite">abcnews.com</span> This was at a campaign event, not an election office.</li>
+                  <li><strong>17 Oct, nationwide.</strong> The Washington Sun describes a bipartisan pattern of candidates shutting reporters out of events. Examples include a Texas Public Radio reporter in TX-23 and Milwaukee Journal Sentinel reporters blocked on 24 Sep. The Society of Professional Journalists warned of a &ldquo;normalization of hostility&rdquo; toward the press <span class="cite">washingtonsun.com</span></li>
+                  <li><strong>14&ndash;15 Oct, multiple states.</strong> Election officials in Louisiana, Oklahoma, Wisconsin, Arizona and Nebraska received suspicious mail. Letters bound for Ohio, New Hampshire, Washington, Pennsylvania, Connecticut, Georgia, Idaho and South Dakota were intercepted. Officials were told more than 100 letters went out in total. Arizona's secretary of state's office was evacuated <span class="cite">votebeat.org</span> <span class="cite">thehill.com</span> <span class="cite">sciotopost.com</span></li>
+                  <li><strong>16 Oct, nationwide.</strong> The FBI issued a public warning about threats to election workers, including threats made in person <span class="cite">ic3.gov</span></li>
+                  <li><strong>16 Oct, Arizona and national.</strong> A Brennan Center survey cited by ABC15 found 1 in 3 local election officials have been threatened, harassed or abused. About three-quarters of that happened at the office itself <span class="cite">abc15.com</span> Those are the same buildings reporters cover.</li>
+                  <li><strong>13 Oct, Lee County, Florida.</strong> The NAACP and others raised voter-intimidation concerns about armed guards posted at polling sites <span class="cite">gulfcoastnewsnow.com</span></li>
+                  <li><strong>14 Oct, Georgia.</strong> An election official described the pressure on election workers during early voting <span class="cite">theguardian.com</span></li>
+                  <li><strong>19 Oct, North Carolina.</strong> The State Board of Elections told anyone who feels harassed or intimidated at a voting site to tell an election official right away, and to call 911 in an emergency <span class="cite">ncsbe.gov</span></li>
+                  <li><strong>14 Oct, Washington DC (press-access context).</strong> A federal judge extended the block on the White House ban of CNN, MS NOW and Politico, finding the ban likely retaliation for their coverage <span class="cite">rcfp.org</span></li>
+                </ul>
+                <h4>Threat assessment</h4>
+                <ul>
+                  <li><strong>Direct incidents at election offices: none seen this week.</strong> Sentinel's records and the public web turned up no reported harassment of a journalist at an election office between 14 and 21 Oct. Low-level confrontations often get reported late, so this does not mean nothing happened.</li>
+                  <li><strong>More danger in and around the buildings.</strong> The mailings are a real hazard for any crew working inside election offices or mailrooms: evacuations, hazmat cordons, possible exposure <span class="cite">votebeat.org</span> Most harassment of election officials happens in person at the office <span class="cite">abc15.com</span>, and the FBI's warning covers in-person threats <span class="cite">ic3.gov</span> Crews filming outside offices or counting centres are near the people most likely to confront staff.</li>
+                  <li><strong>The precedent to watch is officials acting against the press.</strong> The documented cases on file come from election officials themselves. In Oct 2025 the Shasta County registrar dropped a local outlet from the media list, called it not a &ldquo;legitimate&rdquo; newsroom and referred the outlet to the Justice Department; the county board condemned him <span class="cite">pressfreedomtracker.us</span> In June 2026, the outlet's editor reported a temporary elections worker setting off what looked like a stun gun outside the office during the count. The office says it was a flashlight <span class="cite">calmatters.org</span></li>
+                  <li><strong>Hostility toward reporters is spreading.</strong> This week's incidents were at campaign events, and they show a pattern of officials invoking law enforcement or the law against reporters who are recording <span class="cite">abcnews.com</span> <span class="cite">washingtonsun.com</span> The same reflex could show up at counting centres after 3 Nov.</li>
+                  <li><strong>History.</strong> The worst election-related attacks on the press on file came after an election, not during voting: the assaults on journalists at the US Capitol and the Olympia, Washington capitol on 6 Jan 2021 <span class="cite">pressfreedomtracker.us</span></li>
+                </ul>
+                <h4>Political &amp; ground context</h4>
+                <ul>
+                  <li><strong>Shasta County, California.</strong> The registrar lost in June but oversees the November count. He has claimed ballots &ldquo;smelled wrong.&rdquo; A federal grand jury subpoenaed him over June ballots he locked away, and the FBI inspected them <span class="cite">ww2.kqed.org</span> <span class="cite">calmatters.org</span> His office has a documented history of conflict with local reporters <span class="cite">pressfreedomtracker.us</span></li>
+                  <li><strong>Federal pressure on election officials.</strong> On 14 Oct the Trump administration escalated its voter-roll fight with threats against California election officials <span class="cite">crossroadstoday.com</span> That raises the political temperature around offices where reporters will be working.</li>
+                  <li><strong>Early voting is under way in several states,</strong> with election workers preparing amid talk of Justice Department &ldquo;intervention&rdquo; in Georgia <span class="cite">georgiarecorder.com</span></li>
+                </ul>
+                <h4>Watch items</h4>
+                <ul>
+                  <li><strong>3 Nov general election</strong>, plus the canvass and counting period after it. Sentinel's calendar lists 344 upcoming contests and ballot measures <span class="cite">Upcoming elections</span> Historically the risk to the press peaks after polls close.</li>
+                  <li><strong>The Shasta County count</strong> is the place most likely to see friction between officials and the press, given the 2025 media-list removal and the June stun-gun report <span class="cite">pressfreedomtracker.us</span> <span class="cite">calmatters.org</span></li>
+                  <li><strong>The suspicious-mail investigation.</strong> More letters or evacuations at state election offices would directly affect crews on site <span class="cite">votebeat.org</span></li>
+                  <li><strong>Armed guards at Lee County polling sites</strong> could shape how crews are received at voting sites <span class="cite">gulfcoastnewsnow.com</span></li>
+                  <li><strong>Candidates pushing back on recording</strong> (the Maryland and TX-23 cases) could carry over to election-night parties and counting centres <span class="cite">abcnews.com</span> <span class="cite">washingtonsun.com</span></li>
+                </ul>
+                <h4>Gaps</h4>
+                <ul>
+                  <li>Sentinel found no reported incident of a reporter harassed at an election office in this window. Its records on this subject run only to 15 Oct, so 16&ndash;21 Oct relies on a public-web check. Recent incidents may not be reported yet.</li>
+                  <li>U.S. Press Freedom Tracker entries for October 2026 at election sites could not be confirmed beyond the Maryland campaign-event case.</li>
+                  <li>A New Mexico lawsuit filed this week over a county clerk turning away poll watchers could not be opened for this brief, so it is not covered. Disputes over who gets access to polling places could affect press access too.</li>
+                  <li>There is no prior verification report from this newsroom on this subject to build on.</li>
+                  <li>This brief covers the whole country, not one place, so it lists no local safety contacts. Ask for a brief on a specific county (Shasta, for example) to get trauma-centre and police and fire contacts.</li>
+                </ul>
+              </div>
+              <div class="demo-watch">
+                <h4>Watch items</h4>
+                <ul>
+                  <li>3 Nov general election and the counting period after it: press risk at counting centres has historically peaked after polls close.</li>
+                  <li>Shasta County, CA count under the outgoing registrar, given the 2025 media-list removal and the June 2026 stun-gun report outside the elections office.</li>
+                  <li>FBI investigation into suspicious letters to state election offices: more evacuations or hazmat responses would affect crews on site.</li>
+                  <li>Armed guards at Lee County, FL polling sites and how crews are received at voting locations.</li>
+                  <li>Candidates citing recording laws or calling police on reporters (Maryland, TX-23) could carry over to election-night events and counting centres.</li>
+                </ul>
+              </div>
+              <div class="demo-sources">
+                <h4>Citations</h4>
+                <ol class="demo-chips">
+                  <li>abcnews.com</li><li>washingtonsun.com</li><li>votebeat.org</li><li>thehill.com</li><li>sciotopost.com</li><li>ic3.gov</li><li>abc15.com</li><li>gulfcoastnewsnow.com</li><li>theguardian.com</li><li>ncsbe.gov</li><li>rcfp.org</li><li>pressfreedomtracker.us</li><li>calmatters.org</li><li>ww2.kqed.org</li><li>crossroadstoday.com</li><li>georgiarecorder.com</li><li>Upcoming elections</li>
+                </ol>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <span class="demo-cursor"></span>
+      </div>
+      <figcaption class="sr">An example in the Sentinel app. A journalist asks what is happening in Ohio. Sentinel works through twelve lookups, from local alerts and news records to the public web, and answers with the threats to the press, election administration, rally violence, field hazards, leads to check and advice for crews, each point linked to its source. The journalist then asks for a beat on harassment of reporters at election offices. Sentinel proposes it, the journalist accepts, and on the beat page Generate brief works through twenty-one lookups and writes a seven-day brief: a summary, nine dated developments, a threat assessment, the political and ground context, watch items and the gaps in what it could check, followed by the seventeen sources it cites.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="csp-wl" id="waitlist" aria-labelledby="wl-h">
+  <div class="in">
+    <p class="k">CineSmithPro</p>
+    <h2 id="wl-h">The same grounding, <em>now in your edit.</em></h2>
+    <p>Sentinel answers from sources a journalist can check. Smithy, the AI editing partner in CineSmithPro, works the same way with your rushes: every beat, quote and select linked to the exact words, speaker and timecode. Inside Premiere Pro and DaVinci Resolve.</p>
+    <form id="waitlist-form" novalidate>
+      <input type="email" name="email" required placeholder="you@yourpostroom.com" aria-label="Email">
+      <button type="submit">Join the waitlist &rarr;</button>
+    </form>
+    <p class="note">Editors first. Active drama, documentary or podcast projects jump the queue.</p>
+    <div class="ok" id="waitlist-success"><strong>Almost there. Finish in the new tab.</strong><p>We've opened the rest of the form for you. A few quick details and you're on the list.</p></div>
+  </div>
+</section>
+</main>
+<script>
+  /* Waitlist: same Google Form as the home page, prefilled with the email, opened in a new tab. */
+  (function () {
+    var GFORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfy33n0MG00peMpQngPkGtqyhsculzJm0A5V_y-9b7F7R7ucg/viewform';
+    var form = document.getElementById('waitlist-form'), ok = document.getElementById('waitlist-success');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = form.querySelector('input'), email = input.value.trim();
+      if (!/^[^s@]+@[^s@]+.[^s@]+$/.test(email)) { input.focus(); return; }
+      window.open(GFORM_URL + '?usp=pp_url&emailAddress=' + encodeURIComponent(email), '_blank', 'noopener,noreferrer');
+      form.style.display = 'none'; ok.classList.add('show');
+    });
+  })();
+</script>
+</body>
+</html>
