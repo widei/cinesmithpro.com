@@ -776,6 +776,7 @@
   window.CSP_DEMO = (function (m) { var v = m ? m[1] : "v3"; return v === "v1" ? "" : "-" + v; })(/[?&]demo=(v[123])(&|$)/.exec(location.search));
   document.write('<link rel="stylesheet" href="assets/demo' + window.CSP_DEMO + '.css">');
 </script>
+<link rel="stylesheet" href="assets/transcript-demo.css">
 </head>
 <body>
 
@@ -919,6 +920,37 @@
       </div>
     </div>
 
+    <!-- Transcript flow mock: upload → transcribe → highlight → Add to selects (assets/transcript-demo.js) -->
+    <figure class="tx-figure reveal">
+      <div class="csp csp-tx" aria-hidden="true"><div class="csp-cam">
+        <span class="csp-cursor"></span>
+        <div class="csp-bar">
+          <span class="csp-logo"><i></i>CineSmith<b>Pro</b></span>
+          <span class="csp-crumb">Projects › <strong>Flood defences</strong></span>
+          <span class="csp-badge">● Transcripts</span>
+        </div>
+        <div class="tx-body">
+          <aside class="tx-bin">
+            <h4>RUSHES</h4>
+            <div class="tx-drop">Drop rushes here<small>.mov · .mxf · .mp4 · .wav</small></div>
+            <div class="tx-files"></div>
+          </aside>
+          <div class="tx-main">
+            <div class="tx-head"><span class="tx-name">No file open</span><span class="tx-meta mono"></span></div>
+            <div class="tx-lines"></div>
+          </div>
+        </div>
+        <div class="tx-selects">
+          <h4>SELECTS</h4>
+          <div class="tx-chips"><span class="tx-empty">Highlight any line to add it.</span></div>
+        </div>
+      </div></div>
+      <figcaption class="demo-caption">
+        <span class="demo-steps tx-steps"><span>01 Upload</span><span>02 Transcribe</span><span>03 Select</span><span>04 Add to selects</span></span>
+        <span>Example project · fictional interview</span>
+      </figcaption>
+    </figure>
+
     <div class="cred-marks reveal">
       <div class="cred-lab">Credits Across</div>
       <div class="cred-wordmarks">
@@ -1025,5 +1057,6 @@
 <script>
   (function () { var s = document.createElement("script"); s.src = "assets/demo" + window.CSP_DEMO + ".js"; document.body.appendChild(s); })();
 </script>
+<script src="assets/transcript-demo.js" defer></script>
 </body>
 </html>

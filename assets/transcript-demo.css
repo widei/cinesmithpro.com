@@ -1,0 +1,80 @@
+/* ─────────────────────────────────────────────────────────────
+   Transcript flow mock (#cred): upload → transcribe → highlight a
+   line → popup menu → Add to selects. Driven by assets/transcript-demo.js.
+   Builds on the .csp mock styles in assets/demo*.css (tokens, bar,
+   pointer, status line, entrance), so only the new parts live here.
+   ───────────────────────────────────────────────────────────── */
+.tx-figure { margin: 56px 0 64px; }
+.csp-tx .tx-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 220px 1fr; }
+
+/* Rushes bin + drop zone */
+.tx-bin { border-right: 1px solid var(--c-hair); background: var(--c-panel); padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; }
+.tx-bin h4, .tx-selects h4 { margin: 0; font-size: 11px; letter-spacing: .12em; color: var(--c-soft); font-weight: 600; }
+.tx-drop { border: 1.5px dashed #3a3a42; border-radius: 8px; padding: 18px 10px; text-align: center; color: var(--c-mute); font-size: 12px; transition: border-color .25s, background .25s, color .25s; }
+.tx-drop small { display: block; margin-top: 4px; color: var(--c-dim); font-size: 10.5px; }
+.tx-drop.over { border-color: var(--c-orange); background: var(--c-orange-soft); color: var(--c-orange); }
+.tx-file { border: 1px solid var(--c-hair); border-radius: 6px; padding: 8px; font-size: 11.5px; color: var(--c-soft); background: var(--c-stage); }
+.tx-file .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--c-ink); }
+.tx-file .st { display: flex; justify-content: space-between; margin-top: 6px; font-size: 10.5px; color: var(--c-mute); }
+.tx-file .st.ok { color: var(--c-green); }
+.tx-bar { height: 3px; border-radius: 2px; background: #26262c; margin-top: 6px; overflow: hidden; }
+.tx-bar i { display: block; height: 100%; width: 0; background: var(--c-orange); transition: width .25s linear; }
+.tx-bar.ok i { background: var(--c-green); }
+
+/* The file card the pointer drags in */
+.tx-drag { position: absolute; z-index: 4; left: 0; top: 0; width: 196px; padding: 8px 10px; border-radius: 6px; background: var(--c-raised); border: 1px solid var(--c-orange); font-size: 11.5px; color: var(--c-ink); box-shadow: 0 16px 40px rgba(0,0,0,.6); opacity: 0; transition: transform .9s cubic-bezier(.4,0,.2,1), opacity .3s; pointer-events: none; }
+.tx-drag small { display: block; color: var(--c-mute); font-size: 10.5px; margin-top: 2px; }
+
+/* Transcript */
+.tx-main { display: flex; flex-direction: column; min-width: 0; padding: 14px 18px; }
+.tx-head { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--c-hair); font-size: 12px; color: var(--c-mute); }
+.tx-head .tx-name { color: var(--c-ink); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tx-lines { position: relative; flex: 1; min-height: 0; overflow: hidden; padding-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+.tx-ph { color: var(--c-dim); font-size: 12px; padding-top: 30px; text-align: center; }
+.tx-line { display: grid; grid-template-columns: 112px 1fr; gap: 4px 14px; border-left: 2px solid transparent; padding-left: 8px; transition: border-color .3s; }
+.tx-line .who { font-size: 10.5px; letter-spacing: .08em; color: var(--c-mute); }
+.tx-line .who.rep { color: #8b9cff; }
+.tx-line .tc { font-size: 10.5px; color: var(--c-dim); grid-column: 1; }
+.tx-line .txt { grid-column: 2; grid-row: 1 / span 2; font-size: 14px; line-height: 1.55; color: var(--c-soft); }
+.tx-line .txt span { border-radius: 2px; transition: background .12s, color .12s; }
+.tx-line .txt span.sel { background: rgba(96,140,255,.38); color: #fff; }
+.tx-line.added { border-left-color: var(--c-orange); }
+.tx-line.added .txt span.sel { background: rgba(249,115,22,.22); color: var(--c-ink); }
+
+/* Popup menu on a highlighted selection */
+.tx-pop { position: absolute; z-index: 4; min-width: 220px; background: var(--c-raised); border: 1px solid #34343c; border-radius: 8px; padding: 5px; box-shadow: 0 20px 50px rgba(0,0,0,.7); opacity: 0; transform: translateY(-4px); transition: opacity .2s, transform .2s; }
+.tx-pop.in { opacity: 1; transform: none; }
+.tx-pop div { display: flex; align-items: center; gap: 10px; padding: 7px 9px; border-radius: 5px; color: var(--c-soft); font-size: 12.5px; transition: background .12s, color .12s; }
+.tx-pop div b { width: 14px; text-align: center; font-weight: 500; color: var(--c-mute); }
+.tx-pop div kbd { margin-left: auto; font-family: var(--f-mono); font-size: 10px; color: var(--c-dim); border: 1px solid var(--c-hair); border-radius: 3px; padding: 1px 5px; }
+.tx-pop div.hov { background: var(--c-orange-soft); color: var(--c-orange); }
+.tx-pop div.hov b { color: var(--c-orange); }
+.tx-pop div.press { background: var(--c-orange); color: #0a0a0c; }
+
+/* Selects tray */
+.tx-selects { border-top: 1px solid var(--c-hair); background: var(--c-panel); padding: 12px 18px 14px; }
+.tx-chips { margin-top: 8px; min-height: 40px; display: grid; gap: 6px; }
+.tx-empty { color: var(--c-dim); font-size: 12px; align-self: center; }
+.tx-chip { display: grid; grid-template-columns: 22px 196px 1fr auto; gap: 10px; align-items: center; padding: 7px 9px; border: 1px solid var(--c-orange); border-radius: 5px; background: var(--c-stage); font-size: 12px; }
+.tx-chip .n { color: var(--c-dim); }
+.tx-chip .tc { color: var(--c-orange); font-size: 11px; white-space: nowrap; }
+.tx-chip .q { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tx-chip .who { font-size: 10.5px; color: var(--c-mute); }
+
+@media (max-width: 760px) {
+  .tx-figure { margin: 40px 0 48px; }
+  .csp-tx .tx-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .tx-bin { border-right: 0; border-bottom: 1px solid var(--c-hair); flex-direction: row; align-items: center; padding: 10px 12px; }
+  .tx-bin h4 { display: none; }
+  .tx-drop { flex: 1; padding: 10px 8px; }
+  .tx-drop small { display: none; }
+  .tx-files { flex: 1; min-width: 0; }
+  .tx-bin.has-file .tx-drop { display: none; }
+  .tx-drag { width: 170px; }
+  .tx-main { padding: 12px; }
+  .tx-line { grid-template-columns: 1fr; }
+  .tx-line .tc { display: none; }
+  .tx-line .txt { grid-column: 1; grid-row: auto; font-size: 13px; }
+  .tx-chip { grid-template-columns: 18px 1fr; }
+  .tx-chip .tc, .tx-chip .who { display: none; }
+}
