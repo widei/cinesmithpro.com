@@ -1,6 +1,6 @@
 # CineSmithPro
 
-> Save the hours. Make the cut. An editor's companion that lives inside Adobe Premiere Pro. AI does the scrubbing, searching, and rough assembly. The editor stays in the creative seat. Two seats per subscription — editor in Premiere, EP on the web — both at once. Waitlist open.
+> Save the hours. Make the cut. An AI editing partner that lives inside Adobe Premiere Pro and DaVinci Resolve. AI does the scrubbing, searching, and rough assembly. The editor stays in the creative seat. Two seats per subscription — editor in Premiere, EP on the web — both at once. Waitlist open.
 
 CineSmithPro is a forthcoming Adobe Premiere Pro panel from CineArt AI Limited (London), and a companion to CineSmith (cinesmith.io). Same company, separate product, separate brand expression. Designed for working editors in post-production — documentary, drama, podcast, long-form — not the creator-economy / TikTok cohort.
 
@@ -67,6 +67,26 @@ Profile sources (canonical):
 - https://taimurkhan.com/ (personal site)
 - https://www.linkedin.com/in/khantaimur/ (LinkedIn)
 - https://cinesmith.io/team/ (CineSmith team page)
+
+## Smithy: transcripts that read like an editor
+
+- Smithy is the assistant inside CineSmithPro. It transcribes rushes (every word, speaker and timecode) across many files at once.
+- It follows ideas across interviews, hears context, hesitation and emotion, and suggests beats, quotes and selects.
+- Every answer comes from the user's own footage and links to the exact words, speaker and timecode. No invented quotes.
+- Example asks: "Find me sync where the interviewee gets emotional", or select a place name and ask where else it comes up across all transcripts.
+
+## Grounding shared with Sentinel
+
+The same grounding technology runs in Sentinel, CineArt AI's intelligence service for journalists in the field, where every safety briefing traces back to a source the journalist can check. Sentinel is available to INSI member newsrooms.
+
+- [Sentinel on cinesmithpro.com](https://cinesmithpro.com/sentinel.html)
+- [sentinel-insi.org](https://sentinel-insi.org/)
+
+## Pages
+
+- [Home](https://cinesmithpro.com/): product, demos, waitlist
+- [Sentinel](https://cinesmithpro.com/sentinel.html): Sentinel intro and CineSmithPro waitlist
+- [Privacy](https://cinesmithpro.com/privacy.html)
 
 ## Operating company
 

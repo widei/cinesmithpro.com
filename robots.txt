@@ -50,4 +50,19 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://cinesmithpro.com/sitemap.xml
