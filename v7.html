@@ -125,8 +125,11 @@ h1 em, h2 em, h3 em { font-family: var(--f-serif); font-style: italic; font-weig
 
 /* Proof strip directly under the promise: credibility at the moment of decision. */
 .proof { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; margin: 36px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
-.proof .marks { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--ink); font-weight: 600; letter-spacing: -0.01em; opacity: .72; }
-.proof .marks i { font-family: var(--f-serif); font-weight: 400; font-size: 17px; }
+.proof .marks { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+/* Logos sit quiet in greyscale so they read as proof, not ads; colour returns on hover. */
+.lg { display: block; height: 22px; width: auto; max-width: 110px; filter: grayscale(1); opacity: .62; transition: filter .25s, opacity .25s; }
+.lg:hover { filter: none; opacity: 1; }
+.lg-economist, .lg-natgeo { height: 26px; } .lg-hbo { height: 18px; } .lg-channel4 { height: 30px; } .lg-sky { height: 28px; }
 
 /* The product, framed: a dark edit-suite window floating on the light page. */
 .stage { position: relative; margin: 56px auto 0; }
@@ -194,8 +197,10 @@ section { padding: 120px 0; }
 /* Built by editors */
 .cred { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: end; }
 .cred .lead em { font-family: var(--f-serif); font-style: italic; color: var(--ink); font-size: 1.08em; }
-.wordmarks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-top: 56px; }
-.wordmarks span { background: var(--surface); padding: 26px 12px; text-align: center; color: var(--ink); font-weight: 600; font-size: 18px; letter-spacing: -0.01em; opacity: .8; transition: opacity .2s, background .2s; }
+.wordmarks { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-top: 56px; }
+.wordmarks span { background: var(--surface); padding: 30px 14px; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+.wordmarks .lg { height: 30px; max-width: 130px; } .wordmarks .lg-sky, .wordmarks .lg-economist, .wordmarks .lg-natgeo { height: 36px; } .wordmarks .lg-hbo { height: 24px; } .wordmarks .lg-channel4 { height: 42px; }
+.wordmarks span:hover .lg { filter: none; opacity: 1; }
 .wordmarks span:hover { opacity: 1; background: var(--paper); }
 .wordmarks .it { font-family: var(--f-serif); font-weight: 400; font-style: italic; font-size: 21px; }
 
@@ -206,6 +211,10 @@ section { padding: 120px 0; }
 .steps h3 { font-size: 22px; margin-bottom: 8px; }
 .steps p { margin: 0; font-size: 16px; }
 .steps ol { padding: 0; margin: 0; display: contents; }
+.final .steps { margin-top: 72px; text-align: left; }
+.final .steps .eyebrow { grid-column: 1 / -1; margin: 0 0 4px; color: #8FB0F5; }
+.final .steps li { background: rgba(255,255,255,.04); border-color: #22304A; box-shadow: none; }
+.final .steps h3 { color: #fff; } .final .steps p { color: #A9B6C9; } .final .steps .n { color: #8FB0F5; }
 
 /* Final call: the one dark band, so the last step feels decisive. */
 .final { background: var(--night); color: #C9D3E1; text-align: center; padding: 120px 0; position: relative; overflow: hidden; }
@@ -252,7 +261,7 @@ footer { padding: 64px 0 40px; font-size: 15px; color: var(--muted); }
   .pill { border-radius: 14px; font-size: 13px; }
   .wl form { flex-direction: column; }
   .wordmarks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .wordmarks span { padding: 20px 8px; font-size: 16px; }
+  .wordmarks span { padding: 22px 8px; }
   .frame { padding: 6px; border-radius: 14px; }
   .frame-top { display: none; }
   .chat { padding: 16px; min-height: 460px; }
@@ -310,7 +319,7 @@ footer { padding: 64px 0 40px; font-size: 15px; color: var(--muted); }
     </div>
     <div class="proof">
       <span>Built by editors with credits across</span>
-      <span class="marks"><span>Netflix</span><span>BBC</span><span>Channel 4</span><span>Sky</span><span>Nat Geo</span><i>The Economist</i></span>
+      <span class="marks"><img src="assets/logos/netflix.svg" alt="Netflix" class="lg lg-netflix"><img src="assets/logos/bbc.svg" alt="BBC" class="lg lg-bbc"><img src="assets/logos/channel4.svg" alt="Channel 4" class="lg lg-channel4"><img src="assets/logos/sky.svg" alt="Sky" class="lg lg-sky"><img src="assets/logos/natgeo.svg" alt="National Geographic" class="lg lg-natgeo"><img src="assets/logos/economist.svg" alt="The Economist" class="lg lg-economist"><img src="assets/logos/aljazeera.svg" alt="Al Jazeera" class="lg lg-aljazeera"><img src="assets/logos/hbo.svg" alt="HBO" class="lg lg-hbo"><img src="assets/logos/cnn.svg" alt="CNN" class="lg lg-cnn"><img src="assets/logos/discovery.svg" alt="Discovery" class="lg lg-discovery"></span>
     </div>
 
     <!-- Main product demo (assets/demo-v3.js drives #demo .csp) -->
@@ -484,26 +493,7 @@ footer { padding: 64px 0 40px; font-size: 15px; color: var(--muted); }
       <p class="lead rv d1" style="margin:0">Two decades in the edit. Hundreds of broadcast hours across drama, documentary, commercials and long-form. Netflix, BBC, Channel 4, Sky, Discovery and beyond. <em>Sundance and Cannes</em> selections. A <em>Grierson-recognised</em> feature. This isn't a wrapper. It's a tool built by someone who has spent a career needing it.</p>
     </div>
     <div class="wordmarks rv" aria-label="Credits across">
-      <span>Netflix</span><span>BBC</span><span>Nat Geo</span><span>Channel 4</span>
-      <span>Channel 5</span><span>Sky</span><span>Discovery</span><span>HBO</span>
-      <span>MTV</span><span>Al Jazeera</span><span>VICE</span><span class="it">The Economist</span>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── Getting in ───────── -->
-<section id="access">
-  <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">Early access</p>
-      <h2>Three steps <em>to your first cut.</em></h2>
-    </div>
-    <div class="steps">
-      <ol>
-        <li class="rv"><span class="n">01</span><h3>Join the waitlist</h3><p>Leave your email, then tell us a little about you and the project.</p></li>
-        <li class="rv d1"><span class="n">02</span><h3>Shape it with us</h3><p>The first fifty working editors shape the platform. Active drama, documentary and podcast projects come first.</p></li>
-        <li class="rv d2"><span class="n">03</span><h3>Cut with it</h3><p>Smithy and 47+ tools in a panel beside your timeline, in Premiere Pro or DaVinci Resolve.</p></li>
-      </ol>
+      <span><img src="assets/logos/netflix.svg" alt="Netflix" class="lg lg-netflix"></span><span><img src="assets/logos/bbc.svg" alt="BBC" class="lg lg-bbc"></span><span><img src="assets/logos/channel4.svg" alt="Channel 4" class="lg lg-channel4"></span><span><img src="assets/logos/sky.svg" alt="Sky" class="lg lg-sky"></span><span><img src="assets/logos/natgeo.svg" alt="National Geographic" class="lg lg-natgeo"></span><span><img src="assets/logos/economist.svg" alt="The Economist" class="lg lg-economist"></span><span><img src="assets/logos/aljazeera.svg" alt="Al Jazeera" class="lg lg-aljazeera"></span><span><img src="assets/logos/hbo.svg" alt="HBO" class="lg lg-hbo"></span><span><img src="assets/logos/cnn.svg" alt="CNN" class="lg lg-cnn"></span><span><img src="assets/logos/discovery.svg" alt="Discovery" class="lg lg-discovery"></span>
     </div>
   </div>
 </section>
@@ -521,6 +511,14 @@ footer { padding: 64px 0 40px; font-size: 15px; color: var(--muted); }
       </form>
       <p class="note"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.3l3 2.9 6-6.4"/></svg>Editors first. Active drama, documentary or podcast projects jump the queue.</p>
       <div class="ok" role="status"><strong>Almost there. Finish in the new tab.</strong><p>We've opened the rest of the form for you. A few quick details and you're on the list.</p></div>
+    </div>
+    <div class="steps" id="access">
+      <p class="eyebrow rv">Three steps to your first cut</p>
+      <ol>
+        <li class="rv"><span class="n">01</span><h3>Join the waitlist</h3><p>Leave your email, then tell us a little about you and the project.</p></li>
+        <li class="rv d1"><span class="n">02</span><h3>Shape it with us</h3><p>The first fifty working editors shape the platform. Active drama, documentary and podcast projects come first.</p></li>
+        <li class="rv d2"><span class="n">03</span><h3>Cut with it</h3><p>Smithy and 47+ tools in a panel beside your timeline, in Premiere Pro or DaVinci Resolve.</p></li>
+      </ol>
     </div>
   </div>
 </section>
